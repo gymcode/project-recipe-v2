@@ -1,38 +1,30 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
+@import url('https://fonts.googleapis.com/css2?famiy=Kreon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+.imprima-font{
+  font-family: 'Imprima', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.kreon-font{
+  font-family: 'Kreon', serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.abel-font{
+  font-family: 'Abel', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+::-webkit-scrollbar{
+  width: 0.4rem;
+  height: 0;
 }
 
-.App-link {
-  color: #61dafb;
+::-webkit-scrollbar-track{
+  background: rgb(128, 128, 128);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+::-webkit-scrollbar-thumb{
+  background: #000;
+  border-radius: 50px;
 }
+
