@@ -1,22 +1,15 @@
-import './App.css';
+import "./App.css";
+
+import RouteComponent from "Routes";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="bg-red-300 h-20">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {RouteComponent.map((data) => (
+        <Route path={data.path} element={data.element} />
+      ))}
+    </Routes>
   );
 }
 
