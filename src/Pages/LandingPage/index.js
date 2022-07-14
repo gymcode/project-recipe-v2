@@ -1,3 +1,1 @@
-import LandingPageComponent from "./main";
-
-export {LandingPageComponent}
+export {default} from "./main"

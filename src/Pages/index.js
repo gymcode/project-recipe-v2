@@ -1,3 +1,1 @@
-import LandingPageComponents from "./LandingPage"
-
-export {LandingPageComponents}
+export {default} from "./LandingPage"
