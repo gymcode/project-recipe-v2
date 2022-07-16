@@ -1,0 +1,9 @@
+.body {
+    background-image: url("../../Assets/Images/background_image.svg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
