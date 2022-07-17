@@ -19,7 +19,7 @@ const Navbar = () => {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="max-w-[95rem] px-2 sm:px-6 lg:px-28 lg:py-5">
+          <div className="max-w-[95rem] px-2 sm:px-6 lg:px-32 lg:py-5">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -96,7 +96,7 @@ const Navbar = () => {
                     className="h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="red"
+                    stroke={"red"}
                     strokeWidth={2}
                   >
                     <path
