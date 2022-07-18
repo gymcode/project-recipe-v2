@@ -1,11 +1,12 @@
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 import Logo from "Assets/Icons/Logo.svg";
+import { Link } from "react-scroll";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
-  { name: "About", href: "#", current: false },
+  { name: "About", href: "about_section", current: false },
   { name: "Favorite", href: "#", current: false },
   { name: "Gallery", href: "#", current: false },
 ];
@@ -48,19 +49,20 @@ const Navbar = () => {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4 md:ml-48 lg:ml-72 mt-1">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "border-b text-black"
-                            : "text-black hover:bg-gray-700 hover:text-white",
-                          "px-5 py-2 rounded-md text-md font-medium imprima-font"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </a>
+                      <Link to={item.href} smooth>
+                        <a
+                          key={item.name}
+                          className={classNames(
+                            item.current
+                              ? "border-b text-black"
+                              : "text-black hover:bg-gray-700 hover:text-white",
+                            "px-5 py-2 rounded-md text-md font-medium imprima-font cursor-pointer"
+                          )}
+                          aria-current={item.current ? "page" : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

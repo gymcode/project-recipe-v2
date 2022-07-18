@@ -15,9 +15,6 @@
   font-family: 'Abel', sans-serif;
 }
 
-.theme-color{
-  /* color: COLORS.HAUTE_CUISINE_DEEP_COLOR;/ */
-}
 
 ::-webkit-scrollbar{
   width: 0.4rem;
@@ -25,11 +22,11 @@
 }
 
 ::-webkit-scrollbar-track{
-  background: rgb(128, 128, 128);
+  background: rgb(189, 189, 189);
 }
 
 ::-webkit-scrollbar-thumb{
-  background: #000;
+  background: rgb(51, 28, 28);
   border-radius: 50px;
 }
 
