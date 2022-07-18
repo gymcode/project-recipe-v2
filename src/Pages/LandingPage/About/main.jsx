@@ -16,7 +16,13 @@ const AboutUsComponent = () => {
       {/* for larger screens */}
       <div className="hidden lg:grid md:grid grid-cols-5 gap-10 h-full">
         <div className="col-span-3 relative">
-          <div data-aos="fade-down-right" className="absolute left-0 top-0">
+          <div
+            data-aos="fade-down-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1000"
+            className="absolute left-0 top-0"
+          >
             <motion.div
               whileHover={{ rotateY: 10, rotateY: -10, rotateZ: -10 }}
               className="lg:w-[44rem] md:w-[30rem] lg:h-[28rem] md:h-[18rem] shadow-2xl bg-cover bg-center shadow-[#fad1c3]"
@@ -29,7 +35,13 @@ const AboutUsComponent = () => {
               />
             </motion.div>
           </div>
-          <div data-aos="fade-up-left" className="absolute bottom-0 right-1">
+          <div
+            data-aos="fade-up-left"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1000"
+            className="absolute bottom-0 right-1"
+          >
             <motion.div
               whileHover={{ rotateY: -10, rotateY: 10, rotateZ: 10 }}
               className="lg:w-[44rem] md:w-[30rem] lg:h-[28rem] md:h-[18rem] shadow-2xl shadow-[#fdd5c7]"
@@ -44,8 +56,24 @@ const AboutUsComponent = () => {
           </div>
         </div>
         <div className="col-span-2 py-24">
-          <h2 data-aos="zoom-in-down" className="kreon-font text-3xl">{AboutText.title}</h2>
-          <h3 data-aos="zoom-in-up" className="abel-font text-6xl mt-6">{AboutText.mid_section}</h3>
+          <h2
+            data-aos="zoom-in-down"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="2000"
+            className="kreon-font text-3xl"
+          >
+            {AboutText.title}
+          </h2>
+          <h3
+            data-aos="zoom-in-up"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+            className="abel-font text-6xl mt-6"
+          >
+            {AboutText.mid_section}
+          </h3>
         </div>
       </div>
 
