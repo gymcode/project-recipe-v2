@@ -1,7 +1,9 @@
+import React from "react"
 import { NAVIGATION_BAR } from "Components";
 import "./main.css";
 
 // other components imports
+const About = React.lazy(()=> import("./About"))
 
 const LandingPageComponent = () => {
   return (
@@ -13,7 +15,7 @@ const LandingPageComponent = () => {
         <body className="px-2 sm:px-6 lg:px-32">
           <div className="mt-10 lg:mt-20">
             <h1 className="md:text-[4rem] lg:text-[5.7rem] text-[3rem] abel-font capitalize text-center md:text-left md:leading-[6rem] lg:text-left lg:leading-[7rem] leading">
-              Simple and tasty <br /> recipe
+              Simple and <span className="text-[#F84605]">tasty</span><br /> recipe
             </h1>
           </div>
           <div className="md:w-[45%] md:mt-6 lg:w-[35%] lg:mt-8 w-full mt-4 imprima-font text-[#959595] text-center md:text-left lg:text-left">
@@ -31,6 +33,10 @@ const LandingPageComponent = () => {
             </div>
           </div>
         </body>
+      </div>
+      {/* about section  */}
+      <div>
+        <About/>
       </div>
     </>
   );
