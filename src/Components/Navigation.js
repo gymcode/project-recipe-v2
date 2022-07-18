@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { motion } from "framer-motion";
 
 import Logo from "Assets/Icons/Logo.svg";
 import { Link } from "react-scroll";
@@ -20,7 +21,12 @@ const Navbar = () => {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <div className="max-w-[95rem] px-2 sm:px-6 lg:px-32 lg:py-5">
+          <motion.div
+            initial={{ y: -100, opacity: 0.2 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 50 }}
+            className="max-w-[95rem] px-2 sm:px-6 lg:px-32 lg:py-5"
+          >
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -47,7 +53,7 @@ const Navbar = () => {
                   />
                 </div>
                 <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4 md:ml-48 lg:ml-72 mt-1">
+                  <div className="flex space-x-4 md:ml-48 lg:ml-72 mt-3">
                     {navigation.map((item) => (
                       <Link to={item.href} smooth>
                         <a
@@ -110,7 +116,7 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-5 space-y-1">
