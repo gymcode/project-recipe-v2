@@ -8,7 +8,7 @@ import { Link } from "react-scroll";
 const navigation = [
   { name: "Home", href: "#", current: true },
   { name: "About", href: "about_section", current: false },
-  { name: "Favorite", href: "#", current: false },
+  { name: "Favorite", href: "favorite_section", current: false },
   { name: "Gallery", href: "#", current: false },
 ];
 

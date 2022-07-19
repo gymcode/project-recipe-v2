@@ -1,0 +1,13 @@
+.favorite_body{
+    background-image: url("https://ik.imagekit.io/yz8iaxzer/Favorite_meals_1NtQm_Jxu.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1658240646668");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.favorite_card {
+    background: linear-gradient(145.63deg, rgba(196, 196, 196, 0.4) -87.29%, rgba(196, 196, 196, 0) 167.05%, rgba(196, 196, 196, 0.12803) 167.05%);
+    backdrop-filter: blur(50px);
+/* Note: backdrop-filter has minimal browser support */
+}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 // other components imports
 const About = React.lazy(() => import("./About"));
+const Favorite = React.lazy(()=> import("./Favorite"))
 
 const LandingPageComponent = () => {
   return (
@@ -13,7 +14,7 @@ const LandingPageComponent = () => {
         <header>
           <NAVIGATION_BAR />
         </header>
-        <body className="px-2 sm:px-6 lg:px-32">
+        <main className="px-2 sm:px-6 lg:px-32">
           <div className="mt-10 lg:mt-20">
             <motion.h1
               initial={{ x: 150, opacity: 0 }}
@@ -25,7 +26,7 @@ const LandingPageComponent = () => {
               <br /> recipe
             </motion.h1>
           </div>
-          <div className="md:w-[45%] md:mt-6 lg:w-[35%] lg:mt-8 w-full mt-4 imprima-font text-[#959595] text-center md:text-left lg:text-left">
+          <div className="md:w-[50%] md:mt-6 lg:w-[35%] lg:mt-8 w-full mt-4 imprima-font text-[#959595] text-center md:text-left lg:text-left">
             <motion.p
               initial={{ y: 100, opacity: 0.2 }}
               animate={{ y: 0, opacity: 1 }}
@@ -43,16 +44,20 @@ const LandingPageComponent = () => {
               initial={{ y: 100, opacity: 0.2 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ type: "spring", stiffness: 50 }}
-              className="h-16 w-52 bg-[#F84605] abel-font text-white text-xl flex justify-center items-center"
+              className="h-16 w-52 bg-[#F84605] abel-font text-white text-lg flex justify-center items-center"
             >
-              <p>Random Recipe</p>
+              <p>Try Random Recipe</p>
             </motion.div>
           </div>
-        </body>
+        </main>
       </div>
       {/* about section  */}
       <div>
         <About />
+      </div>
+      {/* favorite section  */}
+      <div>
+        <Favorite/>
       </div>
     </>
   );

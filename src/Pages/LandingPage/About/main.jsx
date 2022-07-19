@@ -9,8 +9,8 @@ const AboutText = {
 
 const AboutUsComponent = () => {
   return (
-    <div
-      className="about_us_body px-2 sm:px-6 lg:px-32 py-28"
+    <main
+      className="about_us_body px-2 sm:px-6 lg:px-32 py-24 lg:py-28 md:py-28 xl:py-28"
       id="about_section"
     >
       {/* for larger screens */}
@@ -89,13 +89,31 @@ const AboutUsComponent = () => {
       {/* for lesser screens */}
       <div className="block lg:hidden">
         <div className="">
-          <h2 className="kreon-font text-2xl text-center">{AboutText.title}</h2>
-          <h3 className="abel-font text-4xl mt-2 text-center">
+          <h2
+            data-aos="zoom-in-down"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="2000"
+            className="kreon-font text-2xl text-center"
+          >
+            {AboutText.title}
+          </h2>
+          <h3
+            data-aos="zoom-in-up"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="500"
+            className="abel-font text-4xl mt-2 text-center"
+          >
             {AboutText.mid_section}
           </h3>
         </div>
         <div className="mt-10">
           <div
+            data-aos="fade-up-left"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1000"
             className="w-full bg-cover bg-center h-64 md:h-[26rem]"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/pexels-ready-made-3847709_Azn8bjB8C.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658177206859")`,
@@ -114,7 +132,7 @@ const AboutUsComponent = () => {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
