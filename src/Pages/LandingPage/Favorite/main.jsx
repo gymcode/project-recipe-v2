@@ -5,22 +5,32 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 const CardDetails = [
   {
     id: 1,
+    name: "Chicken and tomato salad",
+    img_path: "https://ik.imagekit.io/yz8iaxzer/farhad-ibrahimzade-KpOl9jV2aJM-unsplash_N3nlhqobg.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255850707",
     duration: "1000"
   },
   {
     id: 2,
+    name: "Grilled salmon with vegatables",
+    img_path: "https://ik.imagekit.io/yz8iaxzer/ca-creative-bpPTlXWTOvg-unsplash_zPwCjixvr.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255848601",
     duration: "900"
   },
   {
     id: 3,
+    name: "Burger with tomatoes and lettuce",
+    img_path: "https://ik.imagekit.io/yz8iaxzer/ben-kim-JjzjBLmANVA-unsplash_3Y6OQqpS9.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255848418",
     duration: "800"
   },
   {
     id: 4,
+    name: "Bread with sunny side up egg and sausage",
+    img_path: "https://ik.imagekit.io/yz8iaxzer/tanaphong-toochinda-FlY6QZzvXM0-unsplash_apVWJT57P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255848907",
     duration: "700"
   },
   {
     id: 5,
+    name: "Pancake with strawberry and blueberries",
+    img_path: "https://ik.imagekit.io/yz8iaxzer/sam-moghadam-khamseh-yxZSAjyToP4-unsplash_cn1XLL8Jp.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255847215",
     duration: "600"
   },
 ];
@@ -82,10 +92,16 @@ const FavoriteComponent = () => {
                   data-aos-offset="300"
                   data-aos-easing="ease-in-sine"
                   data-aos-duration={item.duration}
-                  className="h-[40vh] w-full favorite_card rounded-xl"
+                  className="h-[40vh] w-full favorite_card rounded-xl grid grid-rows-4"
                 >
-                  <div>dasdas</div>
-                  <div>dsadasd</div>
+                  <div className="row-span-3 flex justify-center items-center">
+                    <div className="h-[24vh] w-[24vh] bg-cover bg-center rounded-full shadow-xl"
+                    style={{
+                      backgroundImage: `url(${item.img_path})`,
+                    }}
+                    />
+                  </div>
+                  <div className="flex justify-center items-start text-center text-white text-2xl imprima-font">{item.name}</div>
                 </div>
               </SplideSlide>
             </>
