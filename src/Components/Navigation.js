@@ -6,10 +6,10 @@ import Logo from "Assets/Icons/Logo.svg";
 import { Link } from "react-scroll";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "About", href: "about_section", current: false },
-  { name: "Favorite", href: "favorite_section", current: false },
-  { name: "Gallery", href: "#", current: false },
+  { name: "Home", href: "#", current: true, delay: 0 },
+  { name: "About", href: "about_section", current: false, delay: 0.2 },
+  { name: "Favorite", href: "favorite_section", current: false, delay: 0.4 },
+  { name: "Gallery", href: "#", current: false, delay: 0.6 },
 ];
 
 function classNames(...classes) {
@@ -21,12 +21,7 @@ const Navbar = () => {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <>
-          <motion.div
-            initial={{ y: -100, opacity: 0.2 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 50 }}
-            className="max-w-[95rem] px-2 sm:px-6 lg:px-32 lg:py-5"
-          >
+          <motion.div className="max-w-[95rem] px-2 sm:px-6 lg:px-32 lg:py-5">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -40,7 +35,14 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
+                <motion.div
+                  initial={{ y: -50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: 1,
+                  }}
+                  className="flex-shrink-0 flex items-center"
+                >
                   <img
                     className="block lg:hidden h-8 w-auto"
                     src={Logo}
@@ -51,31 +53,45 @@ const Navbar = () => {
                     src={Logo}
                     alt="Workflow"
                   />
-                </div>
+                </motion.div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4 md:ml-48 lg:ml-72 mt-3">
                     {navigation.map((item) => (
                       <Link to={item.href} smooth>
-                        <a
-                          key={item.name}
-                          className={classNames(
-                            item.current
-                              ? "border-b text-black"
-                              : "text-black hover:bg-gray-700 hover:text-white",
-                            "px-5 py-2 rounded-md text-md font-medium imprima-font cursor-pointer"
-                          )}
-                          aria-current={item.current ? "page" : undefined}
+                        <motion.div
+                          initial={{ x: 50, opacity: 0 }}
+                          animate={{ x: 0, opacity: 1 }}
+                          transition={{
+                            duration: 0.7,
+                            delay: item.delay,
+                          }}
                         >
-                          {item.name}
-                        </a>
+                          <a
+                            key={item.name}
+                            className={classNames(
+                              item.current
+                                ? "border-b text-black"
+                                : "text-black hover:bg-gray-700 hover:text-white",
+                              "px-5 py-2 rounded-md text-md font-medium imprima-font cursor-pointer"
+                            )}
+                            aria-current={item.current ? "page" : undefined}
+                          >
+                            {item.name}
+                          </a>
+                        </motion.div>
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
+                <motion.div
+                  initial={{ x: 50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.8,
+                  }}
                   className="rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
                   <span className="sr-only">View notifications</span>
@@ -93,9 +109,14 @@ const Navbar = () => {
                       d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                     />
                   </svg>
-                </button>
-                <button
-                  type="button"
+                </motion.div>
+                <motion.div
+                  initial={{ x: 50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.9,
+                  }}
                   className="pl-3 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
                   <span className="sr-only">View notifications</span>
@@ -113,7 +134,7 @@ const Navbar = () => {
                       d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
                     />
                   </svg>
-                </button>
+                </motion.div>
               </div>
             </div>
           </motion.div>

@@ -17,10 +17,10 @@ const AboutUsComponent = () => {
       <div className="hidden lg:grid grid-cols-5 gap-10 h-full">
         <div className="col-span-3 relative">
           <div
-            data-aos="fade-down-right"
+            data-aos="fade-right"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
-            data-aos-duration="1000"
+            data-aos-duration="600"
             className="lg:absolute left-0 top-0"
           >
             <motion.div
@@ -36,10 +36,11 @@ const AboutUsComponent = () => {
             </motion.div>
           </div>
           <div
-            data-aos="fade-up-left"
+            data-aos="fade-right"
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
-            data-aos-duration="1000"
+            data-aos-duration="600"
+            data-aos-delay="10"
             className="absolute bottom-0 right-1"
           >
             <motion.div
@@ -57,24 +58,33 @@ const AboutUsComponent = () => {
         </div>
         <div className="lg:col-span-2 lg:py-28">
           <h2
-            data-aos="zoom-in-down"
-            data-aos-offset="300"
+            data-aos="fade-right"
+            data-aos-offset="500"
             data-aos-easing="ease-in-sine"
-            data-aos-duration="2000"
+            data-aos-duration="500"
+            data-aos-delay="200"
             className="kreon-font text-3xl"
           >
             {AboutText.title}
           </h2>
           <h3
-            data-aos="zoom-in-up"
-            data-aos-offset="300"
+            data-aos="fade-right"
+            data-aos-offset="500"
             data-aos-easing="ease-in-sine"
-            data-aos-duration="500"
+            data-aos-duration="700"
+            data-aos-delay="200"
             className="abel-font text-6xl mt-6"
           >
             {AboutText.mid_section}
           </h3>
-          <p className="imprima-font text-[#959595] text-justify mt-12">
+          <div
+            data-aos="fade-right"
+            data-aos-offset="500"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="900"
+            data-aos-delay="200"
+            className="imprima-font text-[#959595] text-justify mt-12"
+          >
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe
             repellendus animi corrupti perspiciatis, id ratione exercitationem
             odit nesciunt ipsum minus nihil. Quia expedita ad voluptatem quam
@@ -82,7 +92,7 @@ const AboutUsComponent = () => {
             consectetur adipisicing elit. Cum tempora nam officia nisi
             cupiditate illo accusamus quo voluptatem, odio fugiat. Quis
             consequatur eligendi minus fuga soluta sunt illum laborum corrupti.
-          </p>
+          </div>
         </div>
       </div>
 

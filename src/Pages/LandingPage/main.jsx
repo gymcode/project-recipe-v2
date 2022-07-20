@@ -17,9 +17,9 @@ const LandingPageComponent = () => {
         <main className="px-2 sm:px-6 lg:px-32">
           <div className="mt-10 lg:mt-20">
             <motion.h1
-              initial={{ x: 150, opacity: 0 }}
+              initial={{ x: -80, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 130, duration: 10 }}
+              transition={{ type: "spring", stiffness: 50, duration: 100, }}
               className="md:text-[4rem] lg:text-[5.7rem] text-[3rem] abel-font capitalize text-center md:text-left md:leading-[6rem] lg:text-left lg:leading-[7rem] leading"
             >
               Simple and <span className="text-[#F84605]">tasty</span>
@@ -28,9 +28,9 @@ const LandingPageComponent = () => {
           </div>
           <div className="md:w-[50%] md:mt-6 lg:w-[35%] lg:mt-8 w-full mt-4 imprima-font text-[#959595] text-center md:text-left lg:text-left">
             <motion.p
-              initial={{ y: 100, opacity: 0.2 }}
+              initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ type: "spring", duration:10, stiffness: 50 }}
+              transition={{ type: "spring", duration:150, stiffness: 50, delay: .2 }}
             >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
               debitis expedita sed incidunt. Exercitationem aut molestias illo,
@@ -41,9 +41,9 @@ const LandingPageComponent = () => {
           </div>
           <div className="mt-12 w-full flex justify-center lg:justify-start md:justify-start">
             <motion.div
-              initial={{ y: 100, opacity: 0.2 }}
+              initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 50 }}
+              transition={{ type: "spring", duration:1.5, delay: .4 }}
               className="h-16 w-52 bg-[#F84605] abel-font text-white text-lg flex justify-center items-center"
             >
               <p>Try Random Recipe</p>
