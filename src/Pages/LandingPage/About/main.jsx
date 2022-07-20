@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 const AboutText = {
   title: "About Us",
-  mid_section: "Why we are the best",
 };
 
 const AboutUsComponent = () => {
@@ -30,7 +29,7 @@ const AboutUsComponent = () => {
               <div
                 className="w-full bg-cover bg-center h-full"
                 style={{
-                  backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/pexels-ready-made-3847709_Azn8bjB8C.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658177206859")`,
+                  backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/quinton-coetzee-Rbj3xNaweVc-unsplash_1_FBo9MYRa9.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658355263151")`,
                 }}
               />
             </motion.div>
@@ -75,7 +74,7 @@ const AboutUsComponent = () => {
             data-aos-delay="200"
             className="abel-font text-6xl mt-6"
           >
-            {AboutText.mid_section}
+            Why we are the <span className="text-[#F84605]">best </span>
           </h3>
           <div
             data-aos="fade-right"
@@ -115,7 +114,7 @@ const AboutUsComponent = () => {
             data-aos-duration="500"
             className="abel-font text-4xl mt-2 text-center"
           >
-            {AboutText.mid_section}
+            Why we are the <span className="text-[#F84605]">best </span>
           </h3>
         </div>
         <div className="mt-10">

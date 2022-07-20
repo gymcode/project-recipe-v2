@@ -9,7 +9,8 @@ const navigation = [
   { name: "Home", href: "#", current: true, delay: 0 },
   { name: "About", href: "about_section", current: false, delay: 0.2 },
   { name: "Favorite", href: "favorite_section", current: false, delay: 0.4 },
-  { name: "Gallery", href: "#", current: false, delay: 0.6 },
+  { name: "Review", href: "review_section", current: false, delay: 0.6 },
+  { name: "Gallery", href: "gallery_section", current: false, delay: 0.8 },
 ];
 
 function classNames(...classes) {
@@ -84,13 +85,13 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <motion.div
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{
                     duration: 0.7,
-                    delay: 0.8,
+                    delay: 1.0,
                   }}
                   className="rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
@@ -115,7 +116,7 @@ const Navbar = () => {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{
                     duration: 0.7,
-                    delay: 0.9,
+                    delay: 1.1,
                   }}
                   className="pl-3 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 >
@@ -135,7 +136,7 @@ const Navbar = () => {
                     />
                   </svg>
                 </motion.div>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 

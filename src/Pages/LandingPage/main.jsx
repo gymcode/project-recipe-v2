@@ -9,6 +9,8 @@ import * as ScrollToTopAnimation from "Assets/LottieFiles/lf30_editor_rlzi5ome.j
 // other components imports
 const About = React.lazy(() => import("./About"));
 const Favorite = React.lazy(() => import("./Favorite"));
+const Review = React.lazy(()=> import("./Review"))
+const Gallery = React.lazy(()=>import("./Gallery"))
 
 const LandingPageComponent = () => {
   const [showSideNav, setShowSideNav] = useState(false);
@@ -85,9 +87,17 @@ const LandingPageComponent = () => {
       <div>
         <Favorite />
       </div>
+      {/* Review Section  */}
+      <div>
+        <Review/>
+      </div>
+      {/* Gallery Section  */}
+      <div>
+        <Gallery/>
+      </div>
       {showSideNav ? (
         <>
-          <div className="lg:fixed inset-y-[35%] inset-x-8 flex ">
+          <div className="lg:fixed inset-y-[32%] inset-x-8 flex ">
             <MAIN_SIDE_NAV />
           </div>
           <div className="lg:fixed bottom-0 right-0 md:mx-3 md:my-4 mx-8 my-8">
@@ -96,7 +106,7 @@ const LandingPageComponent = () => {
               data-aos-offset="500"
               data-aos-easing="ease-in-sine"
               data-aos-duration="1000"
-              className="flex justify-center toTop items-center md:h-16 md:w-16 h-20 w-20 rounded-full shadow-xl"
+              className="flex justify-center toTop items-center md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20 rounded-full shadow-xl"
             >
               <Link to="home_section" smooth>
                 <Lottie
