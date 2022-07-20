@@ -1,0 +1,4 @@
+.link_bg {
+    background: linear-gradient(145.63deg, rgba(196, 196, 196, 0.4) -87.29%, rgba(196, 196, 196, 0) 167.05%, rgba(196, 196, 196, 0.12803) 167.05%);
+    backdrop-filter: blur(50px);
+}
