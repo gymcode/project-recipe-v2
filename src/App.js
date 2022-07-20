@@ -5,12 +5,14 @@ import { Routes, Route } from "react-router-dom";
 import Lottie from "react-lottie";
 import * as SplashAnimation from "Assets/LottieFiles/lf30_editor_ln7jeiru.json"
 import AOS from "aos"
+import Tilt from "vanilla-tilt"
 
 function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     AOS.init();
+    Tilt.init();
     setLoading(true);
     setTimeout(() => {
       setLoading(false);

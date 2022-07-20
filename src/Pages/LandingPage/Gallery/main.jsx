@@ -1,10 +1,11 @@
 import "./main.css";
 import "@splidejs/splide/css";
+import Tilt from "react-vanilla-tilt"
 
 const GalleryComponent = () => {
   return (
     <main
-      className="gallery_body px-2 sm:px-6 lg:px-32 py-24 lg:py-28 md:py-28 xl:py-28"
+      className="gallery_body px-2 sm:px-6 lg:px-32 py-24"
       id="gallery_section"
     >
       <div>
@@ -27,19 +28,19 @@ const GalleryComponent = () => {
           Appreciate some <span className="text-[#F84605]"> amazing</span>{" "}
           photos
         </h3>
-        <div
-          data-aos="fade-up"
-          data-aos-offset="600"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="900"
-          className="imprima-font text-white mt-5"
-        >
-          Always take care of your health starting from the food menu that you
-          consume everyday
-        </div>
       </div>
-      <div className="">
-
+      <div className="h-[82%] mt-10 hidden md:grid lg:grid xl:grid grid-cols-3 gap-4">
+        <div className="grid grid-rows-5 gap-4">
+          <div className="row-span-3 bg-yellow-300 relative">
+            <div></div>
+          </div>
+          <div data-tilt data-tilt-glare data-tilt-max-glare="0.8" className="row-span-2 bg-violet-400">das</div>
+        </div>
+        <div className="bg-green-500">dsfs</div>
+        <div className="grid grid-rows-5 gap-4">
+          <div className="row-span-2 bg-blue-400">dasd</div>
+          <div className="row-span-3 bg-gray-400">das</div>
+        </div>
       </div>
     </main>
   );
