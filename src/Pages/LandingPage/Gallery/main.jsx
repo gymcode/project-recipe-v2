@@ -1,6 +1,6 @@
 import "./main.css";
 import "@splidejs/splide/css";
-import Tilt from "react-vanilla-tilt"
+import Tilt from "react-vanilla-tilt";
 
 const GalleryComponent = () => {
   return (
@@ -31,15 +31,46 @@ const GalleryComponent = () => {
       </div>
       <div className="h-[82%] mt-10 hidden md:grid lg:grid xl:grid grid-cols-3 gap-4">
         <div className="grid grid-rows-5 gap-4">
-          <div className="row-span-3 bg-yellow-300 relative">
-            <div></div>
+          <div
+            className="row-span-3 bg-center bg-cover"
+            style={{
+              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/casey-lee-awj7sRviVXo-unsplash_3WGyBU5dS.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658352689064")`,
+            }}
+          ></div>
+          <div
+            className="row-span-2  bg-center bg-cover"
+            style={{
+              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/dan-gold-5O1ddenSM4g-unsplash_D_2iyTfp6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658351062924")`,
+            }}
+          >
+            das
           </div>
-          <div data-tilt data-tilt-glare data-tilt-max-glare="0.8" className="row-span-2 bg-violet-400">das</div>
         </div>
-        <div className="bg-green-500">dsfs</div>
+        <div
+          className="bg-center bg-cover"
+          style={{
+            backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/mae-mu-rgRbqFweGF0-unsplash_dmzXsTHYk.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658352689253")`,
+          }}
+        >
+          dsfs
+        </div>
         <div className="grid grid-rows-5 gap-4">
-          <div className="row-span-2 bg-blue-400">dasd</div>
-          <div className="row-span-3 bg-gray-400">das</div>
+          <div
+            className="row-span-2 bg-center bg-cover"
+            style={{
+              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-pixabay-262978_AM-ChpuM4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658353704767")`,
+            }}
+          >
+            dasd
+          </div>
+          <div
+            className="row-span-3 bg-center bg-cover"
+            style={{
+              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-cottonbro-3338497__0KMHiiFB.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658354063329")`,
+            }}
+          >
+            das
+          </div>
         </div>
       </div>
     </main>
