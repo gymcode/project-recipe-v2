@@ -29,16 +29,16 @@ const GalleryComponent = () => {
           photos
         </h3>
       </div>
-      <div className="h-[82%] mt-10 hidden md:grid lg:grid xl:grid grid-cols-3 gap-4">
-        <div className="grid grid-rows-5 gap-4">
+      <div className="h-[82%] mt-10 grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:grid-rows-none lg:grid-rows-none xl:grid-rows-none grid-cols-none grid-rows-3 gap-4">
+        <div className="grid md:grid-rows-5 lg:grid-rows-5 xl:grid-rows-5 grid-rows-none grid-cols-2 md:grid-cols-none lg:grid-cols-none xl:grid-cols-none gap-4">
           <div
-            className="row-span-3 bg-center bg-cover"
+            className="row-span-2 md:row-span-3 xl:row-span-3 lg:row-span-3 bg-center bg-cover"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/casey-lee-awj7sRviVXo-unsplash_3WGyBU5dS.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658352689064")`,
             }}
           ></div>
           <div
-            className="row-span-2  bg-center bg-cover"
+            className="row-span-2 bg-center bg-cover"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/dan-gold-5O1ddenSM4g-unsplash_D_2iyTfp6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658351062924")`,
             }}
@@ -47,14 +47,14 @@ const GalleryComponent = () => {
           </div>
         </div>
         <div
-          className="bg-center bg-cover"
+          className="bg-center bg-cover bg-fixed md:bg-local xl:bg-local lg:bg:local"
           style={{
             backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/mae-mu-rgRbqFweGF0-unsplash_dmzXsTHYk.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658352689253")`,
           }}
         >
           dsfs
         </div>
-        <div className="grid grid-rows-5 gap-4">
+        <div className="grid md:grid-rows-5 lg:grid-rows-5 xl:grid-rows-5 grid-rows-none grid-cols-2 md:grid-cols-none lg:grid-cols-none xl:grid-cols-none gap-4">
           <div
             className="row-span-2 bg-center bg-cover"
             style={{
@@ -64,7 +64,7 @@ const GalleryComponent = () => {
             dasd
           </div>
           <div
-            className="row-span-3 bg-center bg-cover"
+            className="row-span-2 md:row-span-3 xl:row-span-3 lg:row-span-3 bg-center bg-cover"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-cottonbro-3338497__0KMHiiFB.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658354063329")`,
             }}

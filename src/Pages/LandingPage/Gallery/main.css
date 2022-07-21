@@ -2,7 +2,7 @@
     background-image: url("https://ik.imagekit.io/yz8iaxzer/images/food_pattern_Ti4zYIn7h.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658351061302");
     background-size: cover;
     background-position: center;
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw; */
+    height: 100vh; 
 }
 

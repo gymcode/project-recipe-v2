@@ -9,7 +9,7 @@ import * as ScrollToTopAnimation from "Assets/LottieFiles/lf30_editor_rlzi5ome.j
 // other components imports
 const About = React.lazy(() => import("./About"));
 const Favorite = React.lazy(() => import("./Favorite"));
-const Review = React.lazy(()=> import("./Review"))
+const Footer = React.lazy(()=> import("./Footer"))
 const Gallery = React.lazy(()=>import("./Gallery"))
 
 const LandingPageComponent = () => {
@@ -87,20 +87,20 @@ const LandingPageComponent = () => {
       <div>
         <Favorite />
       </div>
-      {/* Review Section  */}
-      <div>
-        <Review/>
-      </div>
       {/* Gallery Section  */}
       <div>
         <Gallery/>
       </div>
+      {/* Footer section  */}
+      <div>
+        <Footer/>
+      </div>
       {showSideNav ? (
         <>
-          <div className="lg:fixed inset-y-[32%] inset-x-8 flex ">
+          <div className="lg:fixed xl:fixed  hidden inset-y-[32%] inset-x-8 lg:flex xl:flex">
             <MAIN_SIDE_NAV />
           </div>
-          <div className="lg:fixed bottom-0 right-0 md:mx-3 md:my-4 mx-8 my-8">
+          <div className="lg:fixed xl:fixed lg:block xl:block hidden bottom-0 right-0 md:mx-3 md:my-4 mx-8 my-8">
             <div
               data-aos="fade-up"
               data-aos-offset="500"

@@ -2,8 +2,8 @@
     background-image: url("https://ik.imagekit.io/yz8iaxzer/Favorite_meals_1NtQm_Jxu.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1658240646668");
     background-size: cover;
     background-position: center;
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
 }
 
 .favorite_card {

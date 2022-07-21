@@ -9,8 +9,8 @@ const navigation = [
   { name: "Home", href: "#", current: true, delay: 0 },
   { name: "About", href: "about_section", current: false, delay: 0.2 },
   { name: "Favorite", href: "favorite_section", current: false, delay: 0.4 },
-  { name: "Review", href: "review_section", current: false, delay: 0.6 },
   { name: "Gallery", href: "gallery_section", current: false, delay: 0.8 },
+  { name: "Talk to Us", href: "review_section", current: false, delay: 0.6 },
 ];
 
 function classNames(...classes) {
@@ -143,19 +143,20 @@ const Navbar = () => {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-5 space-y-1">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "border-b text-black"
-                      : "text-black hover:bg-gray-700 hover:text-white",
-                    "block px-3 py-2 rounded-md text-base font-medium imprima-font"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
-                </a>
+                <Link to={item.href} smooth>
+                  <div
+                    key={item.name}
+                    className={classNames(
+                      item.current
+                        ? "border-b text-black"
+                        : "text-black hover:bg-gray-700 hover:text-white",
+                      "block px-3 py-2 rounded-md text-base font-medium imprima-font"
+                    )}
+                    aria-current={item.current ? "page" : undefined}
+                  >
+                    {item.name}
+                  </div>
+                </Link>
               ))}
             </div>
           </Disclosure.Panel>
