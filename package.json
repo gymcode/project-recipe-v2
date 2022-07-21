@@ -2,6 +2,10 @@
   "name": "per_pro_recipe_v2",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.15.0",
+    "npm": "8.5.5"
+  },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
