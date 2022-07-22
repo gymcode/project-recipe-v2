@@ -32,12 +32,19 @@ const GalleryComponent = () => {
       <div className="h-[82%] mt-10 grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:grid-rows-none lg:grid-rows-none xl:grid-rows-none grid-cols-none grid-rows-3 gap-4">
         <div className="grid md:grid-rows-5 lg:grid-rows-5 xl:grid-rows-5 grid-rows-none grid-cols-2 md:grid-cols-none lg:grid-cols-none xl:grid-cols-none gap-4">
           <div
+            data-aos="fade-up"
+            data-aos-offset="600"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1000"
             className="row-span-2 md:row-span-3 xl:row-span-3 lg:row-span-3 bg-center bg-cover"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/casey-lee-awj7sRviVXo-unsplash_3WGyBU5dS.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658352689064")`,
             }}
           ></div>
           <div
+            data-aos="zoom-in-right"
+            data-aos-easing="ease-in"
+            data-aos-duration="700"
             className="row-span-2 bg-center bg-cover"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/dan-gold-5O1ddenSM4g-unsplash_D_2iyTfp6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658351062924")`,
@@ -47,6 +54,10 @@ const GalleryComponent = () => {
           </div>
         </div>
         <div
+          data-aos="fade-up"
+          data-aos-offset="600"
+          data-aos-easing="ease-in-sine"
+          data-aos-duration="900"
           className="bg-center bg-cover bg-fixed md:bg-local xl:bg-local lg:bg:local"
           style={{
             backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/mae-mu-rgRbqFweGF0-unsplash_dmzXsTHYk.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658352689253")`,
@@ -56,6 +67,10 @@ const GalleryComponent = () => {
         </div>
         <div className="grid md:grid-rows-5 lg:grid-rows-5 xl:grid-rows-5 grid-rows-none grid-cols-2 md:grid-cols-none lg:grid-cols-none xl:grid-cols-none gap-4">
           <div
+            data-aos="zoom-in-left"
+            data-aos-offset="600"
+            data-aos-easing="ease-in"
+            data-aos-duration="700"
             className="row-span-2 bg-center bg-cover"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-pixabay-262978_AM-ChpuM4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658353704767")`,
@@ -64,6 +79,9 @@ const GalleryComponent = () => {
             dasd
           </div>
           <div
+            data-aos="fade-up"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="1300"
             className="row-span-2 md:row-span-3 xl:row-span-3 lg:row-span-3 bg-center bg-cover"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-cottonbro-3338497__0KMHiiFB.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658354063329")`,

@@ -104,7 +104,7 @@ const LandingPageComponent = () => {
             <div
               data-aos="fade-up"
               data-aos-offset="500"
-              data-aos-easing="ease-in-sine"
+              data-aos-easing="ease-in-out-sine"
               data-aos-duration="1000"
               className="flex justify-center toTop items-center md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20 rounded-full shadow-xl"
             >

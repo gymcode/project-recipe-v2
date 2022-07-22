@@ -109,7 +109,7 @@ const sideNav = [
       </svg>
     ),
     delay: 200,
-    duration: 1200,
+    duration: 1600,
     href: "footer_section",
   },
 ];
@@ -123,7 +123,7 @@ const MainSideNav = () => {
             <li
               data-aos="fade-up"
               data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
+              data-aos-easing="ease-in-out-sine"
               data-aos-duration={item.duration}
               data-aos-delay={item.delay}
               className="h-10 w-10 link_bg cursor-pointer rounded-full hover:bg-[#5e5e5e] hover:transition hover:duration-700 hover:ease-in-out flex items-center justify-center my-7"
