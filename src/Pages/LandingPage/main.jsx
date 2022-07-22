@@ -17,7 +17,7 @@ const LandingPageComponent = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > "800") {
+      if (window.scrollY > "800" && window.scrollY < "4000") {
         setShowSideNav(true);
       } else {
         setShowSideNav(false);

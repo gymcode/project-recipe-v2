@@ -3,3 +3,7 @@
     height: 100vh; 
 }
 
+.footer_link_bg {
+    background: linear-gradient(180.11deg, #4D77ED 0.05%, #F98809 0.06%, #F83F05 85.51%);
+}
+
