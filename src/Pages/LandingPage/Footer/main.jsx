@@ -223,7 +223,12 @@ const FooterComponent = () => {
           </div>
         </div>
         <div className="flex items-center">
-          <div className="border-t-2 border-[#FAD8D8] w-full" />
+          <div
+            className="border-t-2 border-[#FAD8D8] w-full"
+            data-aos="fade-right"
+            data-aos-easing="ease-in-sine"
+            data-aos-duration="700"
+          />
         </div>
         <div className="grid grid-cols-6 imprima-font text-[#FFA1A1] text-sm">
           <div className="col-span-4 uppercase">
