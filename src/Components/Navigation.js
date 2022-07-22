@@ -10,7 +10,7 @@ const navigation = [
   { name: "About", href: "about_section", current: false, delay: 0.2 },
   { name: "Favorite", href: "favorite_section", current: false, delay: 0.4 },
   { name: "Gallery", href: "gallery_section", current: false, delay: 0.8 },
-  { name: "Talk to Us", href: "review_section", current: false, delay: 0.6 },
+  { name: "Talk to Us", href: "footer_section", current: false, delay: 0.6 },
 ];
 
 function classNames(...classes) {

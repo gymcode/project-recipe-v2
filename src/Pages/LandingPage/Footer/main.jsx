@@ -119,7 +119,7 @@ const FooterComponent = () => {
     >
       <div className="row-span-3 px-2 sm:px-6 lg:px-32 py-24 lg:py-28 md:py-28 xl:py-28  flex justify-center items-center">
         <div
-          className="lg:h-[33vh] lg:w-[49vw] xl:h-[33vh] cl:w-[49vw] md:h-[33vh] md:w-[70vw] bg-center bg-cover rounded-lg"
+          className="lg:h-[33vh] lg:w-[49vw] xl:h-[33vh] xl:w-[49vw] md:h-[33vh] md:w-[70vw] h-full w-11/12 bg-center bg-cover rounded-lg"
           style={{
             backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/DiscoveryBG_degcbANfc.png?ik-sdk-version=javascript-1.4.3&updatedAt=1658444334567")`,
           }}
@@ -244,6 +244,72 @@ const FooterComponent = () => {
               </Link>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="lg:hidden xl:hidden md:hidden bg-[#FDEDED] h-[40vh] px-2 pt-10">
+        <div className="flex flex-col items-center">
+          <div>
+            <img className="w-auto h-12" src={Logo} alt="Workflow" />
+          </div>
+          <div className="flex mt-8">
+            {Links.map((item) => {
+              return (
+                <>
+                  <div className="flex justify-center items-center h-8 w-8 bg-[#f3551b] rounded-full mr-5">
+                    {item.svg}
+                  </div>
+                </>
+              );
+            })}
+          </div>
+          <div className="flex justify-between items-center">
+            <div className="row-span-2 imprima-font mt-8 flex space-x-4">
+              {navigation.map((item) => (
+                <Link to={item.href} smooth>
+                  <div
+                    initial={{ x: 50, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 0.7,
+                      delay: item.delay,
+                    }}
+                  >
+                    <a
+                      key={item.name}
+                      className={classNames(
+                        item.current
+                          ? "border-b text-[#F84605]"
+                          : "text-[#F84605] hover:bg-gray-700 hover:text-white",
+                        "py-2 rounded-md text-md font-medium text-lg imprima-font cursor-pointer"
+                      )}
+                      aria-current={item.current ? "page" : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-between text-sm mt-10 imprima-font text-[#FFA1A1]">
+          <div className="flex justify-center">
+            <div className="h-7 w-7 bg-red-300 mr-3 rounded-full" />
+            <p className="mt-1">by kenneth lartey abrahams</p>
+          </div>
+          <div>
+            <Link to="home_section" smooth>
+              <Lottie
+                options={defaultScrollToTopAnimation}
+                height={40}
+                width={50}
+              />
+            </Link>
+          </div>
+        </div>
+        <div className="border-t-2 border-[#FAD8D8] w-full my-2" />
+        <div className="uppercase imprima-font text-[#FFA1A1] text-sm text-center">
+          COPYRIGHT © 2020 Huate Cuisine. ALL RIGHTS RESERVED. LEGAL POLICIES
         </div>
       </div>
     </main>
