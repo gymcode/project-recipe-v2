@@ -17,7 +17,7 @@ const GalleryComponent = () => {
           photos
         </h3>
       </div>
-      <div className="h-[82%] mt-10 grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:grid-rows-none lg:grid-rows-none xl:grid-rows-none grid-cols-none grid-rows-3 gap-4">
+      <div className="min-h-[66vh] mt-10 grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 md:grid-rows-none lg:grid-rows-none xl:grid-rows-none grid-cols-none grid-rows-3 gap-4">
         <div className="grid md:grid-rows-5 lg:grid-rows-5 xl:grid-rows-5 grid-rows-none grid-cols-2 md:grid-cols-none lg:grid-cols-none xl:grid-cols-none gap-4">
           <div
             className="row-span-2 md:row-span-3 xl:row-span-3 lg:row-span-3 bg-center bg-cover"

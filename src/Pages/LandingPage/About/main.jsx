@@ -13,7 +13,7 @@ const AboutUsComponent = () => {
       id="about_section"
     >
       {/* for larger screens */}
-      <div className="hidden lg:grid grid-cols-5 gap-10 h-full">
+      <div className="hidden lg:grid grid-cols-5 gap-10 min-h-[78vh]">
         <div className="col-span-3 relative">
           <div
             data-aos="fade-right"

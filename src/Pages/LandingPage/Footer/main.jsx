@@ -251,7 +251,7 @@ const FooterComponent = () => {
         </div>
         <div className="grid grid-cols-6 imprima-font text-[#FFA1A1] text-sm">
           <div className="col-span-4 uppercase">
-            COPYRIGHT © 2020 Huate Cuisine. ALL RIGHTS RESERVED. LEGAL POLICIES
+            COPYRIGHT © 2020 Huate Cuisine. ALL RIGHTS RESERVED.
           </div>
           <div className="col-span-2 flex justify-between">
             <div className="flex justify-center">
@@ -333,7 +333,7 @@ const FooterComponent = () => {
         </div>
         <div className="border-t-2 border-[#FAD8D8] w-full my-2" />
         <div className="uppercase imprima-font text-[#FFA1A1] text-sm text-center">
-          COPYRIGHT © 2020 Huate Cuisine. ALL RIGHTS RESERVED. LEGAL POLICIES
+          COPYRIGHT © 2020 Huate Cuisine. ALL RIGHTS RESERVED.
         </div>
       </div>
     </main>
