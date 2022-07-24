@@ -11,7 +11,7 @@ const navigation = [
   { name: "About", href: "about_section", current: false, delay: 0.2 },
   { name: "Favorite", href: "favorite_section", current: false, delay: 0.4 },
   { name: "Gallery", href: "gallery_section", current: false, delay: 0.8 },
-  { name: "Talk to Us", href: "review_section", current: false, delay: 0.6 },
+  { name: "Contact", href: "review_section", current: false, delay: 0.6 },
 ];
 
 const Links = [
@@ -169,7 +169,7 @@ const FooterComponent = () => {
                         item.current
                           ? "border-b text-[#F84605]"
                           : "text-[#F84605] hover:bg-gray-700 hover:text-white",
-                        "px-5 py-2 rounded-md text-md font-medium text-lg imprima-font cursor-pointer"
+                        "px-3 py-2 rounded-md text-md font-medium text-lg imprima-font cursor-pointer"
                       )}
                       aria-current={item.current ? "page" : undefined}
                     >
@@ -270,7 +270,7 @@ const FooterComponent = () => {
           </div>
         </div>
       </div>
-      <div className="lg:hidden xl:hidden md:hidden bg-[#FDEDED] h-[40vh] px-2 pt-10">
+      <div className="lg:hidden xl:hidden md:hidden bg-[#FDEDED] h-[50vh] px-2 pt-10">
         <div className="flex flex-col items-center">
           <div>
             <img className="w-auto h-12" src={Logo} alt="Workflow" />
