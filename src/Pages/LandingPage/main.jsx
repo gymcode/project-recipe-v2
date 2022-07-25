@@ -9,17 +9,18 @@ import * as ScrollToTopAnimation from "Assets/LottieFiles/lf30_editor_rlzi5ome.j
 // other components imports
 const About = React.lazy(() => import("./About"));
 const Favorite = React.lazy(() => import("./Favorite"));
-const Footer = React.lazy(()=> import("./Footer"))
-const Gallery = React.lazy(()=>import("./Gallery"))
+const Footer = React.lazy(() => import("./Footer"));
+const Gallery = React.lazy(() => import("./Gallery"));
 
 const LandingPageComponent = () => {
   const [showSideNav, setShowSideNav] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      // const screen_limit = window.pageYOffset - 1000
-      if (window.scrollY > "800" && window.scrollY < "4000") {
-        // console.log(window.innerHeight + window.scrollY, "here", window.scrollH)
+    window.addEventListener("scroll", (e) => {
+      const scrollableLimit =
+        document.documentElement.scrollHeight - window.innerHeight - 400;
+      if (window.scrollY > "800" && window.scrollY < scrollableLimit) {
+        console.log();
         setShowSideNav(true);
       } else {
         setShowSideNav(false);
@@ -91,11 +92,11 @@ const LandingPageComponent = () => {
       </div>
       {/* Gallery Section  */}
       <div>
-        <Gallery/>
+        <Gallery />
       </div>
       {/* Footer section  */}
       <div>
-        <Footer/>
+        <Footer />
       </div>
       {showSideNav ? (
         <>
