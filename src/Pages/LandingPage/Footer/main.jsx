@@ -242,7 +242,7 @@ const FooterComponent = () => {
             data-aos-duration="700"
           />
         </div>
-        <div className="grid grid-cols-6 imprima-font text-[#FFA1A1] text-sm">
+        <div className="grid grid-cols-6 imprima-font text-[#FFA1A1] text-sm lg:py-2 xl:py-0">
           <div className="col-span-4 uppercase">
             COPYRIGHT © 2020 Huate Cuisine. ALL RIGHTS RESERVED.
           </div>

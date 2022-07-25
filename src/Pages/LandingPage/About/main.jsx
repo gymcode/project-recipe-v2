@@ -14,7 +14,7 @@ const AboutUsComponent = () => {
     >
       {/* for larger screens */}
       <div className="hidden lg:grid grid-cols-5 gap-10 min-h-[78vh]">
-        <div className="col-span-3 relative">
+        <div className="col-span-3 relative max-h-[82vh]">
           <div
             data-aos="fade-right"
             data-aos-offset="300"
