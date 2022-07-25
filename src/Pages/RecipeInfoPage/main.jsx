@@ -33,7 +33,7 @@ const RecipeInformationPage = () => {
       </div>
       {/* main body with content  */}
       <body className="mt-10 xl:mt-16">
-        <div className="grid xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 grid-row-2 min-h-[28vh] gap-4">
+        <div className="grid xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 grid-row-2 lg:h-[28vh] xl:h-[28vh] md:h-[28vh] h-[50vh] gap-4">
           <div className="col-span-4 md:col-span-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-between">
             <div>
               <h2 className="abel-font text-5xl font-medium">
@@ -126,7 +126,7 @@ const RecipeInformationPage = () => {
             </div>
           </div>
           <div
-            className="col-span-4 bg-center bg-cover rounded-lg"
+            className="col-span-4 bg-center bg-cover rounded-lg h-[20vh] xl:h-full lg:h-full md:h-full"
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-pixabay-262978_AM-ChpuM4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658353704767")`,
             }}
