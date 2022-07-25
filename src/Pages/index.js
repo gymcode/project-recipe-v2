@@ -1,1 +1,2 @@
-export {default} from "./LandingPage"
+export {default as LANDING_PAGE_COMPONENT} from "./LandingPage"
+export {default as RECIPE_INFO_PAGE_COMPONENT} from "./RecipeInfoPage"

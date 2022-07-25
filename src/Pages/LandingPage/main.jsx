@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NAVIGATION_BAR, MAIN_SIDE_NAV } from "Components";
 import "./main.css";
+import { Link as RouterLink } from "react-router-dom";
 import { Link } from "react-scroll";
 import Lottie from "react-lottie";
 import { motion } from "framer-motion";
@@ -71,14 +72,21 @@ const LandingPageComponent = () => {
             </motion.p>
           </div>
           <div className="mt-12 w-full flex justify-center lg:justify-start md:justify-start">
+          <RouterLink to={"/random-recipe"}>
             <motion.div
+              whileHover={{ scale: 1.05}}
+              whileTap={{
+                scale: 0.9,
+                borderRadius: "2%",
+              }}
               initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ type: "spring", duration: 1.5, delay: 0.4 }}
-              className="h-16 w-52 bg-[#F84605] abel-font text-white text-lg flex justify-center items-center"
+              animate={{ y: 0, opacity: 1, transition:{ type: "spring", duration: 1.5, delay: 0.4 } }}
+              transition={{ type: "spring", duration: 1,}}
+              className="h-16 w-52 bg-[#F84605] abel-font text-white text-lg flex justify-center items-center cursor-pointer"
             >
               <p>Try Random Recipe</p>
             </motion.div>
+            </RouterLink>
           </div>
         </main>
       </div>
