@@ -5,7 +5,7 @@ import Tilt from "react-vanilla-tilt";
 const GalleryComponent = () => {
   return (
     <main
-      className="gallery_body px-2 sm:px-6 lg:px-32 py-24"
+      className="gallery_body px-2 sm:px-6 lg:px-20 xl:px-32 py-24"
       id="gallery_section"
     >
       <div>

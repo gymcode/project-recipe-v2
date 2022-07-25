@@ -43,7 +43,7 @@ const CardDetails = [
 const FavoriteComponent = () => {
   return (
     <main
-      className="favorite_body px-2 sm:px-6 lg:px-32 py-24 lg:py-28 md:py-28 xl:py-28"
+      className="favorite_body px-2 sm:px-6 lg:px-20 xl:px-32 py-24 lg:py-28 md:py-28 xl:py-28"
       id="favorite_section"
     >
       <div>

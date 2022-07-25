@@ -8,10 +8,10 @@ import { MailIcon } from "@heroicons/react/solid";
 
 const navigation = [
   { name: "Home", href: "home_section", current: true, delay: 0 },
-  { name: "About", href: "about_section", current: false, delay: 0.2 },
-  { name: "Favorite", href: "favorite_section", current: false, delay: 0.4 },
-  { name: "Gallery", href: "gallery_section", current: false, delay: 0.8 },
-  { name: "Contact", href: "review_section", current: false, delay: 0.6 },
+  { name: "About", href: "about_section", current: false, delay: 2000 },
+  { name: "Favorite", href: "favorite_section", current: false, delay: 3000 },
+  { name: "Gallery", href: "gallery_section", current: false, delay: 6000 },
+  { name: "Contact", href: "review_section", current: false, delay: 8000 },
 ];
 
 const Links = [
@@ -155,14 +155,7 @@ const FooterComponent = () => {
             <div className="row-span-2 imprima-font flex space-x-4">
               {navigation.map((item) => (
                 <Link to={item.href} smooth>
-                  <div
-                    initial={{ x: 50, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{
-                      duration: 0.7,
-                      delay: item.delay,
-                    }}
-                  >
+                  <div>
                     <a
                       key={item.name}
                       className={classNames(
@@ -290,14 +283,7 @@ const FooterComponent = () => {
             <div className="row-span-2 imprima-font mt-8 flex space-x-4">
               {navigation.map((item) => (
                 <Link to={item.href} smooth>
-                  <div
-                    initial={{ x: 50, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{
-                      duration: 0.7,
-                      delay: item.delay,
-                    }}
-                  >
+                  <div>
                     <a
                       key={item.name}
                       className={classNames(

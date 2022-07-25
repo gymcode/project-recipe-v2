@@ -40,13 +40,13 @@ const LandingPageComponent = () => {
         <header>
           <NAVIGATION_BAR />
         </header>
-        <main className="px-2 sm:px-6 lg:px-32">
-          <div className="mt-10 lg:mt-20">
+        <main className="px-2 sm:px-6 lg:px-20 xl:px-32">
+          <div className="mt-10 lg:mt-16 xl:mt-20">
             <motion.h1
               initial={{ x: -80, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ type: "spring", stiffness: 50, duration: 100 }}
-              className="md:text-[4rem] lg:text-[5.7rem] text-[3rem] abel-font capitalize text-center md:text-left md:leading-[6rem] lg:text-left lg:leading-[7rem] leading"
+              className="md:text-[4rem] lg:text-[5vw] text-[3rem] abel-font capitalize text-center md:text-left md:leading-[6rem] lg:text-left lg:leading-[7vw] leading"
             >
               Simple and <span className="text-[#F84605]">tasty</span>
               <br /> recipe

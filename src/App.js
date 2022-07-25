@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       {loading ? (
-        <div className="h-[100vh] w-full flex flex-col justify-center items-center">
+        <div className="min-h-[100vh] w-full flex flex-col justify-center items-center">
           <Lottie options={defaultSplashAnimation}  height={200} width={200} />
           <p className="imprima-font">Hmmm!! i'm quite hungry</p>
         </div>

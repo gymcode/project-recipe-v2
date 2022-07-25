@@ -9,7 +9,7 @@ const AboutText = {
 const AboutUsComponent = () => {
   return (
     <main
-      className="about_us_body px-2 sm:px-6 lg:px-32 py-12 sm:py-24 lg:py-28 md:py-28 xl:py-28"
+      className="about_us_body px-2 sm:px-6 lg:px-20 xl:px-32 py-12 sm:py-24 lg:py-28 md:py-28 xl:py-28"
       id="about_section"
     >
       {/* for larger screens */}
