@@ -120,14 +120,14 @@ const FooterComponent = () => {
     >
       <div className="row-span-3 px-2 sm:px-6 lg:px-32 py-24 lg:py-28 md:py-28 xl:py-28  flex justify-center items-center">
         <div
-          className="lg:h-[33vh] lg:w-[49vw] xl:h-[33vh] xl:w-[49vw] md:h-[33vh] md:w-[70vw] h-full w-11/12 bg-center bg-cover rounded-lg text-center"
+          className="lg:h-[33vh] lg:w-[49vw] xl:h-[33vh] xl:w-[49vw] md:h-[33vh] md:w-[70vw] min-h-[35vh] w-11/12 bg-center bg-cover rounded-lg text-center"
           style={{
             backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/DiscoveryBG_degcbANfc.png?ik-sdk-version=javascript-1.4.3&updatedAt=1658444334567")`,
           }}
         >
           <div className="mt-8">
             <div className="text-white kreon-font text-2xl">
-              Let's discover a new level
+              Help discover a new level
             </div>
             <div className="text-black abel-font text-4xl lg:text-6xl xl:text-6xl">
               Send me feed back
@@ -140,7 +140,7 @@ const FooterComponent = () => {
                 name="email"
                 id="email"
                 placeholder="Say something ....."
-                className="block h-20 w-[35vw] md:w-[30vw] lg:w-[22vw] xl:w-[22vw] p-2 sm:text-sm border-gray-300 rounded-md outline-none"
+                className="block h-20 w-[65vw] md:w-[40vw] lg:w-[25vw] xl:w-[25vw] p-2 sm:text-sm border-gray-300 rounded-md outline-none"
               ></textarea>
             </div>
           </div>
@@ -270,7 +270,7 @@ const FooterComponent = () => {
           </div>
         </div>
       </div>
-      <div className="lg:hidden xl:hidden md:hidden bg-[#FDEDED] h-[50vh] px-2 pt-10">
+      <div className="lg:hidden xl:hidden md:hidden bg-[#FDEDED] min-h-[50vh] px-2 pt-10">
         <div className="flex flex-col items-center">
           <div>
             <img className="w-auto h-12" src={Logo} alt="Workflow" />
