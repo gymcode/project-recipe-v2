@@ -1,9 +1,16 @@
 import "./main.css";
 import ReactStars from "react-rating-stars-component";
-import { ReactComponent as Clock } from "Assets/Images/clock-outline.svg";
-import { ReactComponent as Chart } from "Assets/Images/pie-chart-outline.svg";
-import { ReactComponent as Health } from "Assets/Images/activity-outline.svg";
-import { ReactComponent as Like } from "Assets/Images/heart-outline.svg";
+import { INGREDIENT_LISTING, INSTRUCTION_LISTING } from "Components";
+
+const some = [{ name: "Kenneth" }, { name: "Kelvin" }];
+
+const hey = [
+  {
+    content:
+      "this is me and blah vlah albh Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem fugit architecto nequeexplicabo nihil molestias dolore dolorem sed temporibus!Provident consectetur voluptatem, quidem odio fugitlaboriosam suscipit odit sit qui?",
+  },
+  { content: "this is me and others" },
+];
 
 const RecipeInformationPage = () => {
   return (
@@ -62,7 +69,7 @@ const RecipeInformationPage = () => {
                       fill="#F84605"
                     ></path>
                   </svg>
-                  <div className="px-3">30 mins</div>
+                  <div className="px-3 text-[#818181]">30 mins</div>
                 </div>
                 <div className="flex items-center imprima-font py-5">
                   <svg
@@ -80,7 +87,7 @@ const RecipeInformationPage = () => {
                       fill="black"
                     ></path>
                   </svg>
-                  <div className="px-3">8 people</div>
+                  <div className="px-3 text-[#818181]">8 people</div>
                 </div>
               </div>
               <div className="flex flex-col justify-between">
@@ -99,7 +106,7 @@ const RecipeInformationPage = () => {
                       d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                     />
                   </svg>
-                  <div className="px-3">
+                  <div className="px-3 text-[#818181]">
                     <span className="text-[#F84605]">2383</span> Likes
                   </div>
                 </div>
@@ -118,7 +125,7 @@ const RecipeInformationPage = () => {
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M3 12h4l3 8l4 -16l3 8h4"></path>
                   </svg>
-                  <div className="px-3">
+                  <div className="px-3 text-[#818181]">
                     <span className="text-[#F84605]">78%</span> healthscore
                   </div>
                 </div>
@@ -131,6 +138,59 @@ const RecipeInformationPage = () => {
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-pixabay-262978_AM-ChpuM4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658353704767")`,
             }}
           ></div>
+        </div>
+        <div className="grid xl:grid-cols-7 lg:grid-cols-7 grid-row-2 gap-4 mt-12">
+          {/* ingredient, instructions and caloric breakdown section */}
+          <div className="col-span-4 lg:col-span-3 xl:col-span-3 flex flex-col ">
+            <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-6 grid-row-2 ">
+              <div className="kreon-font text-lg">Ingredients: </div>
+              <div className="col-span-5">
+                {/* // listing component */}
+                <INGREDIENT_LISTING itemArr={some} />
+              </div>
+            </div>
+            <div className="grid xl:grid-cols-6 lg:grid-cols-6grid-row-2">
+              <div className="kreon-font text-lg">Instructions: </div>
+              <div className="col-span-5">
+                {/* // listing component */}
+                <INSTRUCTION_LISTING itemArr={hey} />
+              </div>
+            </div>
+          </div>
+          {/* summary section  */}
+          <div className="col-span-4 bg-center bg-cover rounded-lg min-h-[20vh] p-8 w-full bg-[#FEF3F3]">
+            <div className="flex items-center pb-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="#F84605"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <p className="kreon-font px-2 text-xl">Recipe Summary</p>
+            </div>
+            <i className="text-justify imprima-font text-[#818181]">
+              Buttery Pull Apart Monkey Bread takes about about 45 minutes from
+              beginning to end. One serving contains 392 calories, 6g of
+              protein, and 21g of fat. This recipe serves 16. For 34 cents per
+              serving, this recipe covers 9% of your daily requirements of
+              vitamins and minerals. 9 people have made this recipe and would
+              make it again. Head to the store and pick up butter, flour, sugar,
+              and a few other things to make it today. It is a good option if
+              you're following a lacto ovo vegetarian diet. It is brought to you
+              by Foodista. With a spoonacular score of 28%, this dish is rather
+              bad. Try Mini Apple Pull Apart Monkey Bread, Banana’s Foster Pull
+              Apart Monkey Bread, and Pull Apart Apple Fritter Monkey Bread for
+              similar recipes.
+            </i>
+          </div>
         </div>
       </body>
     </main>
