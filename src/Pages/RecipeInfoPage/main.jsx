@@ -7,14 +7,16 @@ const some = [{ name: "Kenneth" }, { name: "Kelvin" }];
 const hey = [
   {
     content:
-      "this is me and blah vlah albh Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem fugit architecto nequeexplicabo nihil molestias dolore dolorem sed temporibus!Provident consectetur voluptatem, quidem odio fugitlaboriosam suscipit odit sit qui?",
+      "this is me and blah vlah albh Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem fugit architecto nequeexplicabo nihil molestias dolore dolorem sed temporibus!Provident consectetur voluptatem, quidem odio fugitlaboriosam suscipit odit sit qui? Add garlic and basalmic.Allow to cook for about another 30 seconds or so, mixing well so that the garlic and vinegar are well distributed.",
   },
   { content: "this is me and others" },
+  { content: "Add garlic and basalmic.Allow to cook for about another 30 seconds or so, mixing well so that the garlic and vinegar are well distributed." },
+  { content: "Add garlic and basalmic.Allow to cook for about another 30 seconds or so, mixing well so that the garlic and vinegar are well distributed." },
 ];
 
 const RecipeInformationPage = () => {
   return (
-    <main className="recipe-info-body pt-10 xl:pt-16 px-6 lg:px-10 xl:px-32">
+    <main className="recipe-info-body py-10 xl:py-16 px-6 lg:px-10 xl:px-32">
       {/* navigation   */}
       <div className="flex justify-between items-center">
         <div>
@@ -142,23 +144,27 @@ const RecipeInformationPage = () => {
         <div className="grid xl:grid-cols-7 lg:grid-cols-7 grid-row-2 gap-4 mt-12">
           {/* ingredient, instructions and caloric breakdown section */}
           <div className="col-span-4 lg:col-span-3 xl:col-span-3 flex flex-col ">
-            <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-6 grid-row-2 ">
+            <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-6 grid-row-2 pb-8">
               <div className="kreon-font text-lg">Ingredients: </div>
               <div className="col-span-5">
                 {/* // listing component */}
                 <INGREDIENT_LISTING itemArr={some} />
               </div>
             </div>
+            <div className="pb-8">
+              <div className="kreon-font text-lg">Caloric Breakdown: </div>
+              
+            </div>
             <div className="grid xl:grid-cols-6 lg:grid-cols-6grid-row-2">
               <div className="kreon-font text-lg">Instructions: </div>
-              <div className="col-span-5">
+              <div className="col-span-5 flex flex-col space-y-10">
                 {/* // listing component */}
                 <INSTRUCTION_LISTING itemArr={hey} />
               </div>
             </div>
           </div>
           {/* summary section  */}
-          <div className="col-span-4 bg-center bg-cover rounded-lg min-h-[20vh] p-8 w-full bg-[#FEF3F3]">
+          <div className="col-span-4 bg-center bg-cover rounded-lg max-h-[25vh] p-8 w-full bg-[#FEF3F3]">
             <div className="flex items-center pb-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
