@@ -7,7 +7,7 @@ const some = [{ name: "Kenneth" }, { name: "Kelvin" }];
 const hey = [
   {
     content:
-      "this is me and blah vlah albh Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem fugit architecto nequeexplicabo nihil molestias dolore dolorem sed temporibus!Provident consectetur voluptatem, quidem odio fugitlaboriosam suscipit odit sit qui? Add garlic and basalmic.Allow to cook for about another 30 seconds or so, mixing well so that the garlic and vinegar are well distributed.",
+      "this is me and blah vlah albh Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem fugit architecto nequeexplicabo nihil molestias dolore dolorem sed temporibus!Provident consectetur voluptatem, quidem odio fugitlaboriosam suscipit odit sit qui? Add garlic and basalmic.Allow to cook for about another 30 seconds or so,",
   },
   { content: "this is me and others" },
   { content: "Add garlic and basalmic.Allow to cook for about another 30 seconds or so, mixing well so that the garlic and vinegar are well distributed." },
