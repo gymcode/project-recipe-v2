@@ -1,6 +1,7 @@
-import "./main.css";
-import ReactStars from "react-rating-stars-component";
+import { useState } from "react";
+import { useFetch } from "Hooks";
 import { RECIPE_INFO_COMPONENT } from "Components";
+import Endpoints from "Services/endpoints";
 
 const some = [{ name: "Kenneth" }, { name: "Kelvin" }];
 const hey = [
@@ -18,6 +19,10 @@ const text = "Triple Citrus Cake might be just the dessert you are searching for
 
 
 const RecipeInformationPage = () => {
+  const random_recipe_url = Endpoints.RANDOM_RECIPES(1)
+  const data = useFetch(random_recipe_url, {loading: true, data:null}, "random", true)
+  console.log(data)
+
   return (
     <>  
       <RECIPE_INFO_COMPONENT
