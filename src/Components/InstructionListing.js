@@ -27,7 +27,7 @@ const InstructionListing = ({ itemArr }) => {
                   </div>
                 )}
               </div>
-              <p className="pl-4 col-span-11 imprima-font">
+              <p className="pl-4 col-span-11 imprima-font text-justify">
                 {item.content}
                 <span className="text-[#818181]">(1.5 table spoons)</span>
               </p>

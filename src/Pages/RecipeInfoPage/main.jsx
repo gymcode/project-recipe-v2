@@ -182,7 +182,7 @@ const RecipeInformationPage = () => {
               </svg>
               <p className="kreon-font px-2 text-xl">Recipe Summary</p>
             </div>
-            <i className="text-justify imprima-font text-[#818181]">
+            <i className="imprima-font text-[#818181] text-justify">
               Buttery Pull Apart Monkey Bread takes about about 45 minutes from
               beginning to end. One serving contains 392 calories, 6g of
               protein, and 21g of fat. This recipe serves 16. For 34 cents per
