@@ -1,21 +1,22 @@
-import "./main.css";
 import ReactStars from "react-rating-stars-component";
-import { INGREDIENT_LISTING, INSTRUCTION_LISTING, CALORIC_BREAKDOWN } from "Components";
+import {
+  INGREDIENT_LISTING,
+  INSTRUCTION_LISTING,
+  CALORIC_BREAKDOWN,
+} from "Components";
+import "./main.css";
 
-const some = [{ name: "Kenneth" }, { name: "Kelvin" }];
-const hey = [
-  {
-    content:
-      "this is me and blah vlah albh Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem fugit architecto nequeexplicabo nihil molestias dolore dolorem sed temporibus!Provident consectetur voluptatem, quidem odio fugitlaboriosam suscipit odit sit qui? Add garlic and basalmic.Allow to cook for about another 30 seconds or so,",
-  },
-  { content: "this is me and others" },
-  { content: "Add garlic and basalmic.Allow to cook for about another 30 seconds or so, mixing well so that the garlic and vinegar are well distributed." },
-  { content: "Add garlic and basalmic.Allow to cook for about another 30 seconds or so, mixing well so that the garlic and vinegar are well distributed." },
-];
-
-
-
-const RecipeInformationPage = () => {
+const RecipeInformationComponent = ({
+  recipe_title,
+  recipe_duration,
+  recipe_servings,
+  recipe_likes,
+  recipe_healthscore,
+  recipe_image,
+  ingredients,
+  instructions,
+  recipe_summary,
+}) => {
   return (
     <main className="recipe-info-body py-10 xl:py-16 px-6 lg:px-10 xl:px-32">
       {/* navigation   */}
@@ -46,9 +47,7 @@ const RecipeInformationPage = () => {
         <div className="grid xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 grid-row-2 lg:h-[28vh] xl:h-[28vh] md:h-[28vh] h-[50vh] gap-6">
           <div className="col-span-4 md:col-span-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-between">
             <div>
-              <h2 className="abel-font text-5xl font-medium">
-                Sun-dried spicy tomoto chicken
-              </h2>
+              <h2 className="abel-font text-5xl font-medium">{recipe_title}</h2>
               <div>
                 <ReactStars count={5} size={25} activeColor="#F83F05" />
               </div>
@@ -72,7 +71,9 @@ const RecipeInformationPage = () => {
                       fill="#F84605"
                     ></path>
                   </svg>
-                  <div className="px-3 text-[#818181]">30 mins</div>
+                  <div className="px-3 text-[#818181]">
+                    {recipe_duration} mins
+                  </div>
                 </div>
                 <div className="flex items-center imprima-font py-5">
                   <svg
@@ -90,7 +91,9 @@ const RecipeInformationPage = () => {
                       fill="black"
                     ></path>
                   </svg>
-                  <div className="px-3 text-[#818181]">8 people</div>
+                  <div className="px-3 text-[#818181]">
+                    {recipe_servings} people
+                  </div>
                 </div>
               </div>
               <div className="flex flex-col justify-between">
@@ -110,7 +113,7 @@ const RecipeInformationPage = () => {
                     />
                   </svg>
                   <div className="px-3 text-[#818181]">
-                    <span className="text-[#F84605]">2383</span> Likes
+                    <span className="text-[#F84605]">{recipe_likes}</span> Likes
                   </div>
                 </div>
                 <div className="flex items-center imprima-font py-5">
@@ -129,7 +132,8 @@ const RecipeInformationPage = () => {
                     <path d="M3 12h4l3 8l4 -16l3 8h4"></path>
                   </svg>
                   <div className="px-3 text-[#818181]">
-                    <span className="text-[#F84605]">78%</span> healthscore
+                    <span className="text-[#F84605]">{recipe_healthscore}</span>{" "}
+                    healthscore
                   </div>
                 </div>
               </div>
@@ -138,7 +142,7 @@ const RecipeInformationPage = () => {
           <div
             className="col-span-4 bg-center bg-cover rounded-lg h-[20vh] xl:h-full lg:h-full md:h-full"
             style={{
-              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-pixabay-262978_AM-ChpuM4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658353704767")`,
+              backgroundImage: `url(${recipe_image})`,
             }}
           ></div>
         </div>
@@ -149,19 +153,22 @@ const RecipeInformationPage = () => {
               <div className="kreon-font text-lg mb-4">Ingredients: </div>
               <div className="col-span-5">
                 {/* // listing component */}
-                <INGREDIENT_LISTING itemArr={some} />
+                <INGREDIENT_LISTING itemArr={ingredients} />
               </div>
             </div>
             <div className="pb-8">
               <div className="kreon-font text-lg">Caloric Breakdown: </div>
-              <CALORIC_BREAKDOWN proteinPercentage={"14.63"} fatPercentage={"28.47"} carbPercentage={"56.44"}/>
-
+              <CALORIC_BREAKDOWN
+                proteinPercentage={"14.63"}
+                fatPercentage={"28.47"}
+                carbPercentage={"56.44"}
+              />
             </div>
             <div className="grid xl:grid-cols-6 grid-row-2">
               <div className="kreon-font text-lg mb-4">Instructions: </div>
               <div className="col-span-5 flex flex-col space-y-10">
                 {/* // listing component */}
-                <INSTRUCTION_LISTING itemArr={hey} />
+                <INSTRUCTION_LISTING itemArr={instructions} />
               </div>
             </div>
           </div>
@@ -185,18 +192,11 @@ const RecipeInformationPage = () => {
               <p className="kreon-font px-2 text-xl">Recipe Summary</p>
             </div>
             <i className="imprima-font text-[#818181] text-justify">
-              Buttery Pull Apart Monkey Bread takes about about 45 minutes from
-              beginning to end. One serving contains 392 calories, 6g of
-              protein, and 21g of fat. This recipe serves 16. For 34 cents per
-              serving, this recipe covers 9% of your daily requirements of
-              vitamins and minerals. 9 people have made this recipe and would
-              make it again. Head to the store and pick up butter, flour, sugar,
-              and a few other things to make it today. It is a good option if
-              you're following a lacto ovo vegetarian diet. It is brought to you
-              by Foodista. With a spoonacular score of 28%, this dish is rather
-              bad. Try Mini Apple Pull Apart Monkey Bread, Banana’s Foster Pull
-              Apart Monkey Bread, and Pull Apart Apple Fritter Monkey Bread for
-              similar recipes.
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: {recipe_summary},
+                }}
+              />
             </i>
           </div>
         </div>
@@ -204,5 +204,3 @@ const RecipeInformationPage = () => {
     </main>
   );
 };
-
-export default RecipeInformationPage;
