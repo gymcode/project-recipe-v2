@@ -32,8 +32,6 @@ const RecipeInformationPage = () => {
     true
   );
 
-  console.log(data.data.recipes[0].analyzedInstructions[0].steps)
-
   return (
     <>
       {data.loading ? (

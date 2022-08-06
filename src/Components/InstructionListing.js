@@ -1,15 +1,6 @@
 import React from "react";
 
 const InstructionListing = ({ itemArr }) => {
-  const [isLast, setIsLast] = React.useState(false);
-  console.log(isLast);
-  React.useEffect(() => {
-    const lastItem = itemArr.length - 1;
-    itemArr.forEach((item, index) => {
-      console.log(index);
-      index == lastItem ? setIsLast(true) : setIsLast(false);
-    });
-  }, []);
   return (
     <>
       {itemArr.map((item, index) => {
