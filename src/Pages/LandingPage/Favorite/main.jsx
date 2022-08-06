@@ -1,6 +1,7 @@
 import "./main.css";
 import "@splidejs/splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Link } from "react-router-dom";
 
 const CardDetails = [
   {
@@ -123,11 +124,13 @@ const FavoriteComponent = () => {
           ))}
         </Splide>
       </div>
+      <Link to={"/dashboard"}>
       <div className="w-full mt-10 lg:mt-20 md:mt-20 xl:mt-20 flex justify-center items-center">
         <div className="abel-font h-16 w-52 bg-[#F84605] text-white text-lg flex justify-center items-center">
           Explore more...
         </div>
       </div>
+      </Link>
     </main>
   );
 };
