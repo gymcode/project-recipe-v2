@@ -10,7 +10,7 @@ const IngregientListing = ({itemArr}) => {
             </div>
             <p className="pl-6 xl:pl-4 col-span-11 imprima-font">
               {item.name}
-              <span className="text-[#818181]">(1.5 table spoons)</span>
+              <span className="text-[#818181]"> ({item.original})</span>
             </p>
           </div>
         </>
