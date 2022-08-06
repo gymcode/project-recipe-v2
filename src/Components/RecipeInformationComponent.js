@@ -193,9 +193,7 @@ const RecipeInformationComponent = ({
             </div>
             <i className="imprima-font text-[#818181] text-justify">
               <div
-                dangerouslySetInnerHTML={{
-                  __html: {recipe_summary},
-                }}
+                dangerouslySetInnerHTML={recipe_summary}
               />
             </i>
           </div>
@@ -204,3 +202,5 @@ const RecipeInformationComponent = ({
     </main>
   );
 };
+
+export default RecipeInformationComponent
