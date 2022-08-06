@@ -5,6 +5,7 @@ import {
   CALORIC_BREAKDOWN,
 } from "Components";
 import "./main.css";
+import { motion } from "framer-motion";
 
 const RecipeInformationComponent = ({
   recipe_title,
@@ -139,12 +140,25 @@ const RecipeInformationComponent = ({
               </div>
             </div>
           </div>
-          <div
+          <motion.div
+            whileHover={{ scale: 1.04, }}
             className="col-span-4 bg-center bg-cover rounded-lg h-[20vh] xl:h-full lg:h-full md:h-full"
             style={{
               backgroundImage: `url(${recipe_image})`,
             }}
-          ></div>
+          >
+            <div className="h-full w-full flex flex-row justify-around items-center img_text">
+              <div className="h-12 w-20 rounded-xl border text-white border-white flex items-center justify-center">
+                Cheap
+              </div>
+              <div className="h-12 w-20 rounded-xl border text-white border-white flex items-center justify-center">
+                Vegan
+              </div>
+              <div className="h-12 w-32 rounded-xl border text-white border-white flex items-center justify-center">
+                Vegetarian
+              </div>
+            </div>
+          </motion.div>
         </div>
         <div className="grid xl:grid-cols-7 lg:grid-cols-7 grid-row-2 gap-4 mt-12">
           {/* ingredient, instructions and caloric breakdown section */}
