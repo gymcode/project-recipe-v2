@@ -1,6 +1,6 @@
 import "./main.css";
 import ReactStars from "react-rating-stars-component";
-import { INGREDIENT_LISTING, INSTRUCTION_LISTING } from "Components";
+import { INGREDIENT_LISTING, INSTRUCTION_LISTING, CALORIC_BREAKDOWN } from "Components";
 
 const some = [{ name: "Kenneth" }, { name: "Kelvin" }];
 
@@ -42,7 +42,7 @@ const RecipeInformationPage = () => {
       </div>
       {/* main body with content  */}
       <body className="mt-10 xl:mt-16">
-        <div className="grid xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 grid-row-2 lg:h-[28vh] xl:h-[28vh] md:h-[28vh] h-[50vh] gap-4">
+        <div className="grid xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 grid-row-2 lg:h-[28vh] xl:h-[28vh] md:h-[28vh] h-[50vh] gap-6">
           <div className="col-span-4 md:col-span-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-between">
             <div>
               <h2 className="abel-font text-5xl font-medium">
@@ -144,8 +144,8 @@ const RecipeInformationPage = () => {
         <div className="grid xl:grid-cols-7 lg:grid-cols-7 grid-row-2 gap-4 mt-12">
           {/* ingredient, instructions and caloric breakdown section */}
           <div className="col-span-4 lg:col-span-3 xl:col-span-3 flex flex-col ">
-            <div className="grid xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-6 grid-row-2 pb-8">
-              <div className="kreon-font text-lg">Ingredients: </div>
+            <div className="grid xl:grid-cols-6 grid-row-2 pb-8">
+              <div className="kreon-font text-lg mb-4">Ingredients: </div>
               <div className="col-span-5">
                 {/* // listing component */}
                 <INGREDIENT_LISTING itemArr={some} />
@@ -153,10 +153,11 @@ const RecipeInformationPage = () => {
             </div>
             <div className="pb-8">
               <div className="kreon-font text-lg">Caloric Breakdown: </div>
-              
+              <CALORIC_BREAKDOWN proteinPercentage={"14.63"} fatPercentage={"28.47"} carbPercentage={"56.44"}/>
+
             </div>
-            <div className="grid xl:grid-cols-6 lg:grid-cols-6grid-row-2">
-              <div className="kreon-font text-lg">Instructions: </div>
+            <div className="grid xl:grid-cols-6 grid-row-2">
+              <div className="kreon-font text-lg mb-4">Instructions: </div>
               <div className="col-span-5 flex flex-col space-y-10">
                 {/* // listing component */}
                 <INSTRUCTION_LISTING itemArr={hey} />
@@ -164,7 +165,7 @@ const RecipeInformationPage = () => {
             </div>
           </div>
           {/* summary section  */}
-          <div className="col-span-4 bg-center bg-cover rounded-lg max-h-[25vh] p-8 w-full bg-[#FEF3F3]">
+          <div className="col-span-4 bg-center bg-cover rounded-lg min-h-[25vh] xl:max-h-[25vh] lg:max-h-[25vh] p-8 w-full bg-[#FEF3F3]">
             <div className="flex items-center pb-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
