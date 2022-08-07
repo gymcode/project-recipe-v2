@@ -1,48 +1,148 @@
 import { Fragment, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import Logo from "Assets/Icons/Logo.svg";
-import {
-  BellIcon,
-  ChartBarIcon,
-  HomeIcon,
-  MenuAlt2Icon,
-  XIcon,
-} from "@heroicons/react/outline";
+import { BellIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
 
 const navigation = [
   {
-    name: "Pescaterian",
+    name: "Dashboard",
     href: "/dashboard/pescaterian",
-    icon: ChartBarIcon,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5 "
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+        />
+      </svg>
+    ),
     current: true,
   },
   {
-    name: "Omnivore",
+    name: "Discover Recipes",
     href: "/dashboard/omnivore",
-    icon: ChartBarIcon,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5 "
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        />
+      </svg>
+    ),
     current: false,
   },
   {
-    name: "Vegetarian",
+    name: "My Recipes",
     href: "/dashboard/vegetarian",
-    icon: ChartBarIcon,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5 "
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+        />
+      </svg>
+    ),
     current: false,
   },
   {
-    name: "Fruitarian",
+    name: "Visited Users",
     href: "/dashboard/fruitarian",
-    icon: ChartBarIcon,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-users"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+      </svg>
+    ),
     current: false,
   },
 ];
-const subNavigation = {
-  name: "Home",
-  href: "/dashboard",
-  icon: HomeIcon,
-  current: true,
-};
+
+const userNav = [
+  {
+    name: "Account",
+    href: "/dashboard/pescaterian",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-user"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+      </svg>
+    ),
+    current: false,
+  },
+  {
+    name: "Bookmarks",
+    href: "/dashboard/omnivore",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+        />
+      </svg>
+    ),
+    current: false,
+  },
+];
+
 const userNavigation = [
   { name: "Your Profile", href: "#" },
   { name: "Settings", href: "#" },
@@ -52,6 +152,7 @@ const userNavigation = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
@@ -123,10 +224,7 @@ const Dashboard = () => {
                         "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                       )}
                     >
-                      <item.icon
-                        className="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300"
-                        aria-hidden="true"
-                      />
+                      <div className="mr-3">{item.icon}</div>
                       {item.name}
                     </a>
                   ))}
@@ -142,10 +240,10 @@ const Dashboard = () => {
 
       {/* Static sidebar for desktop */}
       <div className="hidden side-nav-container md:flex md:flex-shrink-0 shadow-lg">
-        <div className="flex flex-col w-[16vw]">
+        <div className="flex flex-col min-w-[16vw] ">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex flex-col flex-grow pt-1 pb-4 overflow-y-auto">
-            <div className="border-b pb-8 border-[#FAD8D8]">
+            <div className="border-b pb-8">
               <div className="flex items-center flex-shrink-0 px-4 pt-6">
                 <img
                   className="h-[2.8rem] pl-4 w-auto"
@@ -153,8 +251,10 @@ const Dashboard = () => {
                   alt="Workflow"
                 />
               </div>
-              <div className="pl-9 imprima-font mt-2">
-                <p className="tracking-wider text-gray-500">Healthy meal, healthy life</p>
+              <div className="px-9 imprima-font mt-2">
+                <p className="tracking-wider text-gray-500">
+                  Healthy meal, healthy life
+                </p>
               </div>
               <div className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font">
                 Let's set you up
@@ -163,47 +263,43 @@ const Dashboard = () => {
             <div className="mt-5 flex-1 flex flex-col">
               <nav className="flex-1 px-7 space-y-1">
                 <div className="imprima-font">
-                  <h2 className="imprima-font capitalize text-sm text-gray-700 pb-2 px-3 mt-4 font-sans font-extralight">
+                  <h2 className="imprima-font capitalize text-sm text-gray-500 pb-2 px-3 mt-4 font-sans font-extralight">
                     Menu
                   </h2>
-                  {navigation.map((item) => (
+                  {navigation.map((item) => {
+                    return (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className={classNames(
+                          item.current
+                            ? " ring-0 text-[#F84605]"
+                            : "text-gray-500 hover:text-[#F84605]",
+                          "group flex items-center px-4 py-2 h-12 my-1 text-sm font-medium rounded-md"
+                        )}
+                      >
+                        <div className="mr-3">{item.icon}</div>
+                        {item.name}
+                      </a>
+                    );
+                  })}
+                </div>
+                <div className="imprima-font">
+                  <h2 className="imprima-font capitalize text-sm text-gray-500 pb-2 px-3 mt-8 font-sans font-extralight">
+                    Your Account
+                  </h2>
+                  {userNav.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
                       className={classNames(
                         item.current
-                          ? " ring-0  text-black"
-                          : "text-black hover:",
+                          ? " ring-0  text-gray-500"
+                          : "text-gray-500 hover:text-[#F84605]",
                         "group flex items-center px-4 py-2 h-12 my-1 text-sm font-medium rounded-md"
                       )}
                     >
-                      <item.icon
-                        className="mr-3 flex-shrink-0 h-6 w-6 text-gray-600"
-                        aria-hidden="true"
-                      />
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                <div className="imprima-font">
-                  <h2 className="imprima-font capitalize text-sm text-gray-700 pb-2 px-3 mt-4 font-sans font-extralight">
-                    Your Account
-                  </h2>
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? " ring-0  text-black"
-                          : "text-black hover:",
-                        "group flex items-center px-4 py-2 h-12 mt-4 my-1 text-sm font-medium rounded-md"
-                      )}
-                    >
-                      <item.icon
-                        className="mr-3 flex-shrink-0 h-6 w-6 text-gray-600"
-                        aria-hidden="true"
-                      />
+                      <div className="mr-3">{item.icon}</div>
                       {item.name}
                     </a>
                   ))}
@@ -279,13 +375,15 @@ const Dashboard = () => {
 
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
           <div className="py-6">
-            <div className=" mx-auto sm:px-6 md:px-8"></div>
-            <div className=" mx-auto sm:px-6 md:px-8">
-              {/* Replace with your content */}
-              adsda Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laboriosam dolorum dolorem beatae, provident recusandae autem
-              voluptas mollitia, itaque magni quam vero qui magnam ullam porro
-              optio suscipit perspiciatis incidunt pariatur!
+            <div className="mx-auto sm:px-6 md:px-12">
+              {/* content heading  */}
+              <div className="p-3 flex justify-between h-44 border-b ">
+                <div>
+                  <p className="imprima-font text-gray-500">Hello there,</p>
+                  <div className="abel-font text-5xl mt-4">Dashboard</div>
+                </div>
+                <div>search bar</div>
+              </div>
               <div className="py-4">
                 asdas
                 {/* <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" /> */}
