@@ -1,9 +1,12 @@
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import Logo from "Assets/Icons/Logo.svg";
 import { BellIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
+
+//lazy components
+const DiscoveryDashboardComponent = React.lazy(()=> import("./Discover Recipe"))
 
 const navigation = [
   {
@@ -29,7 +32,7 @@ const navigation = [
   },
   {
     name: "Discover Recipes",
-    href: "/dashboard/omnivore",
+    href: "/dashboard/discover",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -387,15 +390,10 @@ const Dashboard = () => {
               <div className="py-4">
                 asdas
                 {/* <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" /> */}
-                {/* <Routes>
-                    <Route path="/" element={<HomeCategory />} />
-                    <Route path="/pescaterian" element={<Pescaterian />} />
-                    <Route path="/omnivore" element={<Omnivore />} />
-                    <Route path="/vegetarian" element={<Vegetarian />} />
-                    <Route path="/Fruitarian" element={<Fruitarian />} />
-                    <Route path="/Paleo" element={<Paleo />} />
-                    <Route path="/vegan" element={<Vegan />} />
-                  </Routes> */}
+                <Routes>
+                    {/* <Route path="/" element={<HomeCategory />} /> */}
+                    <Route path="/discover" element={<DiscoveryDashboardComponent/>} />
+                  </Routes>
               </div>
               {/* /End replace */}
             </div>
