@@ -380,7 +380,7 @@ const Dashboard = () => {
           <div className="py-6">
             <div className="mx-auto sm:px-6 md:px-12">
               {/* content heading  */}
-              <div className="p-3 flex justify-between h-44 border-b ">
+              <div className="p-3 flex justify-between h-36 border-b ">
                 <div>
                   <p className="imprima-font text-gray-500">Hello there,</p>
                   <div className="abel-font text-5xl mt-4">Dashboard</div>
@@ -388,7 +388,6 @@ const Dashboard = () => {
                 <div>search bar</div>
               </div>
               <div className="py-4">
-                {/* <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" /> */}
                 <Routes>
                     {/* <Route path="/" element={<HomeCategory />} /> */}
                     <Route path="/discover" element={<DiscoveryDashboardComponent/>} />
