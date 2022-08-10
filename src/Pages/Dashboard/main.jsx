@@ -388,7 +388,6 @@ const Dashboard = () => {
                 <div>search bar</div>
               </div>
               <div className="py-4">
-                asdas
                 {/* <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" /> */}
                 <Routes>
                     {/* <Route path="/" element={<HomeCategory />} /> */}
