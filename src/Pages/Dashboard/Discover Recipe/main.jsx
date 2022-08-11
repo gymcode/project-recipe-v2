@@ -198,7 +198,7 @@ const DiscoveryDashboardComponent = () => {
           </div>
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-10">
         <div>
           <p className="imprima-font capitalize text-lg">
             Suggested recipes for you
