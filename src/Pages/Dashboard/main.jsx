@@ -6,7 +6,9 @@ import "./main.css";
 import { Routes, Route } from "react-router-dom";
 
 //lazy components
-const DiscoveryDashboardComponent = React.lazy(()=> import("./Discover Recipe"))
+const DiscoveryDashboardComponent = React.lazy(() =>
+  import("./Discover Recipe")
+);
 
 const navigation = [
   {
@@ -377,23 +379,25 @@ const Dashboard = () => {
         </div>
 
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
-          <div className="py-6">
-            <div className="mx-auto sm:px-6 md:px-12">
-              {/* content heading  */}
-              <div className="p-3 flex justify-between h-36 border-b ">
+          <div className="">
+            <div className="p-3 flex justify-between h-36 border-b bg-white fixed w-[100vw] px-12 z-10">
+              <div className="w-[79vw] flex justify-between">
                 <div>
                   <p className="imprima-font text-gray-500">Hello there,</p>
                   <div className="abel-font text-5xl mt-4">Dashboard</div>
                 </div>
-                <div>search bar</div>
+                <div className="xl:mr-20">search bar</div>
               </div>
+            </div>
+            <div className="mx-auto sm:px-6 md:px-12 relative top-36">
               <div className="py-4">
                 <Routes>
-                    {/* <Route path="/" element={<HomeCategory />} /> */}
-                    <Route path="/discover" element={<DiscoveryDashboardComponent/>} />
-                  </Routes>
+                  <Route
+                    path="/discover"
+                    element={<DiscoveryDashboardComponent />}
+                  />
+                </Routes>
               </div>
-              {/* /End replace */}
             </div>
           </div>
           <div></div>
