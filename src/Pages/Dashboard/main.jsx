@@ -160,6 +160,7 @@ function classNames(...classes) {
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [title, setTitle] = useState("Dashboard");
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100 ">
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -276,6 +277,7 @@ const Dashboard = () => {
                       <a
                         key={item.name}
                         href={item.href}
+                        onClick={() => setTitle(item.name)}
                         className={classNames(
                           item.current
                             ? " ring-0 text-[#F84605]"
@@ -380,11 +382,11 @@ const Dashboard = () => {
 
         <main className="flex-1 relative overflow-y-auto focus:outline-none">
           <div className="">
-            <div className="p-3 flex justify-between h-36 border-b bg-white fixed w-[100vw] px-12 z-10">
+            <div className="p-3 flex justify-between h-36 bg-white fixed w-[100vw] px-12 pt-9 z-10 dash_header">
               <div className="w-[79vw] flex justify-between">
                 <div>
                   <p className="imprima-font text-gray-500">Hello there,</p>
-                  <div className="abel-font text-5xl mt-4">Dashboard</div>
+                  <div className="abel-font text-5xl mt-4">{title}</div>
                 </div>
                 <div className="xl:mr-20">search bar</div>
               </div>

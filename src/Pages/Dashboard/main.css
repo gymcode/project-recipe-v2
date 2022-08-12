@@ -3,3 +3,7 @@
     backdrop-filter: blur(50px);
 }
 
+.dash_header{
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.568) 0%, rgba(255, 255, 255, 0.815)70%);
+    backdrop-filter: blur(80px);
+}

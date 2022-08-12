@@ -87,7 +87,7 @@ const DiscoveryDashboardComponent = () => {
             </svg>
             <p className="text-white imprima-font py-3">Omnivore Category</p>
           </div>
-          <div className="rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4">
+          <div className="category_card">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-fish"
@@ -106,9 +106,9 @@ const DiscoveryDashboardComponent = () => {
               <path d="M18 11v.01"></path>
               <path d="M11.5 10.5c-.667 1 -.667 2 0 3"></path>
             </svg>
-            <p className="text-[#777777] imprima-font py-3">Pescatarian Category</p>
+            <p className="imprima-font py-3">Pescatarian Category</p>
           </div>
-          <div className="rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4">
+          <div className="category_card">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-apple"
@@ -126,9 +126,9 @@ const DiscoveryDashboardComponent = () => {
               <path d="M12 11v-6a2 2 0 0 1 2 -2h2v1a2 2 0 0 1 -2 2h-2"></path>
               <path d="M10 10.5c1.333 .667 2.667 .667 4 0"></path>
             </svg>
-            <p className="text-[#777777] imprima-font py-3">Fruitarian Category</p>
+            <p className="imprima-font py-3">Fruitarian Category</p>
           </div>
-          <div className="rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4">
+          <div className="category_card">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-meat"
@@ -153,9 +153,9 @@ const DiscoveryDashboardComponent = () => {
               <path d="M7.5 16l1 1"></path>
               <path d="M12.975 21.425c3.905 -3.906 4.855 -9.288 2.121 -12.021c-2.733 -2.734 -8.115 -1.784 -12.02 2.121"></path>
             </svg>
-            <p className="text-[#777777] imprima-font py-3">Paleo Category</p>
+            <p className="imprima-font py-3">Paleo Category</p>
           </div>
-          <div className="rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4">
+          <div className="category_card">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-carrot"
@@ -175,9 +175,9 @@ const DiscoveryDashboardComponent = () => {
               <path d="M22 8s-1.14 -2 -3 -2c-1.406 0 -3 2 -3 2s1.14 2 3 2s3 -2 3 -2z"></path>
               <path d="M16 2s-2 1.14 -2 3s2 3 2 3s2 -1.577 2 -3c0 -1.86 -2 -3 -2 -3z"></path>
             </svg>
-            <p className="text-[#777777] imprima-font py-3">Vegetarian Category</p>
+            <p className="imprima-font py-3">Vegetarian Category</p>
           </div>
-          <div className="rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4">
+          <div className="category_card">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="icon icon-tabler icon-tabler-leaf"
@@ -194,7 +194,7 @@ const DiscoveryDashboardComponent = () => {
               <path d="M5 21c.5 -4.5 2.5 -8 7 -10"></path>
               <path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z"></path>
             </svg>
-            <p className="text-[#777777] imprima-font py-3">Vegan Category</p>
+            <p className="imprima-font py-3">Vegan Category</p>
           </div>
         </div>
       </div>
