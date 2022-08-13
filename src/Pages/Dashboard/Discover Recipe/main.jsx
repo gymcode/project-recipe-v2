@@ -12,7 +12,7 @@ const recipeCategory = [
     id: 2,
     title: "Mashed potatoes breakfast hash",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod",
   },
   {
     id: 3,

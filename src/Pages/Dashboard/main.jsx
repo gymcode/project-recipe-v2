@@ -261,7 +261,7 @@ const Dashboard = () => {
               </Link>
               <div className="px-9 imprima-font mt-2">
                 <p className="tracking-wider text-gray-500">
-                  Healthy meal, healthy life
+                  Healthy meal, healthy life...
                 </p>
               </div>
               <div className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font">
@@ -411,7 +411,7 @@ const Dashboard = () => {
                     <input
                       type="text"
                       className="w-full h-8 outline-0 text-gray-400 bg-transparent"
-                      placeholder="search for recipe..."
+                      placeholder="search for recipes..."
                     />
                   </div>
                 </div>
