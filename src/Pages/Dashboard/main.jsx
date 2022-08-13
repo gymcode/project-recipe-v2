@@ -3,7 +3,7 @@ import { Dialog, Menu, Transition } from "@headlessui/react";
 import Logo from "Assets/Icons/Logo.svg";
 import { BellIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
 import "./main.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 //lazy components
 const DiscoveryDashboardComponent = React.lazy(() =>
@@ -250,13 +250,15 @@ const Dashboard = () => {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex flex-col flex-grow pt-1 pb-4 overflow-y-auto">
             <div className="border-b pb-8">
-              <div className="flex items-center flex-shrink-0 px-4 pt-6">
-                <img
-                  className="h-[2.8rem] pl-4 w-auto"
-                  src={Logo}
-                  alt="Workflow"
-                />
-              </div>
+              <Link to={"/"}>
+                <div className="flex items-center flex-shrink-0 px-4 pt-6">
+                  <img
+                    className="h-[2.8rem] pl-4 w-auto"
+                    src={Logo}
+                    alt="Workflow"
+                  />
+                </div>
+              </Link>
               <div className="px-9 imprima-font mt-2">
                 <p className="tracking-wider text-gray-500">
                   Healthy meal, healthy life
@@ -396,7 +398,7 @@ const Dashboard = () => {
                 <Routes>
                   <Route
                     path="/discover"
-                    element={<DiscoveryDashboardComponent  />}
+                    element={<DiscoveryDashboardComponent />}
                   />
                 </Routes>
               </div>

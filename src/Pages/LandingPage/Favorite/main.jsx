@@ -2,6 +2,7 @@ import "./main.css";
 import "@splidejs/splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const CardDetails = [
   {
@@ -48,32 +49,14 @@ const FavoriteComponent = () => {
       id="favorite_section"
     >
       <div>
-        <h2
-          data-aos="fade-up"
-          data-aos-offset="600"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="500"
-          className="kreon-font text-2xl lg:text-3xl xl:text-3xl text-white"
-        >
+        <h2 className="kreon-font text-2xl lg:text-3xl xl:text-3xl text-white">
           Favorite Meals
         </h2>
-        <h3
-          data-aos="fade-up"
-          data-aos-offset="600"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="700"
-          className="abel-font text-4xl lg:text-6xl xl:text-6xl mt-6 text-white"
-        >
+        <h3 className="abel-font text-4xl lg:text-6xl xl:text-6xl mt-6 text-white">
           Enjoy <span className="text-[#F84605]"> preparing</span> the best
           recipes
         </h3>
-        <div
-          data-aos="fade-up"
-          data-aos-offset="600"
-          data-aos-easing="ease-in-sine"
-          data-aos-duration="900"
-          className="imprima-font text-white mt-5"
-        >
+        <div className="imprima-font text-white mt-5">
           Always take care of your health starting from the food menu that you
           consume everyday
         </div>
@@ -85,7 +68,7 @@ const FavoriteComponent = () => {
             pagination: false,
             width: "82vw",
             fixedWidth: "18rem",
-            arrows: false,
+            arrows: true,
             gap: "2rem",
             breakpoints: {
               1020: {
@@ -99,14 +82,7 @@ const FavoriteComponent = () => {
           {CardDetails.map((item) => (
             <>
               <SplideSlide>
-                <div
-                  data-aos="zoom-in-up"
-                  data-aos-offset="300"
-                  data-aos-easing="ease-in-sine"
-                  data-aos-duration={item.duration}
-                  data-aos-delay = "500"
-                  className="h-[40vh] w-full favorite_card rounded-xl grid grid-rows-4"
-                >
+                <div className="h-[40vh] w-full favorite_card rounded-xl grid grid-rows-4">
                   <div className="row-span-3 flex justify-center items-center">
                     <div
                       className="h-[24vh] w-[24vh] bg-cover bg-center rounded-full shadow-xl"
@@ -125,11 +101,18 @@ const FavoriteComponent = () => {
         </Splide>
       </div>
       <Link to={"/dashboard"}>
-      <div className="w-full mt-10 lg:mt-20 md:mt-20 xl:mt-20 flex justify-center items-center">
-        <div className="abel-font h-16 w-52 bg-[#F84605] text-white text-lg flex justify-center items-center">
-          Explore more...
-        </div>
-      </div>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{
+            scale: 0.9,
+            borderRadius: "2%",
+          }}
+          className="w-full mt-10 lg:mt-20 md:mt-20 xl:mt-20 flex justify-center items-center"
+        >
+          <div className="abel-font h-16 w-52 bg-[#F84605] text-white text-lg flex justify-center items-center">
+            Explore more...
+          </div>
+        </motion.div>
       </Link>
     </main>
   );

@@ -212,7 +212,7 @@ const DiscoveryDashboardComponent = () => {
         </div>
         <div className="grid grid-cols-4 gap-12 mt-10">
           {recipeCategory.map((data) => (
-            <div className="h-[40vh] hover:shadow-lg rounded-lg hover:shadow-[#ffdfd3]">
+            <div className="h-[40vh] hover:shadow-lg rounded-lg hover:border hover:border-gray-100 hover:shadow-[#ffdfd3]">
               <div
                 className="h-40 w-full rounded-lg bg-cover bg-center"
                 style={{

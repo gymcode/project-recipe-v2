@@ -248,7 +248,12 @@ const FooterComponent = () => {
           </div>
           <div className="col-span-2 flex justify-between">
             <div className="flex justify-center">
-              <div className="h-7 w-7 bg-red-300 mr-3 rounded-full" />
+              <div
+                className="h-7 w-7 mr-3 rounded-full bg-cover bg-center"
+                style={{
+                  backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/dan-gold-5O1ddenSM4g-unsplash_D_2iyTfp6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658351062924")`,
+                }}
+              />
               <p className="mt-1">by kenneth lartey abrahams</p>
             </div>
             <div>
@@ -304,7 +309,12 @@ const FooterComponent = () => {
         </div>
         <div className="flex justify-between text-sm mt-10 imprima-font text-[#FFA1A1]">
           <div className="flex justify-center">
-            <div className="h-7 w-7 bg-red-300 mr-3 rounded-full" />
+            <div
+              className="h-7 w-7 mr-3 rounded-full bg-cover bg-center"
+              style={{
+                backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/dan-gold-5O1ddenSM4g-unsplash_D_2iyTfp6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658351062924")`,
+              }}
+            />
             <p className="mt-1">by kenneth lartey abrahams</p>
           </div>
           <div>

@@ -5,6 +5,7 @@ import {
   CALORIC_BREAKDOWN,
 } from "Components";
 import "./main.css";
+import {useNavigate} from 'react-router-dom'
 import { motion } from "framer-motion";
 
 const RecipeInformationComponent = ({
@@ -18,17 +19,18 @@ const RecipeInformationComponent = ({
   instructions,
   recipe_summary,
 }) => {
+  const navigation = useNavigate()
   return (
     <main className="recipe-info-body py-10 xl:py-16 px-6 lg:px-10 xl:px-32">
       {/* navigation   */}
-      <div className="flex justify-between items-center">
-        <div>
+      <div className="flex justify-between items-center cursor-pointer">
+        <motion.div whileHover={{ scale: 1.25 }} whileTap={{scale: 0.9}} onClick={()=>navigation(-1)} >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
+            stroke="#F84605"
             strokeWidth={2}
           >
             <path
@@ -37,7 +39,7 @@ const RecipeInformationComponent = ({
               d="M7 16l-4-4m0 0l4-4m-4 4h18"
             />
           </svg>
-        </div>
+        </motion.div>
         <div className="kreon-font text-lg xl:text-xl">
           <span className="text-[#F84605]">Recipe</span> Information
         </div>
@@ -141,7 +143,7 @@ const RecipeInformationComponent = ({
             </div>
           </div>
           <motion.div
-            whileHover={{ scale: 1.2, }}
+            whileHover={{ scale: 1.16 }}
             className="col-span-4 bg-center bg-cover rounded-lg h-[20vh] xl:h-full lg:h-full md:h-full"
             style={{
               backgroundImage: `url(${recipe_image})`,
@@ -206,9 +208,7 @@ const RecipeInformationComponent = ({
               <p className="kreon-font px-2 text-xl">Recipe Summary</p>
             </div>
             <i className="imprima-font text-[#818181] text-justify">
-              <div
-                dangerouslySetInnerHTML={recipe_summary}
-              />
+              <div dangerouslySetInnerHTML={recipe_summary} />
             </i>
           </div>
         </div>
@@ -217,4 +217,4 @@ const RecipeInformationComponent = ({
   );
 };
 
-export default RecipeInformationComponent
+export default RecipeInformationComponent;
