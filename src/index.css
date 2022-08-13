@@ -4,7 +4,7 @@
 
 @layer components {
   .category_card{
-      @apply text-[#777777] rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4 hover:border-none hover:bg-[#F84605] cursor-pointer hover:text-white
+      @apply text-[#777777] rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4 hover:border-none hover:bg-[#F84605] cursor-pointer hover:text-white;
   }
 }
 

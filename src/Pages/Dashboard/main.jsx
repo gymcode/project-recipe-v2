@@ -3,7 +3,7 @@ import { Dialog, Menu, Transition } from "@headlessui/react";
 import Logo from "Assets/Icons/Logo.svg";
 import { BellIcon, MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
 import "./main.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, NavLink } from "react-router-dom";
 
 //lazy components
 const DiscoveryDashboardComponent = React.lazy(() =>
@@ -12,6 +12,7 @@ const DiscoveryDashboardComponent = React.lazy(() =>
 
 const navigation = [
   {
+    id: 1,
     name: "Dashboard",
     href: "/dashboard/pescaterian",
     icon: (
@@ -33,6 +34,7 @@ const navigation = [
     current: true,
   },
   {
+    id: 2,
     name: "Discover Recipes",
     href: "/dashboard/discover",
     icon: (
@@ -54,8 +56,9 @@ const navigation = [
     current: false,
   },
   {
+    id: 3,
     name: "My Recipes",
-    href: "/dashboard/vegetarian",
+    href: "/dashboard/my-recipes",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -75,8 +78,9 @@ const navigation = [
     current: false,
   },
   {
+    id: 4,
     name: "Visited Users",
-    href: "/dashboard/fruitarian",
+    href: "/dashboard/users",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +108,7 @@ const navigation = [
 const userNav = [
   {
     name: "Account",
-    href: "/dashboard/pescaterian",
+    href: "/dashboard/user-account",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +131,7 @@ const userNav = [
   },
   {
     name: "Bookmarks",
-    href: "/dashboard/omnivore",
+    href: "/dashboard/bookmarks",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -161,6 +165,16 @@ function classNames(...classes) {
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [title, setTitle] = useState("Dashboard");
+  const [active, setActive] = useState({
+    id: 1,
+    name: "Dashboard",
+  });
+
+  console.log(active);
+
+  function toogleNavLinks(item) {
+    setActive({ id: item.id, name: item.name });
+  }
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100 ">
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -276,20 +290,19 @@ const Dashboard = () => {
                   </h2>
                   {navigation.map((item) => {
                     return (
-                      <a
+                      <NavLink
+                        to={item.href}
                         key={item.name}
-                        href={item.href}
                         onClick={() => setTitle(item.name)}
-                        className={classNames(
-                          item.current
-                            ? " ring-0 text-[#F84605]"
-                            : "text-gray-500 hover:text-[#F84605]",
-                          "group flex items-center px-4 py-2 h-12 my-1 text-sm font-medium rounded-md"
-                        )}
+                        className={({ isActive }) =>
+                          isActive
+                            ? "text-[#F84605] group flex items-center px-4 py-2 h-12 my-1 text-sm font-medium rounded-md"
+                            : "text-gray-500 hover:text-[#F84605] group flex items-center px-4 py-2 h-12 my-1 text-sm font-medium rounded-md"
+                        }
                       >
                         <div className="mr-3">{item.icon}</div>
                         {item.name}
-                      </a>
+                      </NavLink>
                     );
                   })}
                 </div>
@@ -419,12 +432,14 @@ const Dashboard = () => {
             </div>
             <div className="mx-auto sm:px-6 md:px-12 relative top-36">
               <div className="py-4">
-                <Routes>
-                  <Route
-                    path="/discover"
-                    element={<DiscoveryDashboardComponent />}
-                  />
-                </Routes>
+                <React.Suspense fallback={"hello"}>
+                  <Routes>
+                    <Route
+                      path="/discover"
+                      element={<DiscoveryDashboardComponent />}
+                    />
+                  </Routes>
+                </React.Suspense>
               </div>
             </div>
           </div>

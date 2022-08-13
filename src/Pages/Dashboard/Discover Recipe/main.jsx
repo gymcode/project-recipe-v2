@@ -52,7 +52,7 @@ const DiscoveryDashboardComponent = () => {
             </svg>
           </div>
           <div className="tracking-widest text-[#4A4A4A]">
-            You have <span className="text-[#F84605]">0</span> new recipes in your bookmark
+            You have <span className="text-[#F84605]">no</span> new recipes in your bookmark
           </div>
           <div className="imprima-font text-sm underline text-[#F84605]">
             See Bookmarks
