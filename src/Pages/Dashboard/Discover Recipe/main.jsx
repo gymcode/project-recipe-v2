@@ -52,7 +52,7 @@ const DiscoveryDashboardComponent = () => {
             </svg>
           </div>
           <div className="tracking-widest text-[#4A4A4A]">
-            You have 3 new recipes in your bookmark
+            You have <span className="text-[#F84605]">0</span> new recipes in your bookmark
           </div>
           <div className="imprima-font text-sm underline text-[#F84605]">
             See Bookmarks
@@ -212,7 +212,7 @@ const DiscoveryDashboardComponent = () => {
         </div>
         <div className="grid grid-cols-4 gap-12 mt-10">
           {recipeCategory.map((data) => (
-            <div className="h-[40vh] hover:shadow-lg rounded-lg hover:border hover:border-gray-100 hover:shadow-[#ffdfd3]">
+            <div className="h-[40vh] hover:shadow-lg rounded-lg hover:border hover:border-gray-200 hover:shadow-[#ffdfd3]">
               <div
                 className="h-40 w-full rounded-lg bg-cover bg-center"
                 style={{

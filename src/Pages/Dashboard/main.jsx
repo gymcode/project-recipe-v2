@@ -391,7 +391,7 @@ const Dashboard = () => {
                   <div className="abel-font text-5xl mt-4">{title}</div>
                 </div>
                 <div className="w-[25vw] h-[86%] items-end flex">
-                  <div className="flex w-full border items-center px-3">
+                  <div className="flex w-full border items-center px-3 rounded-md">
                     <div className="px-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -410,7 +410,7 @@ const Dashboard = () => {
                     </div>
                     <input
                       type="text"
-                      className="w-full h-8 outline-0 text-gray-400"
+                      className="w-full h-8 outline-0 text-gray-400 bg-transparent"
                       placeholder="search for recipe..."
                     />
                   </div>
