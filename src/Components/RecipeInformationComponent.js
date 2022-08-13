@@ -141,7 +141,7 @@ const RecipeInformationComponent = ({
             </div>
           </div>
           <motion.div
-            whileHover={{ scale: 1.04, }}
+            whileHover={{ scale: 1.2, }}
             className="col-span-4 bg-center bg-cover rounded-lg h-[20vh] xl:h-full lg:h-full md:h-full"
             style={{
               backgroundImage: `url(${recipe_image})`,

@@ -396,7 +396,7 @@ const Dashboard = () => {
                 <Routes>
                   <Route
                     path="/discover"
-                    element={<DiscoveryDashboardComponent />}
+                    element={<DiscoveryDashboardComponent  />}
                   />
                 </Routes>
               </div>

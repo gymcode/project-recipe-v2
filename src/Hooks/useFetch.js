@@ -11,23 +11,30 @@ function useFetch(url, defaultResponse, recipeString, isStorage) {
   );
 
   useEffect(() => {
+    const controller = new AbortController()
+    const signal = controller.signal
+
     if (isStorage === true) {
       // checking if there's data in local storage
       const localStorageCheck = localStorage.getItem(recipeString);
       if (JSON.parse(localStorageCheck)) {
         setData({ isLoading: false, data: JSON.parse(localStorageCheck) });
       } else{
-        getDataFromApi()
+        getDataFromApi(signal)
       }
     }else{
-        getDataFromApi()
+        getDataFromApi(signal)
     }
     
+    return ()=>{
+      console.log("memory leak removal")
+      controller.abort()
+    } 
   }, []);
 
-  async function getDataFromApi() {
+  async function getDataFromApi({signal}) {
     try {
-      const api = await fetch(url);
+      const api = await fetch(url,signal);
       console.log(
         `url request sent for fetch:: ${url} - response from fetch:: ${api}`
       );

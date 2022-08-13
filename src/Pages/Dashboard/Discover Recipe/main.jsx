@@ -1,3 +1,4 @@
+import React from "react"
 import "./main.css";
 
 const recipeCategory = [
@@ -28,6 +29,7 @@ const recipeCategory = [
 ];
 
 const DiscoveryDashboardComponent = () => {
+  const [tab, setTab] = React.useState("Discover Recipe")
   return (
     <main>
       <div className="grid grid-cols-12 gap-7 min-h-[24vh] mt-4">
