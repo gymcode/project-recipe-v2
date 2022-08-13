@@ -390,7 +390,31 @@ const Dashboard = () => {
                   <p className="imprima-font text-gray-500">Hello there,</p>
                   <div className="abel-font text-5xl mt-4">{title}</div>
                 </div>
-                <div className="xl:mr-20">search bar</div>
+                <div className="w-[25vw] h-[86%] items-end flex">
+                  <div className="flex w-full border items-center px-3">
+                    <div className="px-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="#777777"
+                        strokeWidth={1.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      className="w-full h-8 outline-0 text-gray-400"
+                      placeholder="search for recipe..."
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="mx-auto sm:px-6 md:px-12 relative top-36">
