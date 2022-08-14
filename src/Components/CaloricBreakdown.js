@@ -1,4 +1,4 @@
-const CaloricBreakdown = ({proteinPercentage, fatPercentage, carbPercentage}) => {
+const CaloricBreakdownComponent = ({proteinPercentage, fatPercentage, carbPercentage}) => {
   return (
     <div className="grid grid-cols-3 gap-4 h-20 mb-5 mt-2">
       <div className="bg-[#DCFFD3] rounded p-2 xl:pl-4">
@@ -17,4 +17,4 @@ const CaloricBreakdown = ({proteinPercentage, fatPercentage, carbPercentage}) =>
   );
 };
 
-export default CaloricBreakdown;
+export default CaloricBreakdownComponent;

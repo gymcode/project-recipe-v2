@@ -5,13 +5,7 @@ import { motion } from "framer-motion";
 import Logo from "Assets/Icons/Logo.svg";
 import { Link } from "react-scroll";
 
-const navigation = [
-  { name: "Home", href: "#", current: true, delay: 0 },
-  { name: "About", href: "about_section", current: false, delay: 0.2 },
-  { name: "Favorite", href: "favorite_section", current: false, delay: 0.4 },
-  { name: "Gallery", href: "gallery_section", current: false, delay: 0.8 },
-  // { name: "Contact", href: "footer_section", current: false, delay: 0.6 },
-];
+import {LandingPageNavLinks} from "Helpers/NavLinks"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -57,7 +51,7 @@ const Navbar = () => {
                 </motion.div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4 md:ml-48 lg:ml-72 mt-3">
-                    {navigation.map((item) => (
+                    {LandingPageNavLinks.map((item) => (
                       <Link to={item.href} smooth>
                         <motion.div
                           initial={{ x: 50, opacity: 0 }}
@@ -142,7 +136,7 @@ const Navbar = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-5 space-y-1">
-              {navigation.map((item) => (
+              {LandingPageNavLinks.map((item) => (
                 <Link to={item.href} smooth>
                   <div
                     key={item.name}
