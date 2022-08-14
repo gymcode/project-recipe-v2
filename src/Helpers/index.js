@@ -3,4 +3,6 @@ export {
   LandingPageNavLinks,
   DashboardAccountNavLinks,
   DashboardSideNavLinks,
+  FooterNavLinks,
+  FooterSocialLinks,
 } from "./NavLinks";
