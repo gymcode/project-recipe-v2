@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NAVIGATION_BAR, MAIN_SIDE_NAV } from "Components";
+import { NAVIGATION_BAR, MAIN_SIDE_NAV, LOADER } from "Components";
 import "./main.css";
 import { Link as RouterLink } from "react-router-dom";
 import { Link } from "react-scroll";
@@ -36,7 +36,7 @@ const LandingPageComponent = () => {
   };
 
   return (
-    <React.Suspense fallback={"hello"}>
+    <React.Suspense fallback={<LOADER/>}>
       <body className="lg:relative">
         <div className="landing_page_body" id="home_section">
           <header>

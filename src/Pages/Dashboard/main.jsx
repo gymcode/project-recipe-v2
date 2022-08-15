@@ -3,7 +3,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuAlt2Icon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
-import { DASHBOARD_SIDE_NAV } from "Components";
+import { DASHBOARD_SIDE_NAV, LOADER } from "Components";
 
 //lazy components
 const DiscoveryDashboardComponent = React.lazy(() =>
@@ -97,7 +97,7 @@ const Dashboard = () => {
             </div>
             <div className="mx-auto sm:px-6 md:px-12 relative">
               <div className="py-4">
-                <React.Suspense fallback={"hello"}>
+                <React.Suspense fallback={<LOADER/>}>
                   <Routes>
                     <Route
                       path="/discover"

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFetch } from "Hooks";
-import { RECIPE_INFO_COMPONENT } from "Components";
+import { RECIPE_INFO_COMPONENT, LOADER } from "Components";
 import Endpoints from "Services/endpoints";
 
 const RecipeInformationPage = () => {
@@ -15,7 +15,9 @@ const RecipeInformationPage = () => {
   return (
     <>
       {data.loading ? (
-        <>loading</>
+        <>
+          <LOADER />
+        </>
       ) : (
         <>
           <RECIPE_INFO_COMPONENT
