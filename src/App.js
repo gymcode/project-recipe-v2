@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import "./App.css";
 import RouteComponent from "./Routes";
 import { Routes, Route } from "react-router-dom";
