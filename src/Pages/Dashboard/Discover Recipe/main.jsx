@@ -31,10 +31,10 @@ const recipeCategory = [
 const DiscoveryDashboardComponent = () => {
   const [tab, setTab] = React.useState("Discover Recipe")
   return (
-    <main>
+    <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0">
       <div className="grid grid-cols-12 gap-7 min-h-[24vh] mt-4">
-        <div className="card col-span-10 hidden xl:block lg:block md:block rounded-lg"/>
-        <div className="col-span-2 bg-[#f8e6e6] rounded-lg flex flex-col p-5 justify-between">
+        <div className="card col-span-10 hidden xl:block rounded-lg" />
+        <div className="col-span-2 w-[90vw] xl:w-full lg:w-full md:w-full bg-[#f8e6e6] rounded-lg flex flex-col p-5 justify-between">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const DiscoveryDashboardComponent = () => {
               />
             </svg>
           </div>
-          <div className="tracking-widest text-[#4A4A4A]">
+          <div className="tracking-widest text-xl md:text-base text-[#4A4A4A]">
             You have <span className="text-[#F84605]">no</span> new recipes in your bookmark
           </div>
           <div className="imprima-font text-sm underline text-[#F84605]">

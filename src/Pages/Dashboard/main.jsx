@@ -95,7 +95,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="mx-auto sm:px-6 md:px-12 relative top-36">
+            <div className="mx-auto sm:px-6 md:px-12 relative">
               <div className="py-4">
                 <React.Suspense fallback={"hello"}>
                   <Routes>
