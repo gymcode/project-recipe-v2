@@ -15,7 +15,8 @@ import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
 
 // sentry configuration
-process.env.NODE_ENV === "production" &&
+process.env.NODE_ENV === "production" &&  
+  process.env.REACT_APP_ENABLE_SENTRY === true &&
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_ROUTE,
     integrations: [
