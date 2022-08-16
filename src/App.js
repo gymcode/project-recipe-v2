@@ -3,6 +3,10 @@ import "./App.css";
 import RouteComponent from "./Routes";
 import { Routes, Route } from "react-router-dom";
 import AOS from "aos";
+import * as Sentry from "@sentry/react";
+
+
+const SentryRoutes = Sentry.withSentryReactRouterV6Routing(Routes)
 
 function App() {
   useEffect(() => {
@@ -11,13 +15,13 @@ function App() {
 
   return (
     <>
-      <Routes>
+      <SentryRoutes>
         {RouteComponent.map((data) => (
           <Route path={data.path} element={data.element} />
         ))}
-      </Routes>
+      </SentryRoutes>
     </>
   );
 }
 
-export default App;
+export default Sentry.withProfiler(App);

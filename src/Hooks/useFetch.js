@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import * as Sentry from "@sentry/react";
 
 function useFetch(url, defaultResponse, recipeString, isStorage) {
   const [data, setData] = useState(defaultResponse);
@@ -49,6 +50,7 @@ function useFetch(url, defaultResponse, recipeString, isStorage) {
       }
       setTimeout(setData({ isLoading: false, data: apiResponse }), 10000);
     } catch (error) {
+      Sentry.captureException(error);
       console.error(`Unfortunately an error occured ${error}`);
     }
   }
