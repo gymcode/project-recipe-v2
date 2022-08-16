@@ -3,12 +3,10 @@ import "./App.css";
 import RouteComponent from "./Routes";
 import { Routes, Route } from "react-router-dom";
 import AOS from "aos";
-import Tilt from "vanilla-tilt";
 
 function App() {
   useEffect(() => {
     AOS.init();
-    Tilt.init();
   }, []);
 
   return (
