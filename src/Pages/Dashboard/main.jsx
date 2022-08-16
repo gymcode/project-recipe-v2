@@ -1,6 +1,5 @@
-import React, { Fragment, useState } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuAlt2Icon } from "@heroicons/react/outline";
+import React, {useState } from "react";
+import { MenuAlt2Icon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
 import { DASHBOARD_SIDE_NAV, LOADER } from "Components";

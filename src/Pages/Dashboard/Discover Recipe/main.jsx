@@ -29,7 +29,6 @@ const recipeCategory = [
 ];
 
 const DiscoveryDashboardComponent = () => {
-  const [tab, setTab] = React.useState("Discover Recipe")
   return (
     <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0">
       <div className="grid grid-cols-12 gap-7 min-h-[24vh] mt-4">

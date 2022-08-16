@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 import Logo from "Assets/Icons/Logo.svg";
 import { XIcon } from "@heroicons/react/outline";
 import "../main.css";
