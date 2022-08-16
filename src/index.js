@@ -17,7 +17,7 @@ import { BrowserTracing } from "@sentry/tracing";
 // sentry configuration
 process.env.NODE_ENV === "production" &&
   Sentry.init({
-    dsn: "https://a0434fcb5bd24947afc46136ca61c1d1@o1363661.ingest.sentry.io/6656646",
+    dsn: process.env.REACT_APP_SENTRY_ROUTE,
     integrations: [
       new BrowserTracing({
         routingInstrumentation: Sentry.reactRouterV6Instrumentation(
