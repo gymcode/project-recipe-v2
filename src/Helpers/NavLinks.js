@@ -123,7 +123,7 @@ const DashboardSideNavLinks = [
   {
     id: 1,
     name: "Dashboard",
-    href: "/dashboard/pescaterian",
+    href: "/dashboard/",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

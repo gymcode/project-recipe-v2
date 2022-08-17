@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import { DASHBOARD_SIDE_NAV, LOADER } from "Components";
 
 //lazy components
+const MainDashboardComponent = React.lazy(() => import("./MainDashboard"));
 const DiscoveryDashboardComponent = React.lazy(() =>
   import("./Discover Recipe")
 );
@@ -103,6 +104,7 @@ const Dashboard = () => {
               <div className="py-4">
                 <React.Suspense fallback={<LOADER />}>
                   <Routes>
+                    <Route path="/" element={<MainDashboardComponent/>}/>
                     <Route
                       path="/discover"
                       element={<DiscoveryDashboardComponent />}
