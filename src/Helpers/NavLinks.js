@@ -166,6 +166,36 @@ const DashboardSideNavLinks = [
   },
   {
     id: 3,
+    name: "Random Recipes",
+    href: "/dashboard/users",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-arrows-random"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M20 21.004h-4v-4"></path>
+        <path d="M16 21.004l5 -5"></path>
+        <path d="M6.5 9.504l-3.5 -2l2 -3.504"></path>
+        <path d="M3 7.504l6.83 -1.87"></path>
+        <path d="M4 16.004l4 -1l1 4"></path>
+        <path d="M8 15.004l-3.5 6"></path>
+        <path d="M21 5.004l-.5 4l-4 -.5"></path>
+        <path d="M20.5 9.004l-4.5 -5.5"></path>
+      </svg>
+    ),
+    current: false,
+  },
+  {
+    id: 4,
     name: "My Recipes",
     href: "/dashboard/my-recipes",
     icon: (
@@ -182,32 +212,6 @@ const DashboardSideNavLinks = [
           strokeLinejoin="round"
           d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
         />
-      </svg>
-    ),
-    current: false,
-  },
-  {
-    id: 4,
-    name: "Visited Users",
-    href: "/dashboard/users",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-users"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="9" cy="7" r="4"></circle>
-        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
       </svg>
     ),
     current: false,

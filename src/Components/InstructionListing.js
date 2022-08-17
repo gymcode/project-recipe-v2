@@ -4,7 +4,7 @@ const InstructionListing = ({ itemArr }) => {
   return (
     <>
       {itemArr.map((item, index) => {
-        const bool = index == itemArr.length - 1;
+        const bool = index === itemArr.length - 1;
         return (
           <>
             <div className="grid grid-cols-12">
