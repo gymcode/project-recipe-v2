@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { MenuAlt2Icon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
@@ -8,6 +8,9 @@ import { DASHBOARD_SIDE_NAV, LOADER } from "Components";
 const DiscoveryDashboardComponent = React.lazy(() =>
   import("./Discover Recipe")
 );
+const RandomRecipeComponent = React.lazy(() => import("./Random Recipe"));
+const MyRecipeComponent = React.lazy(() => import("./My Recipe"));
+const AccountComponent = React.lazy(() => import("./Account"));
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -65,7 +68,9 @@ const Dashboard = () => {
               <div className="w-[79vw] flex justify-between">
                 <div>
                   <p className="imprima-font text-gray-500">Hello there,</p>
-                  <div className="abel-font text-4xl xl:text-5xl lg:text-5xl mt-4">{title}</div>
+                  <div className="abel-font text-4xl xl:text-5xl lg:text-5xl mt-4">
+                    {title}
+                  </div>
                 </div>
                 <div className="w-[25vw] h-[86%] items-end xl:flex lg:flex md:flex hidden">
                   <div className="flex w-full border items-center px-3 rounded-md">
@@ -96,12 +101,15 @@ const Dashboard = () => {
             </div>
             <div className="mx-auto sm:px-6 md:px-12 relative">
               <div className="py-4">
-                <React.Suspense fallback={<LOADER/>}>
+                <React.Suspense fallback={<LOADER />}>
                   <Routes>
                     <Route
                       path="/discover"
                       element={<DiscoveryDashboardComponent />}
                     />
+                    <Route path="/random" element={<RandomRecipeComponent />} />
+                    <Route path="/account" element={<AccountComponent />} />
+                    <Route path="/my-recipe" element={<MyRecipeComponent />} />
                   </Routes>
                 </React.Suspense>
               </div>

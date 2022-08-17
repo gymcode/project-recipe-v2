@@ -167,7 +167,7 @@ const DashboardSideNavLinks = [
   {
     id: 3,
     name: "Random Recipes",
-    href: "/dashboard/users",
+    href: "/dashboard/random",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +197,7 @@ const DashboardSideNavLinks = [
   {
     id: 4,
     name: "My Recipes",
-    href: "/dashboard/my-recipes",
+    href: "/dashboard/my-recipe",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +221,7 @@ const DashboardSideNavLinks = [
 const DashboardAccountNavLinks = [
   {
     name: "Account",
-    href: "/dashboard/user-account",
+    href: "/dashboard/account",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
