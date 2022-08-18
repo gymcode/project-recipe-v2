@@ -9,5 +9,5 @@ export {default as RECIPE_INFO_COMPONENT} from "./RecipeInformationComponent"
 
 export {default as LOADER} from "./LoadingComponent"
 
-export {}
+export {default as RECIPE_CARD} from "./recipeCard"
 
