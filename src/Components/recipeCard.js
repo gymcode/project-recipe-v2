@@ -9,7 +9,7 @@ const RecipeCard = ({data}) => {
           }}
         />
         <div className="flex flex-col justify-between">
-          <div className="p-5 h-44 md:h-52 lg:52 ">
+          <div className="p-5 h-44 md:h-52 lg:52 xl:h-44">
             <h2 className="capitalize imprima-font mt-3 text-xl">
               {data.title}
             </h2>

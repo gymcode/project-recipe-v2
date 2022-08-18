@@ -66,7 +66,7 @@ const RandomRecipeComponent = () => {
       return
     }
     setTimeout(() => {
-      setItems(items.concat(...items))
+      
     }, 3000)
   }
 
@@ -108,7 +108,7 @@ const RandomRecipeComponent = () => {
         hasMore={more}
         loader={"loading...."}
         endMessage={"you have reached the end"}>
-        <div className="grid grid-cols-1 px-5 px-0 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-2 gap-12 mt-10">
+        <div className="grid grid-cols-1 px-5 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-2 gap-12 mt-10">
           {items.map((data) => (
             <RECIPE_CARD data={data} />
           ))}
