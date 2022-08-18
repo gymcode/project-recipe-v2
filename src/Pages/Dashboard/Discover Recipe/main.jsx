@@ -30,7 +30,7 @@ const recipeCategory = [
 
 const DiscoveryDashboardComponent = () => {
   return (
-    <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0">
+    <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0 py-4 ">
       <div className="grid grid-cols-12 gap-7 min-h-[24vh] mt-4">
         <div className="card col-span-10 hidden xl:block rounded-lg" />
         <div className="col-span-2 w-[90vw] xl:w-full lg:w-full md:w-full bg-[#f8e6e6] rounded-lg flex flex-col p-5 justify-between">

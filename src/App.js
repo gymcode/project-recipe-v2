@@ -1,6 +1,6 @@
 import { useEffect} from "react";
 import "./App.css";
-import RouteComponent from "./Routes";
+import {PageComponents} from "./Routes";
 import { Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import * as Sentry from "@sentry/react";
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <SentryRoutes>
-        {RouteComponent.map((data) => (
+        {PageComponents.map((data) => (
           <Route path={data.path} element={data.element} />
         ))}
       </SentryRoutes>

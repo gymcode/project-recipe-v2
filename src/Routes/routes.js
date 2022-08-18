@@ -1,4 +1,13 @@
-import { LANDING_PAGE_COMPONENT, RECIPE_INFO_PAGE_COMPONENT, DASHBOARD } from "Pages";
+import {
+  LANDING_PAGE_COMPONENT,
+  RECIPE_INFO_PAGE_COMPONENT,
+  DASHBOARD,
+  ACCOUNT_COMPONENT,
+  MY_RECIPE_COMPONENT,
+  MAIN_DASHBOARD_COMPONENT,
+  RANDOM_RECIPE_COMPONENT, 
+  DISCOVER_RECIPE_COMPONENT
+} from "Pages";
 
 let PageComponents = [
   { name: "LandingPage", path: "/", element: <LANDING_PAGE_COMPONENT /> },
@@ -7,7 +16,16 @@ let PageComponents = [
     path: "/random-recipe",
     element: <RECIPE_INFO_PAGE_COMPONENT />,
   },
-  { name: "Dashboard", path:"/dashboard/*", element: <DASHBOARD/>}
+  { name: "Dashboard", path: "/dashboard/*", element: <DASHBOARD /> },
 ];
 
-export default PageComponents;
+let DashboardNavComponent = [
+   { name: "MainDashboard", path: "/", element: <MAIN_DASHBOARD_COMPONENT/>},
+   { name: "DiscoverRecipe", path: "/discover", element: <DISCOVER_RECIPE_COMPONENT/> },
+   { name: "RandomRecipe", path: "random", element: <RANDOM_RECIPE_COMPONENT/>},
+   { name: "MyRecipe", path: "my-recipe", element: <MY_RECIPE_COMPONENT/>},
+   { name: "Account", path: "account", element: <ACCOUNT_COMPONENT/>}
+
+];
+
+export {PageComponents, DashboardNavComponent};
