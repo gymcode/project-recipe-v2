@@ -211,7 +211,7 @@ const DiscoveryDashboardComponent = () => {
             <span className="text-[#F84605]">Omnivore Category</span>...
           </p>
         </div>
-        <div className="grid grid-cols-4 gap-12 mt-10">
+        <div className="grid grid-cols-1 px-5 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 gap-12 mt-10">
           {recipeCategory.map((data) => (
             <RECIPE_CARD data={data} />
           ))}

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { RECIPE_CARD } from "Components";
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const recipeCategory = [
   {
@@ -25,13 +27,53 @@ const recipeCategory = [
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
   },
+  {
+    id: 1,
+    title: "Mashed potatoes breakfast hash",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
+  },
+  {
+    id: 2,
+    title: "Mashed potatoes breakfast hash",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod",
+  },
+  {
+    id: 3,
+    title: "Mashed potatoes breakfast hash",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
+  },
+  {
+    id: 4,
+    title: "Mashed potatoes breakfast hash",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
+  }
 ];
 
 const RandomRecipeComponent = () => {
+  recipeCategory.length = 8
+  const [more, hasMore] = useState(true)
+  const [items, setItems] = useState(recipeCategory)
+
+  // console.log(recipeCategory.concat(...recipeCategory))
+
+  function dataFetchFromArray() {
+    if (items.length >= 48) {
+      hasMore(false)
+      return
+    }
+    setTimeout(() => {
+      setItems(items.concat(...items))
+    }, 3000)
+  }
+
   return (
     <main className="px-1">
       {/* header  */}
-      <div className="flex justify-between py-3 border-b items-center ">
+      <div className="flex px-5 md:px-0 xl:px-0 lg:px-0 justify-between py-3 border-b items-center ">
         <div className="text-sm text-gray-400">random recipes / </div>
         <div>
           <div className="h-8 w-44 bg-[#F84605] kreon-font text-white text-base flex justify-center items-center cursor-pointer rounded">
@@ -60,11 +102,18 @@ const RandomRecipeComponent = () => {
         </div>
       </div>
       {/* body  */}
-      <div className="grid grid-cols-4 gap-12 mt-10">
-        {recipeCategory.map((data) => (
-          <RECIPE_CARD data={data} />
-        ))}
-      </div>
+      <InfiniteScroll
+        dataLength={items.length}
+        next={dataFetchFromArray}
+        hasMore={more}
+        loader={"loading...."}
+        endMessage={"you have reached the end"}>
+        <div className="grid grid-cols-1 px-5 px-0 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-2 gap-12 mt-10">
+          {items.map((data) => (
+            <RECIPE_CARD data={data} />
+          ))}
+        </div>
+      </InfiniteScroll>
     </main>
   );
 };

@@ -1,7 +1,7 @@
 const RecipeCard = ({data}) => {
   return (
     <>
-      <div className="h-[40vh] hover:shadow-lg rounded-lg hover:border hover:border-gray-200 hover:shadow-[#ffdfd3]">
+      <div className="min-h-[40vh] hover:shadow-lg rounded-lg hover:border hover:border-gray-200 hover:shadow-[#ffdfd3]">
         <div
           className="h-40 w-full rounded-lg bg-cover bg-center"
           style={{
@@ -9,13 +9,13 @@ const RecipeCard = ({data}) => {
           }}
         />
         <div className="flex flex-col justify-between">
-          <div className="p-5 h-44">
+          <div className="p-5 h-44 md:h-52 lg:52 ">
             <h2 className="capitalize imprima-font mt-3 text-xl">
               {data.title}
             </h2>
-            <p className="py-3 text-[#777777] imprima-font">{data.content}</p>
+            <div className="py-3 text-[#777777] text-justify max-h-20 imprima-font">{data.content}</div>
           </div>
-          <div className="border-t px-5 pt-2 flex items-center justify-between    ">
+          <div className="border-t px-5 pt-2 md:my-4 flex items-center justify-between">
             <div className="flex items-center">
               <svg
                 className="h-7 w-7"

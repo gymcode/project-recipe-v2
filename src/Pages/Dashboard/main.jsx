@@ -100,7 +100,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="mx-auto sm:px-6 md:px-12 relative">
+            <div className="mx-auto px-5 md:px:12 lg:px-12 xl:px-12 relative">
               <div className="">
                 <React.Suspense fallback={<LOADER />}>
                   <Routes>
