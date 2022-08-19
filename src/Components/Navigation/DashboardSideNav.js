@@ -5,6 +5,7 @@ import { XIcon } from "@heroicons/react/outline";
 import "../main.css";
 import { Link, NavLink } from "react-router-dom";
 import { DashboardAccountNavLinks, DashboardSideNavLinks } from "Helpers";
+import { motion } from "framer-motion";
 
 const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
 
@@ -72,9 +73,15 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
                     Healthy meal, healthy life...
                   </p>
                 </div>
-                <div className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{
+                    scale: 0.9,
+                    borderRadius: "2%",
+                  }}
+                  className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer">
                   Let's set you up
-                </div>
+                </motion.div>
               </div>
               <div className="mt-5 flex-1 flex flex-col">
                 <nav className="flex-1 px-7 space-y-1">
@@ -87,7 +94,7 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
                         <NavLink
                           to={item.href}
                           key={item.name}
-                          onClick={()=>{
+                          onClick={() => {
                             setTitle(item.name)
                             setSidebarOpen(false)
                           }}
@@ -153,9 +160,15 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
                   Healthy meal, healthy life...
                 </p>
               </div>
-              <div className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{
+                  scale: 0.9,
+                  borderRadius: "2%",
+                }}
+                className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer">
                 Let's set you up
-              </div>
+              </motion.div>
             </div>
             <div className="mt-5 flex-1 flex flex-col">
               <nav className="flex-1 px-7 space-y-1">

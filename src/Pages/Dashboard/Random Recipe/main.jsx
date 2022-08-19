@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RECIPE_CARD } from "Components";
+import { motion } from "framer-motion";
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const recipeCategory = [
@@ -66,7 +67,7 @@ const RandomRecipeComponent = () => {
       return
     }
     setTimeout(() => {
-      
+
     }, 3000)
   }
 
@@ -76,7 +77,13 @@ const RandomRecipeComponent = () => {
       <div className="flex px-5 md:px-0 xl:px-0 lg:px-0 justify-between py-3 border-b items-center ">
         <div className="text-sm text-gray-400">random recipes / </div>
         <div>
-          <div className="h-8 w-44 bg-[#F84605] kreon-font text-white text-base flex justify-center items-center cursor-pointer rounded">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{
+              scale: 0.9,
+              borderRadius: "2%",
+            }}
+            className="h-8 w-44 bg-[#F84605] kreon-font text-white text-base flex justify-center items-center cursor-pointer rounded">
             <div className="pr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +105,7 @@ const RandomRecipeComponent = () => {
               </svg>
             </div>
             <p>Randomize</p>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* body  */}
