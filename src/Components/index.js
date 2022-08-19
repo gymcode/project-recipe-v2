@@ -11,3 +11,5 @@ export {default as LOADER} from "./LoadingComponent"
 
 export {default as RECIPE_CARD} from "./recipeCard"
 
+export {default as MODAL} from "./modal"
+

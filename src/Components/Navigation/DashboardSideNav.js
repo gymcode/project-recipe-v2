@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import { DashboardAccountNavLinks, DashboardSideNavLinks } from "Helpers";
 import { motion } from "framer-motion";
 
-const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
+const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle, toggle }) => {
 
   return (
     <>
@@ -79,6 +79,7 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
                     scale: 0.9,
                     borderRadius: "2%",
                   }}
+                  onClick={toggle}
                   className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer">
                   Let's set you up
                 </motion.div>
@@ -166,6 +167,7 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
                   scale: 0.9,
                   borderRadius: "2%",
                 }}
+                onClick={toggle}
                 className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer">
                 Let's set you up
               </motion.div>

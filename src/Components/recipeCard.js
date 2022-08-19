@@ -1,4 +1,4 @@
-const RecipeCard = ({data}) => {
+const RecipeCard = ({ data }) => {
   return (
     <>
       <div className="min-h-[40vh] hover:shadow-lg rounded-lg hover:border hover:border-gray-200 hover:shadow-[#ffdfd3]">
@@ -13,7 +13,9 @@ const RecipeCard = ({data}) => {
             <h2 className="capitalize imprima-font mt-3 text-xl">
               {data.title}
             </h2>
-            <div className="py-3 text-[#777777] text-justify max-h-20 imprima-font">{data.content}</div>
+            <div className="py-3 text-[#777777] text-justify max-h-20 imprima-font">
+              {data.content}
+            </div>
           </div>
           <div className="border-t px-5 pt-2 md:my-4 flex items-center justify-between">
             <div className="flex items-center">
