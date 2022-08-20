@@ -2,23 +2,13 @@ import React from "react";
 import "./main.css";
 import ReactDOM from "react-dom";
 import style from "styled-components";
-// import { ReactComponent as Cross } from "../Assets/Icons/close-outline.svg";
 
-const Modal = ({ visible, toggle, children, height, width, header }) =>
+const Modal = ({ visible, children, height, width }) =>
   visible
     ? ReactDOM.createPortal(
         <div className="modal">
           <ModalContent height={height} width={width} className="flex flex-col">
             <div className="flex-3 h-full overflow-y-auto">{children}</div>
-            {/* <div className="border-t h-16 flex-none flex justify-end items-center px-3">
-              <button
-                className="py-2 px-8 kreon-font"
-                style={{ background: "#F96107" }}
-                onClick={toggle}
-              >
-                close
-              </button>
-            </div> */}
           </ModalContent>
         </div>,
         document.body

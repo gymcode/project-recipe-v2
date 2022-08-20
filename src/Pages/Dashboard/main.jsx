@@ -4,6 +4,7 @@ import "./main.css";
 import { Routes, Route } from "react-router-dom";
 import { DASHBOARD_SIDE_NAV, LOADER, MODAL } from "Components";
 import { useModal } from "Hooks";
+import { motion } from "framer-motion";
 
 //lazy components
 const MainDashboardComponent = React.lazy(() => import("./MainDashboard"));
@@ -135,20 +136,134 @@ const Dashboard = () => {
         toggle={toggle}
         header={"Ingredients"}
         height={"60vh"}
-        width={"58vw"}
+        width={"60vw"}
       >
         <div className="grid lg:grid-cols-2 h-full">
           <div
             style={{
               backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/pexels-pixabay-461198_AjY66Nj3H.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661024109016")`,
             }}
-            className="bg-cover bg-center h-full"
+            className="bg-cover rounded bg-center h-full"
           />
           <div className="p-5 px-10">
-            <div>
-              adad
+            <div className="flex justify-end cursor-pointer" onClick={toggle}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-gray-500"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </div>
-            <div>this is Karen</div>
+            <div className="my-10">
+              <form action="" method="post">
+                <>
+                  <h1 className="text-3xl abel-font">Sign Up</h1>
+                  <p className="imprima-font text-[#808080] py-1">
+                    Create an account to explore more features
+                  </p>
+                  <div className="py-7">
+                    <div className="grid grid-cols-2 gap-5">
+                      <div>
+                        <label
+                          htmlFor="firstName"
+                          className="imprima-font text-[#808080]"
+                        >
+                          First name
+                        </label>
+                        <input
+                          type="text"
+                          name=""
+                          className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="Kenneth"
+                          id=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="firstName"
+                          className="imprima-font text-[#808080]"
+                        >
+                          Other names
+                        </label>
+                        <input
+                          type="text"
+                          name=""
+                          className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="Abrahams Lartey"
+                          id=""
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-col w-5/6 py-3">
+                      <label
+                        htmlFor="msisdn"
+                        className="imprima-font text-[#808080]"
+                      >
+                        Phone number
+                      </label>
+                      <input
+                        type="text"
+                        name=""
+                        className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                        placeholder="+233 26 821 334"
+                        id=""
+                      />
+                    </div>
+                    <div className="grid grid-cols-2 gap-5">
+                      <div>
+                        <label
+                          htmlFor="password"
+                          className="imprima-font text-[#808080]"
+                        >
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          name=""
+                          className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="xxxxxxxx"
+                          id=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="confirm-password"
+                          className="imprima-font text-[#808080]"
+                        >
+                          Confirm Password
+                        </label>
+                        <input
+                          type="password"
+                          name=""
+                          className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="xxxxxxxx"
+                          id=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-center">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{
+                        scale: 0.9,
+                        borderRadius: "2%",
+                      }}
+                      type="submit"
+                      className="h-10 w-3/4 mt-3 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                    >
+                      Sign up
+                    </motion.button>
+                  </div>
+                </>
+              </form>
+            </div>
           </div>
         </div>
       </MODAL>
