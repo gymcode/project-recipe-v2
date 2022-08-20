@@ -26,7 +26,7 @@ const Dashboard = () => {
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
           setTitle={setTitle}
-          toggle={toggle }
+          toggle={toggle}
         />
         <div className="flex flex-col w-0 flex-1">
           <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow md:hidden lg:hidden xl:hidden overflow-hidden">
@@ -130,7 +130,28 @@ const Dashboard = () => {
           </main>
         </div>
       </div>
-      <MODAL visible={visible} toggle={toggle} header={"Ingredients"}>gooo</MODAL>
+      <MODAL
+        visible={visible}
+        toggle={toggle}
+        header={"Ingredients"}
+        height={"60vh"}
+        width={"58vw"}
+      >
+        <div className="grid lg:grid-cols-2 h-full">
+          <div
+            style={{
+              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/pexels-pixabay-461198_AjY66Nj3H.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661024109016")`,
+            }}
+            className="bg-cover bg-center h-full"
+          />
+          <div className="p-5 px-10">
+            <div>
+              adad
+            </div>
+            <div>this is Karen</div>
+          </div>
+        </div>
+      </MODAL>
     </>
   );
 };
