@@ -168,8 +168,8 @@ const Dashboard = () => {
                     Create an account to explore more features
                   </p>
                   <div className="py-7">
-                    <div className="grid grid-cols-2 gap-5">
-                      <div>
+                    <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-5">
+                      <div className="flex flex-col">
                         <label
                           htmlFor="firstName"
                           className="imprima-font text-[#808080]"
@@ -179,12 +179,12 @@ const Dashboard = () => {
                         <input
                           type="text"
                           name=""
-                          className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="Kenneth"
                           id=""
                         />
                       </div>
-                      <div>
+                      <div className="flex flex-col">
                         <label
                           htmlFor="firstName"
                           className="imprima-font text-[#808080]"
@@ -194,13 +194,13 @@ const Dashboard = () => {
                         <input
                           type="text"
                           name=""
-                          className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="Abrahams Lartey"
                           id=""
                         />
                       </div>
                     </div>
-                    <div className="flex flex-col w-5/6 py-3">
+                    <div className="flex flex-col lg:w-5/6 py-3">
                       <label
                         htmlFor="msisdn"
                         className="imprima-font text-[#808080]"
@@ -210,13 +210,13 @@ const Dashboard = () => {
                       <input
                         type="text"
                         name=""
-                        className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                        className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="+233 26 821 334"
                         id=""
                       />
                     </div>
-                    <div className="grid grid-cols-2 gap-5">
-                      <div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
+                      <div className="flex flex-col">
                         <label
                           htmlFor="password"
                           className="imprima-font text-[#808080]"
@@ -226,12 +226,12 @@ const Dashboard = () => {
                         <input
                           type="password"
                           name=""
-                          className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="xxxxxxxx"
                           id=""
                         />
                       </div>
-                      <div>
+                      <div className="flex flex-col">
                         <label
                           htmlFor="confirm-password"
                           className="imprima-font text-[#808080]"
@@ -241,7 +241,7 @@ const Dashboard = () => {
                         <input
                           type="password"
                           name=""
-                          className="outline-0 bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="xxxxxxxx"
                           id=""
                         />
