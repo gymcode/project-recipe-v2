@@ -1,0 +1,9 @@
+.not_found {
+    background-image: url("https://ik.imagekit.io/yz8iaxzer/pexels-jonathan-borba-2983101_c6BW_dnI2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661202184829");
+    clip-path: polygon(52% 0, 100% 0, 100% 100%, 35% 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}

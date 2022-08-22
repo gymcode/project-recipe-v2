@@ -31,7 +31,9 @@
     "react-scroll": "^1.8.7",
     "react-vanilla-tilt": "^1.0.0",
     "styled-components": "^5.3.5",
+    "three": "^0.143.0",
     "vanilla-tilt": "^1.7.2",
+    "vanta": "^0.5.22",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

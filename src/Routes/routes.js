@@ -6,7 +6,8 @@ import {
   MY_RECIPE_COMPONENT,
   MAIN_DASHBOARD_COMPONENT,
   RANDOM_RECIPE_COMPONENT, 
-  DISCOVER_RECIPE_COMPONENT
+  DISCOVER_RECIPE_COMPONENT, 
+  NOTFOUND
 } from "Pages";
 
 let PageComponents = [
@@ -17,6 +18,7 @@ let PageComponents = [
     element: <RECIPE_INFO_PAGE_COMPONENT />,
   },
   { name: "Dashboard", path: "/dashboard/*", element: <DASHBOARD /> },
+  { name: "Not Found", path: "*", element: <NOTFOUND/>}
 ];
 
 let DashboardNavComponent = [
