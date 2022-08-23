@@ -1,9 +1,11 @@
 .not_found {
-    background-image: url("https://ik.imagekit.io/yz8iaxzer/pexels-jonathan-borba-2983101_c6BW_dnI2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661202184829");
-    clip-path: polygon(52% 0, 100% 0, 100% 100%, 35% 100%);
-    background-size: cover;
-    background-position: center;
+    min-height: 100vh;
+}
+
+.img_section{
+    background-image: url("https://ik.imagekit.io/yz8iaxzer/another_image_iGmFqukcM?ik-sdk-version=javascript-1.4.3&updatedAt=1661284263712");
     background-attachment: fixed;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    clip-path: circle(79.7% at 21% 49%);
+    box-shadow: 0px 4px 27px 6px rgba(0, 0, 0, 0.3);
 }
