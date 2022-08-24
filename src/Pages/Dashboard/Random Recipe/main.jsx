@@ -57,9 +57,8 @@ const recipeCategory = [
 const RandomRecipeComponent = () => {
   recipeCategory.length = 8
   const [more, hasMore] = useState(true)
-  const [items, setItems] = useState(recipeCategory)
+  const [items, ] = useState(recipeCategory)
 
-  // console.log(recipeCategory.concat(...recipeCategory))
 
   function dataFetchFromArray() {
     if (items.length >= 48) {
