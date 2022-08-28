@@ -135,7 +135,7 @@ const RecipeInformationComponent = ({
                     <path d="M3 12h4l3 8l4 -16l3 8h4"></path>
                   </svg>
                   <div className="px-3 text-[#818181]">
-                    <span className="text-[#F84605]">{recipe_healthscore}</span>{" "}
+                    <span className="text-[#F84605]">{recipe_healthscore}%</span>{" "}
                     healthscore
                   </div>
                 </div>
