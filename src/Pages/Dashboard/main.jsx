@@ -18,6 +18,7 @@ const AccountComponent = React.lazy(() => import("./Account"));
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [title, setTitle] = useState("Dashboard");
+  const [name, setName] = useState("")
   const { toggle, visible } = useModal();
 
   return (
@@ -73,7 +74,7 @@ const Dashboard = () => {
               <div className="p-3 flex justify-between h-32 md:h-36 xl:h-36 lg:h-36 bg-white sticky top-0 px-5 md:px:12 lg:px-12 xl:px-12 pt-6 md:pt-9 lg:pt-9 xl:pt-9 z-10 dash_header">
                 <div className="w-[79vw] flex justify-between">
                   <div>
-                    <p className="imprima-font text-gray-500">Hello there,</p>
+                    <p className="imprima-font text-gray-500">Hello {name == "" ? "there,": name}</p>
                     <div className="abel-font text-4xl xl:text-5xl lg:text-5xl mt-4">
                       {title}
                     </div>
