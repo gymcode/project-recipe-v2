@@ -20,7 +20,24 @@ const Dashboard = () => {
   const [title, setTitle] = useState("Dashboard");
   const [name, setName] = useState("")
   const { toggle, visible } = useModal();
+  const [registrationData, setRegistrationData] = useState({})
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setPasswordConfirmation] = useState("")
 
+  console.log(registrationData)
+
+  function handleSubmit(e){
+    e.preventDefault()
+
+    // some validation 
+    // check for the length of the fields 
+
+    // do a password validation check 
+    if (password) {
+      
+    } 
+
+  }
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-gray-100 ">
@@ -182,6 +199,7 @@ const Dashboard = () => {
                           name=""
                           className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="Kenneth"
+                          onChange={(e)=>{setRegistrationData({...registrationData, firstName: e.target.value})}}
                           id=""
                         />
                       </div>
@@ -197,6 +215,7 @@ const Dashboard = () => {
                           name=""
                           className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="Abrahams Lartey"
+                          onChange={(e)=>{setRegistrationData({...registrationData, otherNames: e.target.value})}}
                           id=""
                         />
                       </div>
@@ -213,6 +232,7 @@ const Dashboard = () => {
                         name=""
                         className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="+233 26 821 334"
+                        onChange={(e)=>{setRegistrationData({...registrationData,msisdn: e.target.value})}}
                         id=""
                       />
                     </div>
@@ -229,6 +249,7 @@ const Dashboard = () => {
                           name=""
                           className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="xxxxxxxx"
+                          onChange={(e)=>{setRegistrationData({...registrationData,password: e.target.value})}}
                           id=""
                         />
                       </div>
@@ -244,6 +265,7 @@ const Dashboard = () => {
                           name=""
                           className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="xxxxxxxx"
+                          onChange={(e)=>{setPasswordConfirmation(e.target.value)}}
                           id=""
                         />
                       </div>
