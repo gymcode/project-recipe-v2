@@ -18,24 +18,22 @@ const AccountComponent = React.lazy(() => import("./Account"));
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [title, setTitle] = useState("Dashboard");
-  const [name, setName] = useState("")
+  const [error, setError] = useState({ count: 0, message: ""});
+  const [name, setName] = useState("");
   const { toggle, visible } = useModal();
-  const [registrationData, setRegistrationData] = useState({})
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setPasswordConfirmation] = useState("")
+  const [registrationData, setRegistrationData] = useState({});
+  const [confirmPassword, setPasswordConfirmation] = useState("");
 
-  console.log(registrationData)
+  console.log(registrationData);
 
-  function handleSubmit(e){
-    e.preventDefault()
+  function handleSubmit(e) {
+    e.preventDefault();
 
-    // some validation 
-    // check for the length of the fields 
-
-    // do a password validation check 
-    if (password) {
-      
-    } 
+    // some validation
+    // do a password validation check
+    if (registrationData.password != confirmPassword) {
+        setError({count:1, message:"Please the passwords must match"})
+    }
 
   }
   return (
@@ -91,7 +89,9 @@ const Dashboard = () => {
               <div className="p-3 flex justify-between h-32 md:h-36 xl:h-36 lg:h-36 bg-white sticky top-0 px-5 md:px:12 lg:px-12 xl:px-12 pt-6 md:pt-9 lg:pt-9 xl:pt-9 z-10 dash_header">
                 <div className="w-[79vw] flex justify-between">
                   <div>
-                    <p className="imprima-font text-gray-500">Hello {name == "" ? "there,": name}</p>
+                    <p className="imprima-font text-gray-500">
+                      Hello {name == "" ? "there," : name}
+                    </p>
                     <div className="abel-font text-4xl xl:text-5xl lg:text-5xl mt-4">
                       {title}
                     </div>
@@ -179,12 +179,14 @@ const Dashboard = () => {
               </svg>
             </div>
             <div className="my-10">
-              <form action="" method="post">
+              <form onSubmit={handleSubmit} method="post">
                 <>
                   <h1 className="text-3xl abel-font">Sign Up</h1>
                   <p className="imprima-font text-[#808080] py-1">
                     Create an account to explore more features
                   </p>
+                  {/* error section */}
+                  {error > 0 ? <div>{error.message}</div> : null}
                   <div className="py-7">
                     <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-5">
                       <div className="flex flex-col">
@@ -199,8 +201,13 @@ const Dashboard = () => {
                           name=""
                           className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="Kenneth"
-                          onChange={(e)=>{setRegistrationData({...registrationData, firstName: e.target.value})}}
-                          id=""
+                          onChange={(e) => {
+                            setRegistrationData({
+                              ...registrationData,
+                              firstName: e.target.value,
+                            });
+                          }}
+                          required
                         />
                       </div>
                       <div className="flex flex-col">
@@ -215,8 +222,13 @@ const Dashboard = () => {
                           name=""
                           className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="Abrahams Lartey"
-                          onChange={(e)=>{setRegistrationData({...registrationData, otherNames: e.target.value})}}
-                          id=""
+                          onChange={(e) => {
+                            setRegistrationData({
+                              ...registrationData,
+                              otherNames: e.target.value,
+                            });
+                          }}
+                          required
                         />
                       </div>
                     </div>
@@ -232,8 +244,13 @@ const Dashboard = () => {
                         name=""
                         className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="+233 26 821 334"
-                        onChange={(e)=>{setRegistrationData({...registrationData,msisdn: e.target.value})}}
-                        id=""
+                        onChange={(e) => {
+                          setRegistrationData({
+                            ...registrationData,
+                            msisdn: e.target.value,
+                          });
+                        }}
+                        required
                       />
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
@@ -249,8 +266,13 @@ const Dashboard = () => {
                           name=""
                           className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="xxxxxxxx"
-                          onChange={(e)=>{setRegistrationData({...registrationData,password: e.target.value})}}
-                          id=""
+                          onChange={(e) => {
+                            setRegistrationData({
+                              ...registrationData,
+                              password: e.target.value,
+                            });
+                          }}
+                          required
                         />
                       </div>
                       <div className="flex flex-col">
@@ -265,8 +287,10 @@ const Dashboard = () => {
                           name=""
                           className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                           placeholder="xxxxxxxx"
-                          onChange={(e)=>{setPasswordConfirmation(e.target.value)}}
-                          id=""
+                          onChange={(e) => {
+                            setPasswordConfirmation(e.target.value);
+                          }}
+                          required
                         />
                       </div>
                     </div>
