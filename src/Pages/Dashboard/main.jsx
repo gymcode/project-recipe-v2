@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MenuAlt2Icon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
 import { DASHBOARD_SIDE_NAV, LOADER, MODAL } from "Components";
-import { useModal } from "Hooks";
+import { useModal, useFetch } from "Hooks";
 import { motion } from "framer-motion";
 
 //lazy components
@@ -21,28 +21,53 @@ const Dashboard = () => {
   const [name, _] = useState("");
   const { toggle, visible } = useModal();
   const [registrationData, setRegistrationData] = useState({
-    firstName: "",
-    otherNames: "",
+    firstname: "",
+    othernames: "",
     msisdn: "",
     password: "",
   });
   const [formErrors, setFormErrors] = useState({})
   const [, setIsSubmitted] = useState(false)
-  const [confirmPassword, setPasswordConfirmation] = useState("");
+  const [confirmPassword, setPasswordConfirmation] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true)
     setFormErrors(formValidation(registrationData, confirmPassword))
     setIsSubmitted(true)
+
+    // form submission 
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credential: "include",
+      body: JSON.stringify({
+        ...registrationData, 
+        country: "Ghana", 
+        isoCode: "Gh"
+      }),
+    };
+
+    const apiResponse = await fetch("http://127.0.0.1:8000/api/v1/register", requestOptions)
+    console.log({
+      message: "making a call to the go backend...",
+      body: {
+        response: apiResponse,
+        registrationData: registrationData
+      }
+    })
+    setIsLoading(false)
+    
   }
 
   function formValidation(values, confirm_password){
     const errors = {}
-    if (!values.firstName) {
-      errors.firstName = "First name is required."
+    if (!values.firstname) {
+      errors.firstname = "First name is required."
     }
-    if(!values.otherNames){
-      errors.otherNames = "Other names are required."
+    if(!values.othernames){
+      errors.othernames = "Other names are required."
     }
     if(!values.msisdn){
       errors.msisdn = "Phone number is required."
@@ -222,11 +247,11 @@ const Dashboard = () => {
                           onChange={(e) => {
                             setRegistrationData({
                               ...registrationData,
-                              firstName: e.target.value,
+                              firstname: e.target.value,
                             });
                           }}
                         />
-                        <p className="text-xs text-red-600 kreon-font">{formErrors.firstName}</p>
+                        <p className="text-xs text-red-600 kreon-font">{formErrors.firstname}</p>
                       </div>
                       <div className="flex flex-col">
                         <label
@@ -243,11 +268,11 @@ const Dashboard = () => {
                           onChange={(e) => {
                             setRegistrationData({
                               ...registrationData,
-                              otherNames: e.target.value,
+                              othernames: e.target.value,
                             });
                           }}
                         />
-                        <p className="text-xs text-red-600 kreon-font">{formErrors.otherNames}</p>
+                        <p className="text-xs text-red-600 kreon-font">{formErrors.othernames}</p>
                       </div>
                     </div>
                     <div className="flex flex-col lg:w-5/6 py-3">
@@ -323,7 +348,7 @@ const Dashboard = () => {
                       type="submit"
                       className="h-10 w-3/4 mt-3 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                     >
-                      Sign up
+                      {isLoading ? "Loading..." : "Sign up"}
                     </motion.button>
                   </div>
                 </>
