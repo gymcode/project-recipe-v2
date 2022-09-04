@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MenuAlt2Icon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
@@ -18,24 +18,44 @@ const AccountComponent = React.lazy(() => import("./Account"));
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [title, setTitle] = useState("Dashboard");
-  const [error, setError] = useState({ count: 0, message: ""});
-  const [name, setName] = useState("");
+  const [name, _] = useState("");
   const { toggle, visible } = useModal();
-  const [registrationData, setRegistrationData] = useState({});
+  const [registrationData, setRegistrationData] = useState({
+    firstName: "",
+    otherNames: "",
+    msisdn: "",
+    password: "",
+  });
+  const [formErrors, setFormErrors] = useState({})
+  const [, setIsSubmitted] = useState(false)
   const [confirmPassword, setPasswordConfirmation] = useState("");
-
-  console.log(registrationData);
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    // some validation
-    // do a password validation check
-    if (registrationData.password != confirmPassword) {
-        setError({count:1, message:"Please the passwords must match"})
-    }
-
+    setFormErrors(formValidation(registrationData, confirmPassword))
+    setIsSubmitted(true)
   }
+
+  function formValidation(values, confirm_password){
+    const errors = {}
+    if (!values.firstName) {
+      errors.firstName = "First name is required."
+    }
+    if(!values.otherNames){
+      errors.otherNames = "Other names are required."
+    }
+    if(!values.msisdn){
+      errors.msisdn = "Phone number is required."
+    }
+    if(!values.password){
+      errors.password = "Password is required."
+    }
+    if(values.password != confirm_password){
+      errors.passwordMatch = "Passwords must match."
+    }
+    return errors
+  }
+
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-gray-100 ">
@@ -185,8 +205,6 @@ const Dashboard = () => {
                   <p className="imprima-font text-[#808080] py-1">
                     Create an account to explore more features
                   </p>
-                  {/* error section */}
-                  {error > 0 ? <div>{error.message}</div> : null}
                   <div className="py-7">
                     <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-5">
                       <div className="flex flex-col">
@@ -207,8 +225,8 @@ const Dashboard = () => {
                               firstName: e.target.value,
                             });
                           }}
-                          required
                         />
+                        <p className="text-xs text-red-600 kreon-font">{formErrors.firstName}</p>
                       </div>
                       <div className="flex flex-col">
                         <label
@@ -228,8 +246,8 @@ const Dashboard = () => {
                               otherNames: e.target.value,
                             });
                           }}
-                          required
                         />
+                        <p className="text-xs text-red-600 kreon-font">{formErrors.otherNames}</p>
                       </div>
                     </div>
                     <div className="flex flex-col lg:w-5/6 py-3">
@@ -240,7 +258,7 @@ const Dashboard = () => {
                         Phone number
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         name=""
                         className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="+233 26 821 334"
@@ -250,8 +268,8 @@ const Dashboard = () => {
                             msisdn: e.target.value,
                           });
                         }}
-                        required
                       />
+                      <p className="text-xs text-red-600 kreon-font">{formErrors.msisdn}</p>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
                       <div className="flex flex-col">
@@ -272,8 +290,8 @@ const Dashboard = () => {
                               password: e.target.value,
                             });
                           }}
-                          required
                         />
+                        <p className="text-xs text-red-600 kreon-font">{formErrors.password}</p>
                       </div>
                       <div className="flex flex-col">
                         <label
@@ -290,8 +308,8 @@ const Dashboard = () => {
                           onChange={(e) => {
                             setPasswordConfirmation(e.target.value);
                           }}
-                          required
                         />
+                        <p className="text-xs text-red-600 kreon-font">{formErrors.passwordMatch}</p>
                       </div>
                     </div>
                   </div>
