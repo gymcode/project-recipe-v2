@@ -52,7 +52,7 @@ const Dashboard = () => {
     const apiResponse = await fetch("http://127.0.0.1:8000/api/v1/register", requestOptions)
     const data = await apiResponse.json()
     console.log({
-      message: "making a call to the go backend...",
+      message: "making a call to the go backend..",
       body: {
         response: data,
         registrationData: registrationData
