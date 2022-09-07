@@ -81,11 +81,11 @@ const MyRecipeComponent = () => {
         </div> */}
 
         <div className="relative h-[70vh]">
-          <h1 className="my-10 imprima-font text-2xl capitalize">All your recipes</h1>
+          <h1 className="my-8 imprima-font text-2xl capitalize">All your recipes</h1>
           {/* table section  */}
           <table class="table-fixed w-full rounded-xl">
             <thead className="rounded-xl">
-              <tr className="h-20 bg-[#e7e9ed] imprima-font">
+              <tr className="h-20 bg-[#ebedf0] imprima-font">
                 <th className="text-left">Recipe Name</th>
                 <th className="text-left">Recipe Type</th>
                 <th className="text-left">Status</th>
@@ -98,7 +98,7 @@ const MyRecipeComponent = () => {
                 <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
                 <td>Continental</td>
                 <td>
-                  <div className="border border-[#75D166] rounded-xl flex justify-center items-center h-9 w-28">
+                  <div className="border border-[#75D166] rounded-lg flex justify-center items-center h-9 w-28">
                     <div className="text-sm">Approved</div>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checks" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#75D166" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -135,7 +135,7 @@ const MyRecipeComponent = () => {
                 <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
                 <td>Continental</td>
                 <td>
-                  <div className="border border-[#75D166] rounded-xl flex justify-center items-center h-9 w-28">
+                  <div className="border border-[#75D166] rounded-lg flex justify-center items-center h-9 w-28">
                     <div className="text-sm">Approved</div>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checks" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#75D166" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -149,7 +149,28 @@ const MyRecipeComponent = () => {
               </tr>
             </tbody>
           </table>
-          <div className="absolute bottom-0 left-0 w-full bg-[#e7e9ed] h-20 rounded-xl shadow">fixed at the buttom</div>
+          <div className="absolute bottom-0 left-0 w-full bg-[#ebedf0] h-20 rounded-lg shadow-md flex items-center px-16 justify-between">
+            <div className="imprima-font text-gray-600">1-5 of 29</div>
+            <div className="flex justify-center items-center">
+              <div className="text-gray-600 imprima-font">rows per page:</div>
+              <div className="px-3 py-1 text-base flex justify-center items-center border border-gray-400 rounded-lg ml-2">
+                <span className="pr-1 text-[#F84605]">5</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </div>
+              <div className="px-2 py-1 text-base flex justify-center items-center border border-gray-400 rounded-lg ml-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#F84605" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
+                </svg>
+              </div>
+              <div className="px-2 py-1 text-base flex justify-center items-center border border-gray-400 rounded-lg ml-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#F84605" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
