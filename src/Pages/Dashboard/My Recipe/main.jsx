@@ -1,3 +1,5 @@
+import "./main.css"
+
 const MyRecipeComponent = () => {
 
   return (
@@ -29,7 +31,7 @@ const MyRecipeComponent = () => {
       </div>
       {/* body content */}
       <div className="mt-8">
-        <div className="flex justify-between">
+        {/* <div className="flex justify-between">
           <div className="w-[25vw] h-[86%] items-end xl:flex lg:flex md:flex hidden">
             <div className="flex w-full border items-center px-3 rounded-md">
               <div className="px-2">
@@ -57,7 +59,7 @@ const MyRecipeComponent = () => {
           </div>
           <div className="grid grid-cols-5 w-[18vw] gap-2">
             <div className="col-span-4 rounded border flex items-center justify-center">
-              
+
             </div>
             <div className="border rounded flex items-center justify-center ">
               <svg
@@ -76,6 +78,78 @@ const MyRecipeComponent = () => {
               </svg>
             </div>
           </div>
+        </div> */}
+
+        <div className="relative h-[70vh]">
+          <h1 className="my-10 imprima-font text-2xl capitalize">All your recipes</h1>
+          {/* table section  */}
+          <table class="table-fixed w-full rounded-xl">
+            <thead className="rounded-xl">
+              <tr className="h-20 bg-[#e7e9ed] imprima-font">
+                <th className="text-left">Recipe Name</th>
+                <th className="text-left">Recipe Type</th>
+                <th className="text-left">Status</th>
+                <th className="text-left">Recipe Rating</th>
+                <th className="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="h-20 border-b imprima-font">
+                <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+                <td>Continental</td>
+                <td>
+                  <div className="border border-[#75D166] rounded-xl flex justify-center items-center h-9 w-28">
+                    <div className="text-sm">Approved</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checks" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#75D166" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M7 12l5 5l10 -10"></path>
+                      <path d="M2 12l5 5m5 -5l5 -5"></path>
+                    </svg>
+                  </div>
+                </td>
+                <td>Malcolm Lockyer</td>
+                <td className="text-center">1961</td>
+              </tr>
+              <tr className="h-20 border-b">
+                <td>Witchy Woman</td>
+                <td>The Eagles</td>
+                <td>1972</td>
+                <td>Malcolm Lockyer</td>
+                <td className="text-center">1961</td>
+              </tr>
+              <tr className="h-20 border-b">
+                <td>Shining Star</td>
+                <td>Earth, Wind, and Fire</td>
+                <td>1975</td>
+                <td>Malcolm Lockyer</td>
+                <td className="text-center">1961</td>
+              </tr>
+              <tr className="h-20 border-b">
+                <td>Shining Star</td>
+                <td>Earth, Wind, and Fire</td>
+                <td>1975</td>
+                <td>Malcolm Lockyer</td>
+                <td className="text-center">1961</td>
+              </tr>
+              <tr className="h-20 border-b imprima-font">
+                <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+                <td>Continental</td>
+                <td>
+                  <div className="border border-[#75D166] rounded-xl flex justify-center items-center h-9 w-28">
+                    <div className="text-sm">Approved</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checks" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.5" stroke="#75D166" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M7 12l5 5l10 -10"></path>
+                      <path d="M2 12l5 5m5 -5l5 -5"></path>
+                    </svg>
+                  </div>
+                </td>
+                <td>Malcolm Lockyer</td>
+                <td className="text-center">1961</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="absolute bottom-0 left-0 w-full bg-[#e7e9ed] h-20 rounded-xl shadow">fixed at the buttom</div>
         </div>
       </div>
     </main>

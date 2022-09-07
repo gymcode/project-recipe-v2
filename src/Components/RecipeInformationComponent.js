@@ -189,7 +189,7 @@ const RecipeInformationComponent = ({
             </div>
           </div>
           {/* summary section  */}
-          <div className="col-span-4 bg-center bg-cover rounded-lg min-h-[25vh] xl:max-h-[25vh] lg:max-h-[25vh] p-8 w-full bg-[#FEF3F3]">
+          <div className="col-span-4 bg-center bg-cover rounded-lg min-h-[25vh] xl:max-h-[30vh] lg:max-h-[30vh] p-8 w-full bg-[#FEF3F3]">
             <div className="flex items-center pb-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
