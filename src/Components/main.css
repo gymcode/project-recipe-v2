@@ -21,3 +21,7 @@
     overflow: auto; /* Enable scroll if needed */
     padding-top: 90px; /* Location of the content container */
 }
+
+th, td{
+    padding-left: 4rem;
+}

@@ -13,3 +13,5 @@ export {default as RECIPE_CARD} from "./recipeCard"
 
 export {default as MODAL} from "./modal"
 
+export {default as RECIPE_TABLE} from "./recipeTable"
+
