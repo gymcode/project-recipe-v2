@@ -6,8 +6,6 @@ function useFetch(
   defaultResponse,
   recipeString,
   isStorage,
-  method,
-  bodyData
 ) {
   const [data, setData] = useState(defaultResponse);
 
@@ -43,23 +41,8 @@ function useFetch(
 
   async function getDataFromApi({ signal }) {
     try {
-      var api;
-      switch (method.toUpperCase()) {
-        case "POST":
-          const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            credential: "include",
-            body: bodyData,
-          };
-          api = await fetch(url, requestOptions, signal);
-          break;
-
-        default:
-          api = await fetch(url, signal);
-          break;
-      }
-
+      
+      const api = await fetch(url, signal);
       console.log({
         message: "request url sent & raw response received from API fetch...",
         body: {
