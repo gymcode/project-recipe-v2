@@ -14,6 +14,7 @@ const DiscoveryDashboardComponent = React.lazy(() =>
 const RandomRecipeComponent = React.lazy(() => import("./Random Recipe"));
 const MyRecipeComponent = React.lazy(() => import("./My Recipe"));
 const AccountComponent = React.lazy(() => import("./Account"));
+const Auth = React.lazy(()=> import("./Auth"))
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -187,6 +188,10 @@ const Dashboard = () => {
                       <Route
                         path="/my-recipe"
                         element={<MyRecipeComponent />}
+                      />
+                      <Route
+                        path="/auth"
+                        element={<Auth />}
                       />
                     </Routes>
                   </React.Suspense>

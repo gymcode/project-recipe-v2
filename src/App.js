@@ -4,6 +4,7 @@ import {PageComponents} from "./Routes";
 import { Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import * as Sentry from "@sentry/react";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SentryRoutes = Sentry.withSentryReactRouterV6Routing(Routes)
