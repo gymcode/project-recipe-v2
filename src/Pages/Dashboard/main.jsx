@@ -190,7 +190,7 @@ const Dashboard = () => {
                         element={<MyRecipeComponent />}
                       />
                       <Route
-                        path="/auth"
+                        path="/auth/*"
                         element={<Auth />}
                       />
                     </Routes>
