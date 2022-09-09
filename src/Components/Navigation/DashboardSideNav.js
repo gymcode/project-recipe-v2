@@ -7,8 +7,12 @@ import { Link, NavLink } from "react-router-dom";
 import { DashboardAccountNavLinks, DashboardSideNavLinks } from "Helpers";
 import { motion } from "framer-motion";
 
-const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle, toggle }) => {
-
+const DashboardSideNav = ({
+  setSidebarOpen,
+  sidebarOpen,
+  setTitle,
+  toggle,
+}) => {
   return (
     <>
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -54,7 +58,10 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle, toggle }) => 
                     onClick={() => setSidebarOpen(false)}
                   >
                     <span className="sr-only">Close sidebar</span>
-                    <XIcon className="h-6 w-6 text-[#F84605]" aria-hidden="true" />
+                    <XIcon
+                      className="h-6 w-6 text-[#F84605]"
+                      aria-hidden="true"
+                    />
                   </button>
                 </div>
               </Transition.Child>
@@ -73,16 +80,19 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle, toggle }) => 
                     Healthy meal, healthy life...
                   </p>
                 </div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{
-                    scale: 0.9,
-                    borderRadius: "2%",
-                  }}
-                  onClick={toggle}
-                  className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer">
-                  Let's set you up
-                </motion.div>
+                <Link to={"/dashboard/auth/register"}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{
+                      scale: 0.9,
+                      borderRadius: "2%",
+                    }}
+                    onClick={() => setTitle("Authentication")}
+                    className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                  >
+                    Let's set you up
+                  </motion.div>
+                </Link>
               </div>
               <div className="mt-5 flex-1 flex flex-col">
                 <nav className="flex-1 px-7 space-y-1">
@@ -96,8 +106,8 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle, toggle }) => 
                           to={item.href}
                           key={item.name}
                           onClick={() => {
-                            setTitle(item.name)
-                            setSidebarOpen(false)
+                            setTitle(item.name);
+                            setSidebarOpen(false);
                           }}
                           className={({ isActive }) =>
                             isActive
@@ -161,16 +171,19 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle, toggle }) => 
                   Healthy meal, healthy life...
                 </p>
               </div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{
-                  scale: 0.9,
-                  borderRadius: "2%",
-                }}
-                onClick={toggle}
-                className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer">
-                Let's set you up
-              </motion.div>
+              <Link to={"/dashboard/auth/register"}>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{
+                    scale: 0.9,
+                    borderRadius: "2%",
+                  }}
+                  onClick={() => setTitle("Authentication")}
+                  className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                >
+                  Let's set you up
+                </motion.div>
+              </Link>
             </div>
             <div className="mt-5 flex-1 flex flex-col">
               <nav className="flex-1 px-7 space-y-1">
