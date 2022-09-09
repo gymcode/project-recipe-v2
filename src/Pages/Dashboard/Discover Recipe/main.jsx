@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import "./main.css";
 import { RECIPE_CARD } from "Components"
 import { Routes, Route, NavLink } from "react-router-dom";
@@ -58,6 +58,7 @@ const recipeCategory = [
 ];
 
 const DiscoveryDashboardComponent = () => {
+  const [categoryName, setCategoryName] = useState("Omnivore Category")
   return (
     <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0 py-4 ">
       <div className="grid grid-cols-12 gap-7 min-h-[24vh] mt-4">
@@ -95,10 +96,11 @@ const DiscoveryDashboardComponent = () => {
             <>
               <NavLink
                 to={navItem.href}
+                onClick={()=> setCategoryName(navItem.name)}
                 className={({ isActive }) =>
                   isActive
                     ? "text-white rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4 bg-[#F84605]"
-                    : "text-[#777777] rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4 hover:border-none hover:bg-[#F84605] cursor-pointer hover:text-white;"
+                    : "text-[#777777] hover:text-white rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4 hover:border-none hover:bg-[#F84605] cursor-pointer hover:text-white;"
                 }
               >
                 <div className="">
@@ -117,7 +119,7 @@ const DiscoveryDashboardComponent = () => {
           </p>
           <p className="imprima-font capitalize text-[#777777]">
             Because you selected the{" "}
-            <span className="text-[#F84605]">Omnivore Category</span>...
+            <span className="text-[#F84605]">{categoryName}</span>...
           </p>
         </div>
         <div className="grid grid-cols-1 px-5 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 gap-12 mt-10">

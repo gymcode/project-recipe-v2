@@ -145,7 +145,7 @@ const DashboardSideNavLinks = [
   {
     id: 2,
     name: "Discover Recipes",
-    href: "/dashboard/discover",
+    href: "/dashboard/discover/omnivore",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
