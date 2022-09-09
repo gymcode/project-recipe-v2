@@ -5,4 +5,5 @@ export {
   DashboardSideNavLinks,
   FooterNavLinks,
   FooterSocialLinks,
+  CategoryNavLinks
 } from "./NavLinks";

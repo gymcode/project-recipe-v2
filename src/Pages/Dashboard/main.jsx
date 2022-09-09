@@ -177,7 +177,7 @@ const Dashboard = () => {
                     <Routes>
                       <Route path="/" element={<MainDashboardComponent />} />
                       <Route
-                        path="/discover"
+                        path="/discover/*"
                         element={<DiscoveryDashboardComponent />}
                       />
                       <Route

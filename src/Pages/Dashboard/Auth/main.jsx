@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 
 const LoginComponent = React.lazy(() => import("./Login"));
 const RegisterComponent = React.lazy(() => import("./Register"));
@@ -9,16 +9,30 @@ const AuthenticationComponent = () => {
     <>
       {/* header  */}
       <div className="flex pt-5 border-b items-center ">
-        <Link to={"/dashboard/auth/register"}>
-          <div className="text-sm text-gray-400 hover:border-b hover:border-red-700 p-2 px-10 cursor-pointer">
+        <NavLink
+          to={"/dashboard/auth/register"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b border-red-700"
+              : "hover:border-b hover:border-red-700"
+          }
+        >
+          <div className="text-sm text-gray-400 p-2 px-10 cursor-pointer">
             Register
           </div>
-        </Link>
-        <Link to={"/dashboard/auth/login"}>
-          <div className="text-sm text-gray-400 ml-6 p-2 px-12 hover:border-b hover:border-red-700 cursor-pointer">
+        </NavLink>
+        <NavLink
+          to={"/dashboard/auth/login"}
+          className={({ isActive }) =>
+            isActive
+              ? "border-b border-red-700"
+              : "hover:border-b hover:border-red-700"
+          }
+        >
+          <div className="text-sm text-gray-400 p-2 px-12 cursor-pointer">
             Login
           </div>
-        </Link>
+        </NavLink>
       </div>
       {/* body */}
       <body className="h-[75vh]">

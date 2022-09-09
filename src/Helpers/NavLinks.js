@@ -360,6 +360,175 @@ const FooterSocialLinks = [
   },
 ];
 
+const CategoryNavLinks = [
+  {
+    id: 1,
+    name: "Omnimore Category",
+    href: "/dashboard/discover/omnivore",
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-meat"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M13.62 8.382l1.966 -1.967a2 2 0 1 1 3.414 -1.415a2 2 0 1 1 -1.413 3.414l-1.82 1.821"></path>
+        <ellipse
+          transform="rotate(45 8.025 16.475)"
+          cx="8.025"
+          cy="16.475"
+          rx="7"
+          ry="3"
+        ></ellipse>
+        <path d="M7.5 16l1 1"></path>
+        <path d="M12.975 21.425c3.905 -3.906 4.855 -9.288 2.121 -12.021c-2.733 -2.734 -8.115 -1.784 -12.02 2.121"></path>
+      </svg>
+    ),
+
+  },
+  {
+    id: 2,
+    name: "Pescatarian Category",
+    href: "/dashboard/discover/pescaterian",
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-fish"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M16.69 7.44a6.973 6.973 0 0 0 -1.69 4.56c0 1.747 .64 3.345 1.699 4.571"></path>
+        <path d="M2 9.504c7.715 8.647 14.75 10.265 20 2.498c-5.25 -7.761 -12.285 -6.142 -20 2.504"></path>
+        <path d="M18 11v.01"></path>
+        <path d="M11.5 10.5c-.667 1 -.667 2 0 3"></path>
+      </svg>
+    ),
+
+  },
+  {
+    id: 3,
+    name: "Fruitarian Category",
+    href: "/dashboard/discover/fruitarian",
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-apple"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="12" cy="14" r="7"></circle>
+        <path d="M12 11v-6a2 2 0 0 1 2 -2h2v1a2 2 0 0 1 -2 2h-2"></path>
+        <path d="M10 10.5c1.333 .667 2.667 .667 4 0"></path>
+      </svg>
+    ),
+
+  },
+  {
+    id: 4,
+    name: "Paleo Category",
+    href: "/dashboard/discover/paleo",
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-meat"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M13.62 8.382l1.966 -1.967a2 2 0 1 1 3.414 -1.415a2 2 0 1 1 -1.413 3.414l-1.82 1.821"></path>
+        <ellipse
+          transform="rotate(45 8.025 16.475)"
+          cx="8.025"
+          cy="16.475"
+          rx="7"
+          ry="3"
+        ></ellipse>
+        <path d="M7.5 16l1 1"></path>
+        <path d="M12.975 21.425c3.905 -3.906 4.855 -9.288 2.121 -12.021c-2.733 -2.734 -8.115 -1.784 -12.02 2.121"></path>
+      </svg>
+    ),
+
+  },
+  {
+    id: 5,
+    name: "Vegetarian Category",
+    href: "/dashboard/discover/vegetarian",
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-carrot"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M3 21s9.834 -3.489 12.684 -6.34a4.487 4.487 0 0 0 .005 -6.344a4.483 4.483 0 0 0 -6.342 -.005c-2.86 2.861 -6.347 12.689 -6.347 12.689z"></path>
+        <path d="M9 13l-1.5 -1.5"></path>
+        <path d="M16 14l-2 -2"></path>
+        <path d="M22 8s-1.14 -2 -3 -2c-1.406 0 -3 2 -3 2s1.14 2 3 2s3 -2 3 -2z"></path>
+        <path d="M16 2s-2 1.14 -2 3s2 3 2 3s2 -1.577 2 -3c0 -1.86 -2 -3 -2 -3z"></path>
+      </svg>
+    ),
+
+  },
+  {
+    id: 6,
+    name: "Vegan Category",
+    href: "/dashboard/discover/vegan",
+    svg: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-leaf"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M5 21c.5 -4.5 2.5 -8 7 -10"></path>
+        <path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z"></path>
+      </svg>
+    ),
+
+  }
+]
+
 export {
   LandingPageSideNavLinks,
   LandingPageNavLinks,
@@ -367,4 +536,5 @@ export {
   DashboardSideNavLinks,
   FooterNavLinks,
   FooterSocialLinks,
+  CategoryNavLinks
 };
