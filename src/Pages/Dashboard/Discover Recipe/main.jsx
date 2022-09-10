@@ -9,10 +9,6 @@ const DiscoveryDashboardComponent = () => {
   const [categoryName, setCategoryName] = useState("Omnivore Category")
   const [showSideNav, setShowSideNav] = useState(false);
   
-  useEffect(() => {
-    window.addEventListener('scroll', (event) => {console.log(event)});
-    window.addEventListener("scroll",()=>alert("hi"))
-  }, []);
 
   return (
     <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0 ">
