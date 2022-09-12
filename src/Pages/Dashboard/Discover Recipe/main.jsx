@@ -5,10 +5,9 @@ import { CategoryNavLinks } from "Helpers"
 
 const OmnivoreSection = React.lazy(() => import("./Omnivore"))
 
-const DiscoveryDashboardComponent = () => {
+const DiscoveryDashboardComponent = ({setShowSideNav}) => {
   const [categoryName, setCategoryName] = useState("Omnivore Category")
   const [showSideNav, setShowSideNav] = useState(false);
-  
 
   return (
     <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0 ">
