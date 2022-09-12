@@ -14,82 +14,85 @@ const DiscoveryDashboardComponent = React.lazy(() =>
 const RandomRecipeComponent = React.lazy(() => import("./Random Recipe"));
 const MyRecipeComponent = React.lazy(() => import("./My Recipe"));
 const AccountComponent = React.lazy(() => import("./Account"));
-const Auth = React.lazy(()=> import("./Auth"))
+const Auth = React.lazy(() => import("./Auth"));
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [title, setTitle] = useState("Dashboard");
   const [name, _] = useState("");
   const { toggle, visible } = useModal();
+  const [show, setShow] = useState(false);
   const [registrationData, setRegistrationData] = useState({
     firstname: "",
     othernames: "",
     msisdn: "",
     password: "",
   });
-  const [formErrors, setFormErrors] = useState({})
-  const [, setIsSubmitted] = useState(false)
-  const [confirmPassword, setPasswordConfirmation] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
+  const [formErrors, setFormErrors] = useState({});
+  const [, setIsSubmitted] = useState(false);
+  const [confirmPassword, setPasswordConfirmation] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true)
-    setFormErrors(formValidation(registrationData, confirmPassword))
-    setIsSubmitted(true)
+    setIsLoading(true);
+    setFormErrors(formValidation(registrationData, confirmPassword));
+    setIsSubmitted(true);
 
-    // form submission 
+    // form submission
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credential: "include",
       body: JSON.stringify({
-        ...registrationData, 
-        country: "Ghana", 
-        isoCode: "GH"
+        ...registrationData,
+        country: "Ghana",
+        isoCode: "GH",
       }),
     };
 
-    const apiResponse = await fetch("http://127.0.0.1:8000/api/v1/register", requestOptions)
-    const data = await apiResponse.json()
+    const apiResponse = await fetch(
+      "http://127.0.0.1:8000/api/v1/register",
+      requestOptions
+    );
+    const data = await apiResponse.json();
     console.log({
       message: "making a call to the go backend..",
       body: {
         response: data,
-        registrationData: registrationData
-      }
-    })
-    
-    setIsLoading(false)
-    
+        registrationData: registrationData,
+      },
+    });
+
+    setIsLoading(false);
   }
 
-  function formValidation(values, confirm_password){
-    const errors = {}
+  function formValidation(values, confirm_password) {
+    const errors = {};
     if (!values.firstname) {
-      errors.firstname = "First name is required."
+      errors.firstname = "First name is required.";
     }
-    if(!values.othernames){
-      errors.othernames = "Other names are required."
+    if (!values.othernames) {
+      errors.othernames = "Other names are required.";
     }
-    if(!values.msisdn){
-      errors.msisdn = "Phone number is required."
+    if (!values.msisdn) {
+      errors.msisdn = "Phone number is required.";
     }
-    if(!values.password){
-      errors.password = "Password is required."
+    if (!values.password) {
+      errors.password = "Password is required.";
     }
-    if(values.password != confirm_password){
-      errors.passwordMatch = "Passwords must match."
+    if (values.password != confirm_password) {
+      errors.passwordMatch = "Passwords must match.";
     }
-    return errors
+    return errors;
   }
-  
-  useEffect(()=>{
-    var bodyScroll = document.querySelector("#bodyScroll")
-    bodyScroll.addEventListener("scroll", ()=>{
-      console.log("hreere")      
-    })
-  }, [])
+
+  useEffect(() => {
+    var bodyScroll = document.querySelector("#bodyScroll");
+    bodyScroll.addEventListener("scroll", () => {
+      console.log("hey")
+    });
+  }, []);
 
   return (
     <>
@@ -139,7 +142,10 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <main className="flex-1 relative overflow-y-auto focus:outline-none" id="bodyScroll">
+          <main
+            className="flex-1 relative overflow-y-auto focus:outline-none"
+            id="bodyScroll"
+          >
             <div className="">
               <div className="p-3 flex justify-between h-32 md:h-36 xl:h-36 lg:h-36 bg-white sticky top-0 px-5 md:px:12 lg:px-12 xl:px-12 pt-6 md:pt-9 lg:pt-9 xl:pt-9 z-10 dash_header">
                 <div className="w-[79vw] flex justify-between">
@@ -185,7 +191,9 @@ const Dashboard = () => {
                       <Route path="/" element={<MainDashboardComponent />} />
                       <Route
                         path="/discover/*"
-                        element={<DiscoveryDashboardComponent />}
+                        element={
+                          <DiscoveryDashboardComponent showSideNav={show} />
+                        }
                       />
                       <Route
                         path="/random"
@@ -196,10 +204,7 @@ const Dashboard = () => {
                         path="/my-recipe"
                         element={<MyRecipeComponent />}
                       />
-                      <Route
-                        path="/auth/*"
-                        element={<Auth />}
-                      />
+                      <Route path="/auth/*" element={<Auth />} />
                     </Routes>
                   </React.Suspense>
                 </div>
@@ -265,7 +270,9 @@ const Dashboard = () => {
                             });
                           }}
                         />
-                        <p className="text-xs text-red-600 kreon-font">{formErrors.firstname}</p>
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.firstname}
+                        </p>
                       </div>
                       <div className="flex flex-col">
                         <label
@@ -286,7 +293,9 @@ const Dashboard = () => {
                             });
                           }}
                         />
-                        <p className="text-xs text-red-600 kreon-font">{formErrors.othernames}</p>
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.othernames}
+                        </p>
                       </div>
                     </div>
                     <div className="flex flex-col lg:w-5/6 py-3">
@@ -308,7 +317,9 @@ const Dashboard = () => {
                           });
                         }}
                       />
-                      <p className="text-xs text-red-600 kreon-font">{formErrors.msisdn}</p>
+                      <p className="text-xs text-red-600 kreon-font">
+                        {formErrors.msisdn}
+                      </p>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
                       <div className="flex flex-col">
@@ -330,7 +341,9 @@ const Dashboard = () => {
                             });
                           }}
                         />
-                        <p className="text-xs text-red-600 kreon-font">{formErrors.password}</p>
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.password}
+                        </p>
                       </div>
                       <div className="flex flex-col">
                         <label
@@ -348,7 +361,9 @@ const Dashboard = () => {
                             setPasswordConfirmation(e.target.value);
                           }}
                         />
-                        <p className="text-xs text-red-600 kreon-font">{formErrors.passwordMatch}</p>
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.passwordMatch}
+                        </p>
                       </div>
                     </div>
                   </div>

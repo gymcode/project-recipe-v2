@@ -5,9 +5,9 @@ import { CategoryNavLinks } from "Helpers"
 
 const OmnivoreSection = React.lazy(() => import("./Omnivore"))
 
-const DiscoveryDashboardComponent = ({setShowSideNav}) => {
+const DiscoveryDashboardComponent = ({showSideNav}) => {
   const [categoryName, setCategoryName] = useState("Omnivore Category")
-  const [showSideNav, setShowSideNav] = useState(false);
+
 
   return (
     <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0 ">
@@ -15,7 +15,7 @@ const DiscoveryDashboardComponent = ({setShowSideNav}) => {
         showSideNav ? (
           <>
             {/* header  */}
-            <div className="flex justify-between py-3 border-b items-center ">
+            <div className="flex justify-between py-3 border-b items-center fixed">
               <div className="text-sm text-gray-400">
                 Add recipe <span className="text-[#F84605]">/</span>{" "}
               </div>
