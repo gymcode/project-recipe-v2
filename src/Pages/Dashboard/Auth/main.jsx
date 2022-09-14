@@ -17,7 +17,7 @@ const AuthenticationComponent = () => {
               : "hover:border-b hover:border-red-700"
           }
         >
-          <div className="text-sm text-gray-400 p-2 px-10 cursor-pointer">
+          <div className="text-sm text-gray-600 p-2 px-10 cursor-pointer">
             Register
           </div>
         </NavLink>
@@ -29,7 +29,7 @@ const AuthenticationComponent = () => {
               : "hover:border-b hover:border-red-700 mx-3"
           }
         >
-          <div className="text-sm text-gray-400 p-2 px-12 cursor-pointer">
+          <div className="text-sm text-gray-600 p-2 px-12 cursor-pointer">
             Login
           </div>
         </NavLink>

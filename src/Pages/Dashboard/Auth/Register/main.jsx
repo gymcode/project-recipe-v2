@@ -79,7 +79,7 @@ const RegisterComponent = () => {
           />
           <div className='text-base kreon-font my-5 text-gray-600'>Been waiting for a while...</div>
         </div>
-        <div className="p-5 col-span-2 px-16 mt-12">
+        <div className="p-5 col-span-2 px-16 mt-10">
           <div className="my-10">
             <form onSubmit={handleSubmit} method="post">
               <>
@@ -99,7 +99,7 @@ const RegisterComponent = () => {
                       <input
                         type="text"
                         name=""
-                        className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="Kenneth"
                         onChange={(e) => {
                           setRegistrationData({
@@ -122,7 +122,7 @@ const RegisterComponent = () => {
                       <input
                         type="text"
                         name=""
-                        className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="Abrahams Lartey"
                         onChange={(e) => {
                           setRegistrationData({
@@ -146,7 +146,7 @@ const RegisterComponent = () => {
                     <input
                       type="number"
                       name=""
-                      className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                      className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                       placeholder="+233 26 821 334"
                       onChange={(e) => {
                         setRegistrationData({
@@ -170,7 +170,7 @@ const RegisterComponent = () => {
                       <input
                         type="password"
                         name=""
-                        className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="xxxxxxxx"
                         onChange={(e) => {
                           setRegistrationData({
@@ -193,7 +193,7 @@ const RegisterComponent = () => {
                       <input
                         type="password"
                         name=""
-                        className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="xxxxxxxx"
                         onChange={(e) => {
                           setPasswordConfirmation(e.target.value);
@@ -215,7 +215,7 @@ const RegisterComponent = () => {
                       <input
                         type="password"
                         name=""
-                        className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="xxxxxxxx"
                         onChange={(e) => {
                           setRegistrationData({
@@ -238,7 +238,7 @@ const RegisterComponent = () => {
                       <input
                         type="password"
                         name=""
-                        className="outline-0 text-[#808080] bg-[#f8460517] h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                         placeholder="xxxxxxxx"
                         onChange={(e) => {
                           setPasswordConfirmation(e.target.value);
