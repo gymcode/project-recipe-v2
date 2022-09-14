@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
+import "./main.css"
 import SVG from "Assets/Images/undraw_waiting__for_you_ldha.svg"
 
 const RegisterComponent = () => {
@@ -79,14 +80,17 @@ const RegisterComponent = () => {
           />
           <div className='text-base kreon-font my-5 text-gray-600'>Been waiting for a while...</div>
         </div>
-        <div className="p-5 col-span-2 px-16 mt-10">
+        <div className="p-5 col-span-2 px-16 mt-10 register-bg">
           <div className="my-10">
             <form onSubmit={handleSubmit} method="post">
               <>
-                <h1 className="text-4xl abel-font">Sign Up</h1>
-                <p className="imprima-font text-[#808080] py-1">
-                  Create an account to explore more features
-                </p>
+                <div className='border-b'>
+                  <h1 className="text-4xl abel-font">Sign Up</h1>
+                  <p className="imprima-font text-[#808080] py-1">
+                    Create an account to explore more features
+                  </p>
+                </div>
+
                 <div className="py-10">
                   <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-5">
                     <div className="flex flex-col">
