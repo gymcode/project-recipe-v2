@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import "./main.css"
 import SVG from "Assets/Images/undraw_enter_uhqk.svg"
+import { Link } from "react-router-dom";
 
 const LoginComponent = () => {
   return (
@@ -70,14 +71,16 @@ const LoginComponent = () => {
             </div>
             <div className="text-sm imprima-font text-gray-400 flex justify-start mt-3">
               Not registerd yet?
-              <div className="text-red-600 pl-2">
-                Create an account
-              </div>
+              <Link to={"/dashboard/auth/register"}>
+                <div className="text-red-600 pl-2">
+                  Create an account
+                </div>
+              </Link>
             </div>
           </div>
         </div>
         <div className="flex justify-start items-center">
-          <img src={SVG} width={450} height={300} classname="bg-cover rounded bg-center h-10" alt="" />
+          <img src={SVG} width={500} height={300} classname="bg-cover rounded bg-center h-10" alt="" />
         </div>
       </div>
     </>
