@@ -25,8 +25,8 @@ const AuthenticationComponent = () => {
           to={"/dashboard/auth/login"}
           className={({ isActive }) =>
             isActive
-              ? "border-b border-red-700"
-              : "hover:border-b hover:border-red-700"
+              ? "border-b border-red-700 mx-3"
+              : "hover:border-b hover:border-red-700 mx-3"
           }
         >
           <div className="text-sm text-gray-400 p-2 px-12 cursor-pointer">
