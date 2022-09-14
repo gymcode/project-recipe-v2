@@ -23,7 +23,7 @@ const LoginComponent = () => {
             <p className="imprima-font text-[#808080] py-1">
               Create an account to explore more features
               <ToastContainer 
-                
+                toastStyle={{ backgroundColor: "green" }} 
               />
             </p>
             <div className="my-8">

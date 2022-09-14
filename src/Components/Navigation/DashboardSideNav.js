@@ -11,7 +11,6 @@ const DashboardSideNav = ({
   setSidebarOpen,
   sidebarOpen,
   setTitle,
-  toggle,
 }) => {
   return (
     <>
