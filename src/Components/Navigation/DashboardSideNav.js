@@ -175,11 +175,11 @@ const DashboardSideNav = ({
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{
-                    scale: 0.9,
+                    scale: 1.0,
                     borderRadius: "2%",
                   }}
                   onClick={() => setTitle("Authentication")}
-                  className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                  className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] text-white flex justify-center items-center rounded kreon-font cursor-pointer"
                 >
                   Let's set you up
                 </motion.div>

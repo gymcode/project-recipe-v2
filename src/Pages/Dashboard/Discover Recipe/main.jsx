@@ -13,7 +13,7 @@ const DiscoveryDashboardComponent = ({ showSideNav }) => {
       {showSideNav ? (
         <>
           {/* header  */}
-          <div className="flex justify-between py-3 items-center sticky top-36 z-10 bg-gray-100 h-20">
+          <div className="flex justify-between py-3 items-center sticky top-36 z-10 bg-gray-100 h-20 transition transform ease-in-out duration-700">
             {/* header  */}
             <div className="flex items-center">
               {CategoryNavLinks.map((navItem) => (
