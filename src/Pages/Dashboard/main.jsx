@@ -90,7 +90,11 @@ const Dashboard = () => {
   useEffect(() => {
     var bodyScroll = document.querySelector("#bodyScroll");
     bodyScroll.addEventListener("scroll", () => {
-      console.log("hey")
+      if (bodyScroll.scrollTop > 420) {
+        setShow(true)
+      }else{
+        setShow(false)
+      }
     });
   }, []);
 

@@ -1,49 +1,43 @@
 import React, { Suspense, useState, useEffect } from "react";
 import "./main.css";
 import { Routes, Route, NavLink } from "react-router-dom";
-import { CategoryNavLinks } from "Helpers"
+import { CategoryNavLinks } from "Helpers";
 
-const OmnivoreSection = React.lazy(() => import("./Omnivore"))
+const OmnivoreSection = React.lazy(() => import("./Omnivore"));
 
-const DiscoveryDashboardComponent = ({showSideNav}) => {
-  const [categoryName, setCategoryName] = useState("Omnivore Category")
-
+const DiscoveryDashboardComponent = ({ showSideNav }) => {
+  const [categoryName, setCategoryName] = useState("Omnivore Category");
 
   return (
     <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0 ">
-      {
-        showSideNav ? (
-          <>
+      {showSideNav ? (
+        <>
+          {/* header  */}
+          <div className="flex justify-between py-3 items-center sticky top-36 z-10 bg-gray-100 h-20">
             {/* header  */}
-            <div className="flex justify-between py-3 border-b items-center fixed">
-              <div className="text-sm text-gray-400">
-                Add recipe <span className="text-[#F84605]">/</span>{" "}
-              </div>
-              <div>
-                <div className="h-8 w-44 bg-[#F84605] kreon-font text-white text-base flex justify-center items-center cursor-pointer rounded">
-                  <div className="pr-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      />
-                    </svg>
-                  </div>
-                  <p>Add new recipe</p>
-                </div>
-              </div>
+            <div className="flex items-center">
+              {CategoryNavLinks.map((navItem) => (
+                <>
+                  <NavLink
+                    to={navItem.href}
+                    onClick={() => setCategoryName(navItem.name)}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "border-b border-red-700 mr-6 text-red-700"
+                        : "hover:border-b hover:border-red-700 mr-6 text-gray-700"
+                    }
+                  >
+                    <div className="text-sm p-2 px-10 cursor-pointer flex justify-center items-center">
+                      <div className="mr-2">{navItem.svg}</div>
+                      <p className="imprima-font py-3 ">{navItem.name}</p>
+                    </div>
+                  </NavLink>
+                </>
+              ))}
             </div>
-          </>
-        ): null
-      }
+          </div>
+        </>
+      ) : null}
       <div className="py-4">
         <div className="grid grid-cols-12 gap-7 min-h-[24vh] mt-4">
           <div className="card col-span-10 hidden xl:block rounded-lg" />
