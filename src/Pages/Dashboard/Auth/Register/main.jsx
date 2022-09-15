@@ -72,7 +72,7 @@ const RegisterComponent = () => {
   }
   return (
     <>
-      <div className="grid lg:grid-cols-3 h-full bg-gray-50 rounded shadow-md">
+      <div className="grid lg:grid-cols-3 h-full bg-gray-50 rounded shadow-md register-bg">
         <div className='flex items-center justify-center flex-col'>
           <img
             src={SVG}
@@ -80,7 +80,7 @@ const RegisterComponent = () => {
           />
           <div className='text-base kreon-font my-5 text-gray-600'>Been waiting for a while...</div>
         </div>
-        <div className="p-5 col-span-2 px-16 mt-10 register-bg">
+        <div className="p-5 col-span-2 px-16 mt-20">
           <div className="my-10">
             <form onSubmit={handleSubmit} method="post">
               <>
@@ -91,7 +91,7 @@ const RegisterComponent = () => {
                   </p>
                 </div>
 
-                <div className="py-10">
+                <div className="py-12">
                   <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-5">
                     <div className="flex flex-col">
                       <label
@@ -140,51 +140,28 @@ const RegisterComponent = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-col lg:w-5/6 py-3">
-                    <label
-                      htmlFor="msisdn"
-                      className="imprima-font text-[#808080]"
-                    >
-                      Phone number
-                    </label>
-                    <input
-                      type="number"
-                      name=""
-                      className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                      placeholder="+233 26 821 334"
-                      onChange={(e) => {
-                        setRegistrationData({
-                          ...registrationData,
-                          msisdn: e.target.value,
-                        });
-                      }}
-                    />
-                    <p className="text-xs text-red-600 kreon-font">
-                      {formErrors.msisdn}
-                    </p>
-                  </div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
                     <div className="flex flex-col">
                       <label
-                        htmlFor="password"
+                        htmlFor="msisdn"
                         className="imprima-font text-[#808080]"
                       >
-                        Password
+                        Phone number
                       </label>
                       <input
-                        type="password"
+                        type="number"
                         name=""
                         className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                        placeholder="xxxxxxxx"
+                        placeholder="+233 26 821 334"
                         onChange={(e) => {
                           setRegistrationData({
                             ...registrationData,
-                            password: e.target.value,
+                            msisdn: e.target.value,
                           });
                         }}
                       />
                       <p className="text-xs text-red-600 kreon-font">
-                        {formErrors.password}
+                        {formErrors.msisdn}
                       </p>
                     </div>
                     <div className="flex flex-col">

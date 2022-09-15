@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
+import {LOADER } from "Components";
 
 const LoginComponent = React.lazy(() => import("./Login"));
 const RegisterComponent = React.lazy(() => import("./Register"));
@@ -36,7 +37,7 @@ const AuthenticationComponent = () => {
       </div>
       {/* body */}
       <body className="h-[75vh]">
-        <Suspense fallback={"fdfsdf"}>
+        <Suspense fallback={<LOADER/>}>
           <Routes>
             <Route path="/register" element={<RegisterComponent />} />
             <Route path="/login" element={<LoginComponent />} />

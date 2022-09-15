@@ -2,6 +2,7 @@ import React, { Suspense, useState, useEffect } from "react";
 import "./main.css";
 import { Routes, Route, NavLink } from "react-router-dom";
 import { CategoryNavLinks } from "Helpers";
+import {LOADER } from "Components";
 
 const OmnivoreSection = React.lazy(() => import("./Omnivore"));
 
@@ -102,7 +103,7 @@ const DiscoveryDashboardComponent = ({ showSideNav }) => {
             </p>
           </div>
           <div className="grid grid-cols-1 px-5 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 gap-12 mt-10">
-            <Suspense fallback={"fdfsdf"}>
+            <Suspense fallback={<LOADER/>}>
               <Routes>
                 <Route path="/omnivore" element={<OmnivoreSection />} />
               </Routes>

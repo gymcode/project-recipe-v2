@@ -27,7 +27,7 @@ const Dashboard = () => {
     bodyScroll.addEventListener("scroll", () => {
       if (bodyScroll.scrollTop > 420) {
         setShow(true)
-      }else{
+      } else {
         setShow(false)
       }
     });
@@ -96,31 +96,38 @@ const Dashboard = () => {
                       {title}
                     </div>
                   </div>
-                  <div className="w-[25vw] h-[86%] items-end xl:flex lg:flex md:flex hidden">
-                    <div className="flex w-full border items-center px-3 rounded-md">
-                      <div className="px-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="#777777"
-                          strokeWidth={1.5}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                          />
-                        </svg>
-                      </div>
-                      <input
-                        type="text"
-                        className="w-full h-8 outline-0 text-gray-400 bg-transparent"
-                        placeholder="search for recipes..."
-                      />
-                    </div>
-                  </div>
+                  {
+                    title != "Authentication" ?
+                      (
+                        <div className="w-[25vw] h-[86%] items-end xl:flex lg:flex md:flex hidden">
+                          <div className="flex w-full border items-center px-3 rounded-md">
+                            <div className="px-2">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-4 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="#777777"
+                                strokeWidth={1.5}
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                />
+                              </svg>
+                            </div>
+                            <input
+                              type="text"
+                              className="w-full h-8 outline-0 text-gray-400 bg-transparent"
+                              placeholder="search for recipes..."
+                            />
+                          </div>
+                        </div>
+                      )
+                      :
+                      null
+                  }
                 </div>
               </div>
               <div className="mx-auto px-5 md:px:12 lg:px-12 xl:px-12 relative">

@@ -16,14 +16,13 @@ const LoginComponent = () => {
 
   return (
     <>
-      <div className="grid lg:grid-cols-2 h-full bg-gray-50 rounded shadow-md">
-        <div className="flex items-center flex-col justify-center login-bg">
+      <div className="grid lg:grid-cols-2 h-full bg-gray-50 rounded shadow-md login-bg">
+        <div className="flex items-center flex-col justify-center">
           <div className="w-1/2">
             <h1 className="text-4xl abel-font">Hi, Welcome Back!</h1>
             <p className="imprima-font text-[#808080] py-1">
               Create an account to explore more features
               <ToastContainer 
-                toastStyle={{ backgroundColor: "green" }} 
               />
             </p>
             <div className="my-8">
