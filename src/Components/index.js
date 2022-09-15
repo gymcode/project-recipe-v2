@@ -15,3 +15,10 @@ export {default as MODAL} from "./modal"
 
 export {default as RECIPE_TABLE} from "./recipeTable"
 
+// toast notification calls
+export {
+     SuccessToast as SUCCESS_TOAST,
+     ErrorToast as ERROR_TOAST,
+     WarningToast as WARNING_TOAST,
+} from "./Toast"
+

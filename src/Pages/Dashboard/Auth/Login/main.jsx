@@ -1,29 +1,28 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import "./main.css"
 import SVG from "Assets/Images/undraw_enter_uhqk.svg"
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { SUCCESS_TOAST } from "Components"
+import { ToastContainer} from 'react-toastify';
 
 const LoginComponent = () => {
 
   function handleLogin(e){
     e.preventDefault()
 
-    // based on the code from the backend render
-    toast.success("Logged in successfully")
+
+    SUCCESS_TOAST('Logged in successfully')
+
   }
 
   return (
     <>
       <div className="grid lg:grid-cols-2 h-full bg-gray-50 rounded shadow-md login-bg">
         <div className="flex items-center flex-col justify-center max-h-[75vh]">
-          <div className="w-3/4 md:w-1/2 lg:w-1/2">
+          <div className="w-3/4 md:w-2/3 lg:w-2/3 xl:w-1/2">
             <h1 className="text-4xl abel-font">Hi, Welcome Back!</h1>
             <p className="imprima-font text-[#808080] py-1">
               Create an account to explore more features
-              <ToastContainer 
-              />
             </p>
             <div className="my-8">
               <div>
@@ -95,6 +94,7 @@ const LoginComponent = () => {
           <img src={SVG} className="bg-cover rounded bg-center h-1/2 xl:h-2/3" alt="" />
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
