@@ -72,15 +72,15 @@ const RegisterComponent = () => {
   }
   return (
     <>
-      <div className="grid lg:grid-cols-3 h-full bg-gray-50 rounded shadow-md register-bg">
-        <div className='flex items-center justify-center flex-col'>
+      <div className="grid lg:grid-cols-3 min-h-[75vh] bg-gray-50 rounded shadow-md register-bg">
+        <div className='lg:flex xl:flex items-center justify-center flex-col hidden'>
           <img
             src={SVG}
             className="bg-cover rounded bg-center h-1/2"
           />
           <div className='text-base kreon-font my-5 text-gray-600'>Been waiting for a while...</div>
         </div>
-        <div className="p-5 col-span-2 px-16 mt-20">
+        <div className="p-5 col-span-2 px-8 md:px-16 lg:px-16 md:mt-5 lg:mt-20">
           <div className="my-10">
             <form onSubmit={handleSubmit} method="post">
               <>
@@ -91,7 +91,7 @@ const RegisterComponent = () => {
                   </p>
                 </div>
 
-                <div className="py-12">
+                <div className="py-4 md:py-12 lg:py-12">
                   <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-5">
                     <div className="flex flex-col">
                       <label
@@ -140,7 +140,7 @@ const RegisterComponent = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
+                  <div className='w-full md:w-3/4 lg:w-3/4'>
                     <div className="flex flex-col">
                       <label
                         htmlFor="msisdn"
@@ -162,26 +162,6 @@ const RegisterComponent = () => {
                       />
                       <p className="text-xs text-red-600 kreon-font">
                         {formErrors.msisdn}
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <label
-                        htmlFor="confirm-password"
-                        className="imprima-font text-[#808080]"
-                      >
-                        Confirm Password
-                      </label>
-                      <input
-                        type="password"
-                        name=""
-                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                        placeholder="xxxxxxxx"
-                        onChange={(e) => {
-                          setPasswordConfirmation(e.target.value);
-                        }}
-                      />
-                      <p className="text-xs text-red-600 kreon-font">
-                        {formErrors.passwordMatch}
                       </p>
                     </div>
                   </div>
@@ -240,7 +220,7 @@ const RegisterComponent = () => {
                       borderRadius: "2%",
                     }}
                     type="submit"
-                    className="h-10 w-1/3 mt-3 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                    className="h-10 w-full md:w-1/3 lg:w-1/3 mt-3 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                   >
                     {isLoading ? "Loading..." : "Create Account"}
                   </motion.button>

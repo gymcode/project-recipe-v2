@@ -17,8 +17,8 @@ const LoginComponent = () => {
   return (
     <>
       <div className="grid lg:grid-cols-2 h-full bg-gray-50 rounded shadow-md login-bg">
-        <div className="flex items-center flex-col justify-center">
-          <div className="w-1/2">
+        <div className="flex items-center flex-col justify-center max-h-[75vh]">
+          <div className="w-3/4 md:w-1/2 lg:w-1/2">
             <h1 className="text-4xl abel-font">Hi, Welcome Back!</h1>
             <p className="imprima-font text-[#808080] py-1">
               Create an account to explore more features
@@ -91,8 +91,8 @@ const LoginComponent = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-start items-center">
-          <img src={SVG} width={500} classname="bg-cover rounded bg-center h-10" alt="" />
+        <div className="lg:flex xl:flex hidden justify-start items-center max-h-[75vh]">
+          <img src={SVG} className="bg-cover rounded bg-center h-1/2 xl:h-2/3" alt="" />
         </div>
       </div>
     </>
