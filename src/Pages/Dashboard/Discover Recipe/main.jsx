@@ -11,11 +11,11 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
   // scrolling section 
 
   return (
-    <main className="mx-5 md:mx-0 lg:mx-0 xl:mx-0 ">
+    <main className="">
       {showSideNav ? (
         <>
           {/* header  */}
-          <div className="flex justify-between py-3 items-center sticky top-36 z-10 bg-gray-100 h-20 transition transform ease-in-out duration-700">
+          <div className="hidden lg:flex md:flex justify-between py-3 items-center sticky top-36 z-10 bg-gray-100 h-20 transition transform ease-in-out duration-700">
             {/* header  */}
             <div className="flex items-center">
               {CategoryNavLinks.map((navItem) => (
@@ -38,12 +38,34 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
               ))}
             </div>
           </div>
+          <div className="flex md:hidden lg:hidden justify-between py-3 items-center sticky top-32 z-10 bg-gray-100 h-20 transition transform ease-in-out duration-700">
+            {/* header  */}
+            <div className="flex items-center">
+              {CategoryNavLinks.map((navItem) => (
+                <>
+                  <NavLink
+                    to={navItem.href}
+                    onClick={() => setCategoryName(navItem.name)}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "border-b border-red-700 mr-6  pb-1 text-red-700"
+                        : "hover:border-b hover:border-red-700 mr-6  pb-1 text-gray-700"
+                    }
+                  >
+                    <div className="text-sm cursor-pointer flex justify-center items-center">
+                      <div className="mr-2">{navItem.svg}</div>
+                    </div>
+                  </NavLink>
+                </>
+              ))}
+            </div>
+          </div>
         </>
       ) : null}
       <div className="py-4">
         <div className="grid grid-cols-12 gap-7 min-h-[24vh] mt-4">
           <div className="card col-span-10 hidden xl:block rounded-lg" />
-          <div className="col-span-2 w-[90vw] xl:w-full lg:w-full md:w-full bg-[#f8e6e6] rounded-lg flex flex-col p-5 justify-between">
+          <div className="col-span-2 w-[88vw] xl:w-full lg:w-full md:w-full bg-[#f8e6e6] rounded-lg flex flex-col p-5 justify-between">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +97,8 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
         </div>
         <div className="mt-8">
           <p className="imprima-font text-lg">Categories</p>
-          <div className="flex">
+          {/* laptops screen only  */}
+          <div className="lg:flex md:flex hidden">
             {CategoryNavLinks.map((navItem) => (
               <>
                 <NavLink
@@ -90,6 +113,25 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
                   <div className="">
                     {navItem.svg}
                     <p className="imprima-font py-3">{navItem.name}</p>
+                  </div>
+                </NavLink>
+              </>
+            ))}
+          </div>
+          <div className="lg:hidden md:hidden flex justify-center">
+            {CategoryNavLinks.map((navItem) => (
+              <>
+                <NavLink
+                  to={navItem.href}
+                  onClick={() => setCategoryName(navItem.name)}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white rounded-lg h-14 border border-gray-200 mr-2 mt-2 p-3 bg-[#F84605]"
+                      : "text-[#777777] hover:text-white rounded-lg h-14 mr-2 border border-gray-200 mt-2 p-3 hover:border-none hover:bg-[#F84605] cursor-pointer hover:text-white;"
+                  }
+                >
+                  <div className="">
+                    {navItem.svg}
                   </div>
                 </NavLink>
               </>
