@@ -138,7 +138,7 @@ const Dashboard = () => {
                       <Route
                         path="/discover/*"
                         element={
-                          <DiscoveryDashboardComponent showSideNav={show} />
+                          <DiscoveryDashboardComponent setTitle={setTitle} showSideNav={show} />
                         }
                       />
                       <Route
