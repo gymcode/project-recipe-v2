@@ -85,7 +85,7 @@ const RegisterComponent = () => {
             <form onSubmit={handleSubmit} method="post">
               <>
                 <div className='border-b'>
-                  <h1 className="text-4xl abel-font">Sign Up</h1>
+                  <h1 className="text-4xl abel-font">Sign up</h1>
                   <p className="imprima-font text-[#808080] py-1">
                     Create an account to explore more features
                   </p>

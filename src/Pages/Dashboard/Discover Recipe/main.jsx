@@ -15,7 +15,7 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
       {showSideNav ? (
         <>
           {/* header  */}
-          <div className="hidden lg:flex md:flex justify-between py-3 items-center sticky top-36 z-10 bg-gray-100 h-20 transition transform ease-in-out duration-700">
+          <div className="hidden lg:flex justify-between py-3 items-center sticky top-36 z-10 bg-gray-100 h-20 transition transform ease-in-out duration-700">
             {/* header  */}
             <div className="flex items-center">
               {CategoryNavLinks.map((navItem) => (
@@ -29,16 +29,16 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
                         : "hover:border-b hover:border-red-700 mr-6 text-gray-700"
                     }
                   >
-                    <div className="text-sm p-2 px-10 cursor-pointer flex justify-center items-center">
+                    <div className="text-sm p-2 md:px-0 lg:px-10 cursor-pointer flex justify-center items-center">
                       <div className="mr-2">{navItem.svg}</div>
-                      <p className="imprima-font py-3 ">{navItem.name}</p>
+                      <p className="imprima-font py-3">{navItem.name}</p>
                     </div>
                   </NavLink>
                 </>
               ))}
             </div>
           </div>
-          <div className="flex md:hidden lg:hidden justify-between py-3 items-center sticky top-32 z-10 bg-gray-100 h-20 transition transform ease-in-out duration-700">
+          <div className="flex lg:hidden justify-center py-3 items-center sticky top-32 md:top-36 z-10 bg-gray-100 h-20 transition transform ease-in-out duration-700">
             {/* header  */}
             <div className="flex items-center">
               {CategoryNavLinks.map((navItem) => (
@@ -48,8 +48,8 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
                     onClick={() => setCategoryName(navItem.name)}
                     className={({ isActive }) =>
                       isActive
-                        ? "border-b border-red-700 mr-6  pb-1 text-red-700"
-                        : "hover:border-b hover:border-red-700 mr-6  pb-1 text-gray-700"
+                        ? "border-b border-red-700 pb-1 text-red-700 px-3"
+                        : "hover:border-b hover:border-red-700 pb-1 px-3 text-gray-700"
                     }
                   >
                     <div className="text-sm cursor-pointer flex justify-center items-center">
@@ -64,8 +64,8 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
       ) : null}
       <div className="py-4">
         <div className="grid grid-cols-12 gap-7 min-h-[24vh] mt-4">
-          <div className="card col-span-10 hidden xl:block rounded-lg" />
-          <div className="col-span-2 w-[88vw] xl:w-full lg:w-full md:w-full bg-[#f8e6e6] rounded-lg flex flex-col p-5 justify-between">
+          <div className="card col-span-10 hidden lg:block xl:block rounded-lg" />
+          <div className="col-span-2 w-[88vw] xl:w-full lg:w-full md:w-[59vw] bg-[#f8e6e6] rounded-lg flex flex-col p-5 justify-between">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,13 +106,13 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
                   onClick={() => setCategoryName(navItem.name)}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-white rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4 bg-[#F84605]"
-                      : "text-[#777777] hover:text-white rounded-lg h-24 w-52 border border-gray-200 mt-2 mr-12 p-4 hover:border-none hover:bg-[#F84605] cursor-pointer hover:text-white;"
+                      ? "text-white rounded-lg h-24 lg:h-24 md:h-16 w-52 border border-gray-200 mt-2 md:mr-1 lg:mr-4 xl:mr-12 p-4 bg-[#F84605]"
+                      : "text-[#777777] hover:text-white rounded-lg md:h-16 h-24 lg:h-24 w-52 border border-gray-200 mt-2 md:mr-1 lg:mr-4 xl:mr-12 p-4 hover:border-none hover:bg-[#F84605] cursor-pointer hover:text-white;"
                   }
                 >
                   <div className="">
                     {navItem.svg}
-                    <p className="imprima-font py-3">{navItem.name}</p>
+                    <p className="imprima-font py-3 md:hidden lg:block">{navItem.name}</p>
                   </div>
                 </NavLink>
               </>
