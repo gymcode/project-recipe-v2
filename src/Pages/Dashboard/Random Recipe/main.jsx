@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { RECIPE_CARD } from "Components";
 import { motion } from "framer-motion";
-import InfiniteScroll from 'react-infinite-scroll-component';
+import Endpoints from "Services/endpoints";
+import { useFetch } from "Hooks";
+import { LOADER } from "Components";
 
 const recipeCategory = [
   {
@@ -51,24 +53,20 @@ const recipeCategory = [
     title: "Mashed potatoes breakfast hash",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
-  }
+  },
 ];
 
 const RandomRecipeComponent = () => {
-  recipeCategory.length = 8
-  const [more, hasMore] = useState(true)
-  const [items, ] = useState(recipeCategory)
+  const random_recipe_url = Endpoints.RANDOM_RECIPES(10);
+  const data = useFetch(
+    random_recipe_url,
+    { loading: true, data: null },
+    "randomRecipes",
+    true
+  );
+  const [items] = useState(recipeCategory);
 
-
-  function dataFetchFromArray() {
-    if (items.length >= 48) {
-      hasMore(false)
-      return
-    }
-    setTimeout(() => {
-
-    }, 3000)
-  }
+  console.log(data);
 
   return (
     <main className="px-1">
@@ -82,7 +80,8 @@ const RandomRecipeComponent = () => {
               scale: 0.9,
               borderRadius: "2%",
             }}
-            className="h-8 w-44 bg-[#F84605] kreon-font text-white text-base flex justify-center items-center cursor-pointer rounded">
+            className="h-8 w-44 bg-[#F84605] kreon-font text-white text-base flex justify-center items-center cursor-pointer rounded"
+          >
             <div className="pr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -108,18 +107,19 @@ const RandomRecipeComponent = () => {
         </div>
       </div>
       {/* body  */}
-      <InfiniteScroll
-        dataLength={items.length}
-        next={dataFetchFromArray}
-        hasMore={more}
-        loader={"loading...."}
-        endMessage={"you have reached the end"}>
-        <div className="grid grid-cols-1 px-5 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-2 gap-12 mt-10">
-          {items.map((data) => (
-            <RECIPE_CARD data={data} />
-          ))}
-        </div>
-      </InfiniteScroll>
+      {data.loading ? (
+        <>
+          <LOADER />
+        </>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 px-5 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-2 gap-12 mt-10">
+            {data.data.recipes.map((data) => (
+              <RECIPE_CARD data={data} />
+            ))}
+          </div>
+        </>
+      )}
     </main>
   );
 };

@@ -7,3 +7,7 @@ export {
   FooterSocialLinks,
   CategoryNavLinks
 } from "./NavLinks";
+
+export {
+  trimString
+} from "./trimString"

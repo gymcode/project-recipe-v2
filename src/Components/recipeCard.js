@@ -1,3 +1,5 @@
+import {trimString} from "Helpers"
+
 const RecipeCard = ({ data }) => {
   return (
     <>
@@ -5,16 +7,17 @@ const RecipeCard = ({ data }) => {
         <div
           className="h-40 w-full rounded-lg bg-cover bg-center"
           style={{
-            backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/ca-creative-bpPTlXWTOvg-unsplash_zPwCjixvr.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255848601")`,
+            backgroundImage: `url("${data.image}")`,
           }}
         />
         <div className="flex flex-col justify-between">
           <div className="p-5 h-44 md:h-52 lg:52 xl:h-44">
             <h2 className="capitalize imprima-font mt-3 text-xl">
-              {data.title}
+            {trimString(data.title, 35)}
             </h2>
             <div className="py-3 text-[#777777] text-justify max-h-20 imprima-font">
-              {data.content}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+              debitis quod Nemo debitis quod... 
             </div>
           </div>
           <div className="border-t px-5 pt-2 md:my-4 flex items-center justify-between">
@@ -35,7 +38,9 @@ const RecipeCard = ({ data }) => {
                   fill="#F84605"
                 ></path>
               </svg>
-              <div className="ml-2 text-sm text-[#979797]">45 mins</div>
+              <div className="ml-2 text-sm text-[#979797]">
+                {data.readyInMinutes} mins
+              </div>
             </div>
             <div className="flex justify-center items-center h-8 w-8 rounded-full border border-gray-300">
               <svg
