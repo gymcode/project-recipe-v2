@@ -1,1 +1,1 @@
-export { PageComponents, DashboardNavComponent } from "./routes";
+export { PageComponents } from "./routes";

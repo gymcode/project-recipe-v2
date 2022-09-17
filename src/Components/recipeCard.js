@@ -1,4 +1,5 @@
 import { TrimString } from "Helpers";
+import { Link } from "react-router-dom";
 
 const RecipeCard = ({ data }) => {
   return (
@@ -17,7 +18,7 @@ const RecipeCard = ({ data }) => {
             </h2>
             {/* dangerouslySetInnerHTML={recipe_summary}  */}
             <div
-              dangerouslySetInnerHTML={{__html: TrimString(data.summary, 85)}}
+              dangerouslySetInnerHTML={{ __html: TrimString(data.summary, 85) }}
               className="py-3 text-[#777777] text-justify max-h-20 imprima-font"
             />
           </div>
@@ -43,27 +44,29 @@ const RecipeCard = ({ data }) => {
                 {data.readyInMinutes} mins
               </div>
             </div>
-            <div className="flex justify-center items-center h-8 w-8 rounded-full border border-gray-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="#979797"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-            </div>
+            <Link to={`/recipe/${data.id}`}>
+              <div className="flex justify-center items-center h-8 w-8 rounded-full border hover:border-gray-500 border-gray-300">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#979797"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

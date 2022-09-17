@@ -5,57 +5,6 @@ import Endpoints from "Services/endpoints";
 import { useFetch } from "Hooks";
 import { LOADER } from "Components";
 
-const recipeCategory = [
-  {
-    id: 1,
-    title: "Mashed potatoes breakfast hash",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
-  },
-  {
-    id: 2,
-    title: "Mashed potatoes breakfast hash",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod",
-  },
-  {
-    id: 3,
-    title: "Mashed potatoes breakfast hash",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
-  },
-  {
-    id: 4,
-    title: "Mashed potatoes breakfast hash",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
-  },
-  {
-    id: 1,
-    title: "Mashed potatoes breakfast hash",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
-  },
-  {
-    id: 2,
-    title: "Mashed potatoes breakfast hash",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod",
-  },
-  {
-    id: 3,
-    title: "Mashed potatoes breakfast hash",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
-  },
-  {
-    id: 4,
-    title: "Mashed potatoes breakfast hash",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo debitis quod Nemo debitis quod...",
-  },
-];
-
 const RandomRecipeComponent = () => {
   const random_recipe_url = Endpoints.RANDOM_RECIPES(10);
   const data = useFetch(
@@ -64,7 +13,6 @@ const RandomRecipeComponent = () => {
     "randomRecipes",
     true
   );
-  const [items] = useState(recipeCategory);
 
   console.log(data);
 

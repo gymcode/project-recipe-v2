@@ -6,8 +6,4 @@ export {default as NOTFOUND} from "./Not Found"
 
 
 // dashboard component
-export {default as ACCOUNT_COMPONENT} from "./Dashboard/Account"
-export {default as MY_RECIPE_COMPONENT} from "./Dashboard/My Recipe"
-export {default as MAIN_DASHBOARD_COMPONENT} from "./Dashboard/MainDashboard"
-export {default as RANDOM_RECIPE_COMPONENT} from "./Dashboard/Random Recipe"
-export {default as DISCOVER_RECIPE_COMPONENT} from "./Dashboard/Discover Recipe"
+export {default as SINGLE_RECIPE_INFO} from "./Dashboard/SingleRecipeInfo"
