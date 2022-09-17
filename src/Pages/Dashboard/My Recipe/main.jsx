@@ -1,5 +1,6 @@
 import "./main.css";
 import { RECIPE_TABLE } from "Components";
+import SVG from "Assets/Images/undraw_feeling_blue_-4-b7q.svg";
 
 const MyRecipeComponent = () => {
   return (
@@ -87,7 +88,7 @@ const MyRecipeComponent = () => {
             All your recipes
           </h1>
           {/* table section  */}
-          <div>
+          <div className="hidden md:block lg:block">
             <RECIPE_TABLE />
             <div className="absolute bottom-0 left-0 w-full bg-[#ebedf0dc] h-20 rounded-lg flex items-center px-16 justify-between">
               <div className="imprima-font text-gray-600">1-5 of 29</div>
@@ -144,6 +145,14 @@ const MyRecipeComponent = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="flex flex-col items-center justify-center md:hidden lg:hidden h-[50vh]">
+            <img
+              src={SVG}
+              className="bg-cover rounded bg-center h-1/3"
+              alt=""
+            />
+            <div className="imprima-font mx-4  text-center text-gray-600 mt-10">Could you pleeeaaaasssee use the desktop view for all of your recipes?</div>
           </div>
         </div>
       </div>
