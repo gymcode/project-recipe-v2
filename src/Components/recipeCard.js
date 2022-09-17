@@ -1,4 +1,4 @@
-import {trimString} from "Helpers"
+import { TrimString } from "Helpers";
 
 const RecipeCard = ({ data }) => {
   return (
@@ -13,12 +13,13 @@ const RecipeCard = ({ data }) => {
         <div className="flex flex-col justify-between">
           <div className="p-5 h-44 md:h-52 lg:52 xl:h-44">
             <h2 className="capitalize imprima-font mt-3 text-xl">
-            {trimString(data.title, 35)}
+              {TrimString(data.title, 35)}
             </h2>
-            <div className="py-3 text-[#777777] text-justify max-h-20 imprima-font">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-              debitis quod Nemo debitis quod... 
-            </div>
+            {/* dangerouslySetInnerHTML={recipe_summary}  */}
+            <div
+              dangerouslySetInnerHTML={{__html: TrimString(data.summary, 85)}}
+              className="py-3 text-[#777777] text-justify max-h-20 imprima-font"
+            />
           </div>
           <div className="border-t px-5 pt-2 md:my-4 flex items-center justify-between">
             <div className="flex items-center">

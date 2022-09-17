@@ -69,7 +69,7 @@ const RandomRecipeComponent = () => {
   console.log(data);
 
   return (
-    <main className="px-1">
+    <main className="px-1 pb-10">
       {/* header  */}
       <div className="flex px-5 md:px-0 xl:px-0 lg:px-0 justify-between py-3 border-b items-center ">
         <div className="text-sm text-gray-400">random recipes / </div>

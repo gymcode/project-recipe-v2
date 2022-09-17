@@ -9,5 +9,5 @@ export {
 } from "./NavLinks";
 
 export {
-  trimString
+  TrimString
 } from "./trimString"
