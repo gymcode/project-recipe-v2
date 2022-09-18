@@ -4,11 +4,11 @@ import { RECIPE_CARD } from "Components";
 import Endpoints from "Services";
 
 const OmnivoreSection = () => {
-  const searchRecipe = `${Endpoints.SEARCH_RECIPE(8, "omnivore")}`;
+  const searchRecipe = `${Endpoints.SEARCH_RECIPE(8, "pescaterian")}`;
   const data = useFetch(
     searchRecipe,
     { loading: true, data: null },
-    "omnivoreCategory",
+    "pescaterianCategory",
     true
   );
 
