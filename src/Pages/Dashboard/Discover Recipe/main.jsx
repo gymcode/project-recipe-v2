@@ -5,6 +5,11 @@ import { CategoryNavLinks } from "Helpers";
 import { LOADER } from "Components";
 
 const OmnivoreSection = React.lazy(() => import("./Omnivore"));
+const PaleoSection = React.lazy(()=> import("./Paleo"))
+const PescaterianSection = React.lazy(()=> import("./Pescaterian"))
+const VegetarianSection = React.lazy(()=>import("./Vegetarian"))
+const VeganSection = React.lazy(()=>import("./Vegetarian"))
+const FruitarianCategory = React.lazy(()=>import("./Fruitarian"))
 
 const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
   const [categoryName, setCategoryName] = useState("Omnivore Category");
@@ -152,6 +157,11 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
             <Suspense fallback={<LOADER />}>
               <Routes>
                 <Route path="/omnivore" element={<OmnivoreSection />} />
+                <Route path="/fruitarian" element={<FruitarianCategory />} />
+                <Route path="/paleo" element={<PaleoSection />} />
+                <Route path="/pescaterian" element={<PescaterianSection />} />
+                <Route path="/vegan" element={<VeganSection />} />
+                <Route path="/vegetarian" element={<VegetarianSection />} />
               </Routes>
             </Suspense>
           </div>

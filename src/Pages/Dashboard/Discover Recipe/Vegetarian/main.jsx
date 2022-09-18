@@ -3,7 +3,7 @@ import { LOADER } from "Components";
 import { RECIPE_CARD } from "Components";
 import Endpoints from "Services";
 
-const OmnivoreSection = () => {
+const VegetarianSection = () => {
   const searchRecipe = `${Endpoints.SEARCH_RECIPE(8, "vegetarian")}`;
   const data = useFetch(
     searchRecipe,
@@ -29,4 +29,4 @@ const OmnivoreSection = () => {
   );
 };
 
-export default OmnivoreSection;
+export default VegetarianSection;
