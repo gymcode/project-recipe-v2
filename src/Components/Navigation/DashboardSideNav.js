@@ -102,6 +102,7 @@ const DashboardSideNav = ({
                     <h2 className="imprima-font capitalize text-sm text-gray-500 pb-2 px-3 mt-4 font-sans font-extralight">
                       Menu
                     </h2>
+                    
                     {DashboardSideNavLinks.map((item) => {
                       return (
                         <NavLink
