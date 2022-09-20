@@ -12,8 +12,6 @@ const PescaterianSection = () => {
     true
   );
 
-  console.log("this is me", data)
-
   return (
     <>
       {data.loading ? (
