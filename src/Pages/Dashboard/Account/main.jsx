@@ -1,7 +1,7 @@
 const AccountComponent = ()=>{
     return (
         <main className="my-8">
-            Account Settings 
+            Account Settings ssssssssssssssssssssssss
         </main>
     )
 }
