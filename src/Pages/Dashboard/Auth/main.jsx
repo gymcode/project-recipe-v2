@@ -4,6 +4,7 @@ import {LOADER } from "Components";
 
 const LoginComponent = React.lazy(() => import("./Login"));
 const RegisterComponent = React.lazy(() => import("./Register"));
+const ResetComponent = React.lazy(() => import("./Reset"))
 
 const AuthenticationComponent = () => {
   return (
@@ -41,6 +42,8 @@ const AuthenticationComponent = () => {
           <Routes>
             <Route path="/register" element={<RegisterComponent />} />
             <Route path="/login" element={<LoginComponent />} />
+            <Route path="/reset" element={<ResetComponent />} />
+            {/* <Route path="/login" element={<LoginComponent />} /> */}
           </Routes>
         </Suspense>
       </body>

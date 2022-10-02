@@ -3,11 +3,11 @@ import "./main.css"
 import SVG from "Assets/Images/undraw_enter_uhqk.svg"
 import { Link } from "react-router-dom";
 import { SUCCESS_TOAST } from "Components"
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 const LoginComponent = () => {
 
-  function handleLogin(e){
+  function handleLogin(e) {
     e.preventDefault()
 
 
@@ -63,9 +63,11 @@ const LoginComponent = () => {
                   </p>
                 </div>
               </div>
-              <div className="text-sm imprima-font text-gray-400 flex justify-end">
-                Forgot password?
-              </div>
+              <Link to={"/dashboard/auth/reset"}>
+                <div className="text-sm imprima-font text-gray-400 flex justify-end">
+                  Forgot password?
+                </div>
+              </Link>
             </div>
             <div className="">
               <motion.button
