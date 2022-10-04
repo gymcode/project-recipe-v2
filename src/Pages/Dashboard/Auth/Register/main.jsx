@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import "./main.css"
 import SVG from "Assets/Images/undraw_waiting__for_you_ldha.svg"
+import { useNavigate } from 'react-router-dom';
 
 const RegisterComponent = () => {
   const [registrationData, setRegistrationData] = useState({
@@ -47,6 +48,10 @@ const RegisterComponent = () => {
         registrationData: registrationData,
       },
     });
+
+    // success 
+    let history = useNavigate()
+    history("/otp-confirm")
 
     setIsLoading(false);
   }

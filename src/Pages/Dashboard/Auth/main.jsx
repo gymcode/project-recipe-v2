@@ -42,9 +42,9 @@ const AuthenticationComponent = () => {
         <Suspense fallback={<LOADER/>}>
           <Routes>
             <Route path="/register" element={<RegisterComponent />} />
-            <Route path="/login" element={<LoginComponent />} />
-            <Route path="/reset" element={<ConfirmOtp />} />
-            {/* <Route path="/login" element={<LoginComponent />} /> */}
+            <Route path="/login" element={<LoginComponent/>} />
+            <Route path="/reset" element={<ResetComponent/>} />
+            <Route path="/otp-confirm" element={<ConfirmOtp/>} />
           </Routes>
         </Suspense>
       </body>
