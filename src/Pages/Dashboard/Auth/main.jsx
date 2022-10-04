@@ -14,7 +14,7 @@ const AuthenticationComponent = () => {
       <div className="flex pt-5 border-b items-center ">
         <NavLink
           to={"/dashboard/auth/register"}
-          className={({ isActive }) =>
+          className={({ isActive }) => // false
             isActive
               ? "border-b border-red-700"
               : "hover:border-b hover:border-red-700"
@@ -26,7 +26,7 @@ const AuthenticationComponent = () => {
         </NavLink>
         <NavLink
           to={"/dashboard/auth/login"}
-          className={({ isActive }) =>
+          className={({ isActive }) => // false
             isActive
               ? "border-b border-red-700 mx-3"
               : "hover:border-b hover:border-red-700 mx-3"
