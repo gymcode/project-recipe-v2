@@ -7,7 +7,15 @@ const RegisterComponent = React.lazy(() => import("./Register"));
 const ResetComponent = React.lazy(() => import("./Reset"))
 const ConfirmOtp = React.lazy(()=> import("./ConfirmOTP"))
 
+
 const AuthenticationComponent = () => {
+
+  const hello = ()=>{
+    if (i <= b) {
+      
+    }
+  }
+
   return (
     <>
       {/* header  */}
