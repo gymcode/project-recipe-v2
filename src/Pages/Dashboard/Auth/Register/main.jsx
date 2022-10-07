@@ -12,14 +12,20 @@ const RegisterComponent = () => {
     password: "",
   });
   const [formErrors, setFormErrors] = useState({});
-  const [, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [confirmPassword, setPasswordConfirmation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
+    console.log(formErrors)
+    console.log(isSubmitted)
     setFormErrors(formValidation(registrationData, confirmPassword));
+
+    console.log(formErrors)
+    if (Object.keys(formErrors).length != 0) return
+
+    setIsLoading(true);
     setIsSubmitted(true);
 
     // form submission
@@ -49,9 +55,9 @@ const RegisterComponent = () => {
       },
     });
 
-    // success 
-    let history = useNavigate()
-    history("/otp-confirm")
+    // // success 
+    // let history = useNavigate()
+    // history("/otp-confirm")
 
     setIsLoading(false);
   }
@@ -240,3 +246,6 @@ const RegisterComponent = () => {
 };
 
 export default RegisterComponent;
+
+
+

@@ -54,7 +54,7 @@ const Dashboard = () => {
           setSidebarOpen={setSidebarOpen}
           setTitle={setTitle}
           toggle={toggle}
-        />npm 
+        />
         <div className="flex flex-col w-0 flex-1">
           <div className="relative z-10 flex-shrink-0 flex h-16 bg-white shadow md:hidden lg:hidden xl:hidden overflow-hidden">
             <button

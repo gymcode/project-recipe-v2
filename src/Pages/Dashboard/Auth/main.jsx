@@ -10,12 +10,6 @@ const ConfirmOtp = React.lazy(()=> import("./ConfirmOTP"))
 
 const AuthenticationComponent = () => {
 
-  const hello = ()=>{
-    if (i <= b) {
-      
-    }
-  }
-
   return (
     <>
       {/* header  */}
