@@ -23,7 +23,7 @@ const GalleryComponent = () => {
             whileHover={{ scale: 1.04, borderRadius: "1%" }}
             className="row-span-2 md:row-span-3 xl:row-span-3 lg:row-span-3 bg-center bg-cover"
             style={{
-              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/casey-lee-awj7sRviVXo-unsplash_3WGyBU5dS.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658352689064")`,
+              backgroundImage: `url("https://i.postimg.cc/Bvbsjr36/casey-lee-awj7s-Rvi-VXo-unsplash-3-WGy-BU5d-S.jpg")`,
             }}
           >
             <div className="h-full w-full flex flex-col justify-center items-center img_text">
@@ -40,7 +40,7 @@ const GalleryComponent = () => {
             whileHover={{ scale: 1.04, borderRadius: "1%" }}
             className="row-span-2 bg-center bg-cover"
             style={{
-              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/dan-gold-5O1ddenSM4g-unsplash_D_2iyTfp6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658351062924")`,
+              backgroundImage: `url("https://i.postimg.cc/5yvw5KBd/dan-gold-5-O1dden-SM4g-unsplash-D-2iy-Tfp6.jpg")`,
             }}
           >
             <div className="h-full w-full flex flex-col justify-center items-center img_text">
@@ -57,7 +57,7 @@ const GalleryComponent = () => {
           whileHover={{ scale: 1.04, borderRadius: "1%" }}
           className="bg-center bg-cover bg-fixed md:bg-local xl:bg-local lg:bg:local"
           style={{
-            backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/mae-mu-rgRbqFweGF0-unsplash_dmzXsTHYk.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658352689253")`,
+            backgroundImage: `url("https://i.postimg.cc/L5PmHwPW/calum-lewis-v-A1-L1j-RTM70-unsplash-QZllg-Ln-XE.jpg")`,
           }}
         >
           <div className="h-full w-full flex flex-col justify-center items-center img_text">
@@ -65,7 +65,7 @@ const GalleryComponent = () => {
               2
             </div>
             <div className="py-3 imprima-font font-bold text-gray-100 text-md">
-              beginning the preparation
+              gather all the spices before starting the procedure.
             </div>
           </div>
         </motion.div>
@@ -74,7 +74,7 @@ const GalleryComponent = () => {
             whileHover={{ scale: 1.04, borderRadius: "1%" }}
             className="row-span-2 bg-center bg-cover"
             style={{
-              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-pixabay-262978_AM-ChpuM4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658353704767")`,
+              backgroundImage: `url("https://i.postimg.cc/ZRJgMgYm/pexels-pixabay-262978-AM-Chpu-M4.jpg")`,
             }}
           >
             <div className="h-full w-full flex flex-col justify-center items-center img_text">
@@ -90,7 +90,7 @@ const GalleryComponent = () => {
             whileHover={{ scale: 1.04, borderRadius: "1%" }}
             className="row-span-2 md:row-span-3 xl:row-span-3 lg:row-span-3 bg-center bg-cover"
             style={{
-              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/images/pexels-cottonbro-3338497__0KMHiiFB.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658354063329")`,
+              backgroundImage: `url("https://i.postimg.cc/Qt0X4c36/pexels-cottonbro-3338497-0-KMHii-FB.jpg")`,
             }}
           >
             <div className="h-full w-full flex flex-col justify-center items-center img_text">

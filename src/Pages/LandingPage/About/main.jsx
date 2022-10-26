@@ -29,7 +29,7 @@ const AboutUsComponent = () => {
               <div
                 className="w-full bg-cover bg-center h-full"
                 style={{
-                  backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/quinton-coetzee-Rbj3xNaweVc-unsplash_1_FBo9MYRa9.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658355263151")`,
+                  backgroundImage: `url("https://i.postimg.cc/cH6xnmkM/quinton-coetzee-Rbj3x-Nawe-Vc-unsplash-1-FBo9-MYRa9.jpg")`,
                 }}
               />
             </motion.div>
@@ -49,7 +49,7 @@ const AboutUsComponent = () => {
               <div
                 className="w-full bg-cover bg-center h-full"
                 style={{
-                  backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/pexels-cottonbro-4253312_knmKol9J-.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658177121737")`,
+                  backgroundImage: `url("https://i.postimg.cc/GmZVQjpx/pexels-cottonbro-4253312-knm-Kol9-J.jpg")`,
                 }}
               />
             </motion.div>

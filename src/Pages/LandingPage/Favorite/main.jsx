@@ -9,35 +9,35 @@ const CardDetails = [
     id: 1,
     name: "Chicken and tomato salad",
     img_path:
-      "https://ik.imagekit.io/yz8iaxzer/farhad-ibrahimzade-KpOl9jV2aJM-unsplash_N3nlhqobg.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255850707",
+      "https://i.postimg.cc/QdqVQJ19/farhad-ibrahimzade-Kp-Ol9j-V2a-JM-unsplash-N3nlhqobg.jpg",
     duration: "600",
   },
   {
     id: 2,
     name: "Grilled salmon with vegatables",
     img_path:
-      "https://ik.imagekit.io/yz8iaxzer/ca-creative-bpPTlXWTOvg-unsplash_zPwCjixvr.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255848601",
+      "https://i.postimg.cc/pLPKMTBj/ca-creative-bp-PTl-XWTOvg-unsplash-z-Pw-Cjixvr.jpg",
     duration: "700",
   },
   {
     id: 3,
     name: "Burger with tomatoes and lettuce",
     img_path:
-      "https://ik.imagekit.io/yz8iaxzer/ben-kim-JjzjBLmANVA-unsplash_3Y6OQqpS9.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255848418",
+      "https://i.postimg.cc/j2kB09pw/ben-kim-Jjzj-BLm-ANVA-unsplash-3-Y6-OQqp-S9.jpg",
     duration: "800",
   },
   {
     id: 4,
     name: "Bread with sunny side up egg and sausage",
     img_path:
-      "https://ik.imagekit.io/yz8iaxzer/tanaphong-toochinda-FlY6QZzvXM0-unsplash_apVWJT57P.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255848907",
+      "https://i.postimg.cc/K85wm1hh/tanaphong-toochinda-Fl-Y6-QZzv-XM0-unsplash-ap-VWJT57-P.jpg",
     duration: "900",
   },
   {
     id: 5,
     name: "Pancake with strawberry and blueberries",
     img_path:
-      "https://ik.imagekit.io/yz8iaxzer/sam-moghadam-khamseh-yxZSAjyToP4-unsplash_cn1XLL8Jp.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658255847215",
+      "https://i.postimg.cc/0jq06C7W/sam-moghadam-khamseh-yx-ZSAjy-To-P4-unsplash-cn1-XLL8-Jp.jpg",
     duration: "1000",
   },
 ];
