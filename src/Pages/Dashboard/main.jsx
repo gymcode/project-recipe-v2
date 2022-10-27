@@ -158,7 +158,7 @@ const Dashboard = () => {
                         path="/random"
                         element={<RandomRecipeComponent />}
                       />
-                      <Route path="/account" element={<AccountComponent />} />
+                      <Route path="/account/*" element={<AccountComponent />} />
                       <Route
                         path="/my-recipe"
                         element={<MyRecipeComponent />}

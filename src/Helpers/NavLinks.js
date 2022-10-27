@@ -221,7 +221,7 @@ const DashboardSideNavLinks = [
 const DashboardAccountNavLinks = [
   {
     name: "Account",
-    href: "/dashboard/account",
+    href: "/dashboard/account/subscription",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
