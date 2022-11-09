@@ -79,7 +79,7 @@ const DashboardSideNav = ({
                     Healthy meal, healthy life...
                   </p>
                 </div>
-                <Link to={"/dashboard/auth/register"}>
+                <Link to={"/auth/register"}>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{
@@ -174,7 +174,7 @@ const DashboardSideNav = ({
                   Healthy meal, healthy life...
                 </p>
               </div>
-              <Link to={"/dashboard/auth/register"}>
+              <Link to={"/auth/register"}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{

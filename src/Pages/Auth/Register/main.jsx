@@ -83,15 +83,19 @@ const RegisterComponent = () => {
   }
   return (
     <>
-      <div className="grid lg:grid-cols-3 min-h-[75vh] bg-gray-50 rounded shadow-md register-bg">
+      <div className="grid lg:grid-cols-2 h-[100vh] bg-gray-50 rounded">
         <div className='lg:flex xl:flex items-center justify-center flex-col hidden'>
-          <img
-            src={SVG}
-            className="bg-cover rounded bg-center h-1/2"
-          />
-          <div className='text-base kreon-font my-5 text-gray-600'>Been waiting for a while...</div>
+        <div
+        // https://i.postimg.cc/13VxcNwk/pexels-rajesh-tp-1633525.jpg
+          className="bg-center bg-cover h-full w-full"
+          style={{
+            backgroundImage: `url("https://i.postimg.cc/xdNvt91p/pexels-anissa-mebarkia-thomsen-7247445.jpg")`,
+          }}
+        >
+          
         </div>
-        <div className="p-5 col-span-2 px-8 md:px-16 lg:px-16 md:mt-5 lg:mt-20">
+        </div>
+        <div className="px-28 pt-56 register-bg ">
           <div className="my-10">
             <form onSubmit={handleSubmit} method="post">
               <>

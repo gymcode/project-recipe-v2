@@ -63,7 +63,7 @@ const LoginComponent = () => {
                   </p>
                 </div>
               </div>
-              <Link to={"/dashboard/auth/reset"}>
+              <Link to={"/auth/reset"}>
                 <div className="text-sm imprima-font text-gray-400 flex justify-end">
                   Forgot password?
                 </div>
@@ -84,7 +84,7 @@ const LoginComponent = () => {
             </div>
             <div className="text-sm imprima-font text-gray-400 flex justify-start mt-3">
               Not registerd yet?
-              <Link to={"/dashboard/auth/register"}>
+              <Link to={"/auth/register"}>
                 <div className="text-red-600 pl-2">
                   Create an account
                 </div>

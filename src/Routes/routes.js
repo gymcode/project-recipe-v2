@@ -21,7 +21,7 @@ let PageComponents = [
   { name: "LoginPage", path: "/auth/login", element: <LOGIN_PAGE/>},
   { name: "RegisterPage", path: "/auth/register", element: <REGISTER_PAGE/> },
   { name: "OTPConfirmPage", path: "/auth/otp-confirm", element: <CONFIRM_PAGE/> },
-  { name: "ForgotPasswordPage", path: "/auth/forgot-password", element: <RESET_PAGE/> }
+  { name: "ForgotPasswordPage", path: "/auth/reset", element: <RESET_PAGE/> }
 ];
 
 // let AuthComponents = [
