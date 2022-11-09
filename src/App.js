@@ -1,6 +1,6 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import "./App.css";
-import {PageComponents} from "./Routes";
+import { PageComponents } from "./Routes";
 import { Routes, Route } from "react-router-dom";
 import AOS from "aos";
 import * as Sentry from "@sentry/react";

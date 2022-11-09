@@ -6,6 +6,8 @@ import {
   SINGLE_RECIPE_INFO
 } from "Pages";
 
+import {LOGIN_PAGE, REGISTER_PAGE, CONFIRM_PAGE, RESET_PAGE} from "Pages/Auth"
+
 let PageComponents = [
   { name: "LandingPage", path: "/", element: <LANDING_PAGE_COMPONENT /> },
   {
@@ -15,7 +17,18 @@ let PageComponents = [
   },
   { name: "Dashboard", path: "/dashboard/*", element: <DASHBOARD /> },
   { name: "RecipeInfo", path: "/recipe/:id", element: <SINGLE_RECIPE_INFO/> },
-  { name: "Not Found", path: "*", element: <NOTFOUND/>}
+  { name: "Not Found", path: "*", element: <NOTFOUND/>},
+  { name: "LoginPage", path: "/auth/login", element: <LOGIN_PAGE/>},
+  { name: "RegisterPage", path: "/auth/register", element: <REGISTER_PAGE/> },
+  { name: "OTPConfirmPage", path: "/auth/otp-confirm", element: <CONFIRM_PAGE/> },
+  { name: "ForgotPasswordPage", path: "/auth/forgot-password", element: <RESET_PAGE/> }
 ];
+
+// let AuthComponents = [
+//   { name: "LoginPage", path: "/login", element: <LOGIN_PAGE/>},
+//   { name: "RegisterPage", path: "/register" },
+//   { name: "OTPConfirmPage", path: "/otp-confirm" },
+//   { name: "ForgotPasswordPage", path: "/forgot-password" }
+// ]
 
 export {PageComponents};
