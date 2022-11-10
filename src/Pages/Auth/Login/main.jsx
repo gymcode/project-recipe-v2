@@ -47,7 +47,7 @@ const LoginComponent = () => {
                   <motion.div
                     initial={{ x: 0, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ type: "spring",ease: "easeInOut", stiffness: 50, duration: 100 }}
+                    transition={{ type: "spring", ease: "easeInOut", stiffness: 50, duration: 100 }}
                     onClick={() => navigation(-1)}
                   >
                     <Lottie options={leftArrowSplashAnimation} height={80} width={80} />
@@ -136,6 +136,9 @@ const LoginComponent = () => {
               backgroundImage: `url("https://i.postimg.cc/MX2GqQRR/pexels-valeria-boltneva-1199958.jpg")`,
             }}
           >
+            <div className="bg-red-300 h-[100vh]" style={{background: "rgba(217, 217, 217, 0.01)"}}>
+              
+            </div>
           </div>
         </div>
       </div>

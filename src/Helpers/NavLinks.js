@@ -122,7 +122,7 @@ const LandingPageNavLinks = [
 const DashboardSideNavLinks = [
   {
     id: 1,
-    name: "Dashboard",
+    name: "Overview",
     href: "/dashboard/",
     icon: (
       <svg
