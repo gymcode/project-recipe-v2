@@ -19,16 +19,8 @@ let PageComponents = [
   { name: "RecipeInfo", path: "/recipe/:id", element: <SINGLE_RECIPE_INFO/> },
   { name: "Not Found", path: "*", element: <NOTFOUND/>},
   { name: "LoginPage", path: "/auth/login", element: <LOGIN_PAGE/>},
-  { name: "RegisterPage", path: "/auth/register", element: <REGISTER_PAGE/> },
-  { name: "OTPConfirmPage", path: "/auth/otp-confirm", element: <CONFIRM_PAGE/> },
+  { name: "RegisterPage", path: "/auth/register/*", element: <REGISTER_PAGE/> },,
   { name: "ForgotPasswordPage", path: "/auth/reset", element: <RESET_PAGE/> }
 ];
-
-// let AuthComponents = [
-//   { name: "LoginPage", path: "/login", element: <LOGIN_PAGE/>},
-//   { name: "RegisterPage", path: "/register" },
-//   { name: "OTPConfirmPage", path: "/otp-confirm" },
-//   { name: "ForgotPasswordPage", path: "/forgot-password" }
-// ]
 
 export {PageComponents};

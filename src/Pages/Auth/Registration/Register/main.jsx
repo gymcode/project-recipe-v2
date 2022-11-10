@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
-import "./main.css"
 import Logo from "Assets/Icons/Logo.svg";
 import { useNavigate } from 'react-router-dom';
 
@@ -15,6 +14,7 @@ const RegisterComponent = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [confirmPassword, setPasswordConfirmation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigation = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -81,24 +81,28 @@ const RegisterComponent = () => {
     }
     return errors;
   }
+  
   return (
     <>
-      <div className="grid lg:grid-cols-2 h-[100vh] bg-gray-50 rounded">
-        <div className='lg:flex xl:flex items-center justify-center shadow-xl flex-col hidden'>
-          <div
-            className="bg-center bg-cover h-full w-full"
-            style={{
-              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/Sign_up_image__1__gBmE_DwkD.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1668086394681")`,
-            }}
-          >
-
+      <div className="flex justify-between items-center cursor-pointer pt-8">
+            <motion.div whileHover={{ scale: 1.25 }} whileTap={{ scale: 0.9 }} onClick={() => navigation(-1)} >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="#F84605"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                />
+              </svg>
+            </motion.div>
           </div>
-        </div>
-        <div className="px-32 register-bg ">
-          <div className='flex justify-end pt-6 '>
-            <img className="w-auto h-10" src={Logo} alt="Workflow" />
-          </div>
-          <div className='h-[85vh] flex items-center'>
+          <div className='h-[75vh] flex items-center'>
             <div className="my-10 w-full h-1/2">
               <form onSubmit={handleSubmit} method="post">
                 <>
@@ -231,7 +235,7 @@ const RegisterComponent = () => {
                     <div className="text-sm imprima-font text-gray-400 flex justify-start mt-3">
                       Already having an account?
                       <div className="text-red-600 pl-2">
-                        Sign in 
+                        Sign in
                       </div>
                     </div>
                   </div>
@@ -253,8 +257,6 @@ const RegisterComponent = () => {
               </form>
             </div>
           </div>
-        </div>
-      </div>
     </>
   );
 };

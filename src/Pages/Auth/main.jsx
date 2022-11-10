@@ -3,9 +3,9 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import {LOADER } from "Components";
 
 const LoginComponent = React.lazy(() => import("./Login"));
-const RegisterComponent = React.lazy(() => import("./Register"));
+const RegisterComponent = React.lazy(() => import("./Registration/Register"));
 const ResetComponent = React.lazy(() => import("./Reset"))
-const ConfirmOtp = React.lazy(()=> import("./ConfirmOTP"))
+const ConfirmOtp = React.lazy(()=> import("./Registration/ConfirmOTP"))
 
 
 const AuthenticationComponent = () => {

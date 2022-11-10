@@ -24,7 +24,7 @@ const ResetComponent = () => {
   }
 
   return (
-    <div className="h-full bg-gray-50 rounded shadow-md login-bg flex flex-col justify-center items-center">
+    <div className="h-full bg-gray-50 rounded flex flex-col justify-center items-center">
       <div className="">
         <div className="flex flex-col items-center">
           <h2 className="abel-font text-3xl">Let's Verify your phone number</h2>

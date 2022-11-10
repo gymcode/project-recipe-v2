@@ -17,10 +17,10 @@ const LoginComponent = () => {
 
   return (
     <>
-      <div className="grid lg:grid-cols-2 h-full bg-gray-50 rounded shadow-md login-bg">
-        <div className="flex items-center flex-col justify-center max-h-[75vh]">
+      <div className="grid lg:grid-cols-2 h-[100vh] bg-gray-50 rounded login-bg">
+        <div className="flex items-center flex-col justify-center max-h-[100vh]">
           <div className="w-3/4 md:w-2/3 lg:w-2/3 xl:w-1/2">
-            <h1 className="text-4xl abel-font">Hi, Welcome Back!</h1>
+            <h1 className="text-5xl abel-font">Hi, Welcome Back!</h1>
             <p className="imprima-font text-[#808080] py-1">
               Create an account to explore more features
             </p>
@@ -36,7 +36,7 @@ const LoginComponent = () => {
                   <input
                     type="text"
                     name=""
-                    className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                    className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                     placeholder="Kenneth"
                   />
                   <p className="text-xs text-red-600 kreon-font">
@@ -55,7 +55,7 @@ const LoginComponent = () => {
                   <input
                     type="password"
                     name=""
-                    className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                    className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                     placeholder="xxxxxxx"
                   />
                   <p className="text-xs text-red-600 kreon-font">
@@ -92,8 +92,14 @@ const LoginComponent = () => {
             </div>
           </div>
         </div>
-        <div className="lg:flex xl:flex hidden justify-start items-center max-h-[75vh]">
-          <img src={SVG} className="bg-cover rounded bg-center h-1/2 xl:h-2/3" alt="" />
+        <div className='lg:flex xl:flex items-center justify-center shadow-xl flex-col hidden'>
+          <div
+            className="bg-center bg-cover h-full w-full"
+            style={{
+              backgroundImage: `url("https://i.postimg.cc/MX2GqQRR/pexels-valeria-boltneva-1199958.jpg")`,
+            }}
+          >
+          </div>
         </div>
       </div>
       <ToastContainer />
