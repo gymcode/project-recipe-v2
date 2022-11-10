@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion';
 import "./main.css"
-import SVG from "Assets/Images/undraw_waiting__for_you_ldha.svg"
+import Logo from "Assets/Icons/Logo.svg";
 import { useNavigate } from 'react-router-dom';
 
 const RegisterComponent = () => {
@@ -84,164 +84,174 @@ const RegisterComponent = () => {
   return (
     <>
       <div className="grid lg:grid-cols-2 h-[100vh] bg-gray-50 rounded">
-        <div className='lg:flex xl:flex items-center justify-center flex-col hidden'>
-        <div
-        // https://i.postimg.cc/13VxcNwk/pexels-rajesh-tp-1633525.jpg
-          className="bg-center bg-cover h-full w-full"
-          style={{
-            backgroundImage: `url("https://i.postimg.cc/xdNvt91p/pexels-anissa-mebarkia-thomsen-7247445.jpg")`,
-          }}
-        >
-          
-        </div>
-        </div>
-        <div className="px-28 pt-56 register-bg ">
-          <div className="my-10">
-            <form onSubmit={handleSubmit} method="post">
-              <>
-                <div className='border-b'>
-                  <h1 className="text-4xl abel-font">Sign up</h1>
-                  <p className="imprima-font text-[#808080] py-1">
-                    Create an account to explore more features
-                  </p>
-                </div>
+        <div className='lg:flex xl:flex items-center justify-center shadow-xl flex-col hidden'>
+          <div
+            className="bg-center bg-cover h-full w-full"
+            style={{
+              backgroundImage: `url("https://ik.imagekit.io/yz8iaxzer/Sign_up_image__1__gBmE_DwkD.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1668086394681")`,
+            }}
+          >
 
-                <div className="py-4 md:py-12 lg:py-12">
-                  <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-5">
-                    <div className="flex flex-col">
-                      <label
-                        htmlFor="firstName"
-                        className="imprima-font text-[#808080]"
-                      >
-                        First name
-                      </label>
-                      <input
-                        type="text"
-                        name=""
-                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                        placeholder="Kenneth"
-                        onChange={(e) => {
-                          setRegistrationData({
-                            ...registrationData,
-                            firstname: e.target.value,
-                          });
-                        }}
-                      />
-                      <p className="text-xs text-red-600 kreon-font">
-                        {formErrors.firstname}
-                      </p>
+          </div>
+        </div>
+        <div className="px-32 register-bg ">
+          <div className='flex justify-end pt-6 '>
+            <img className="w-auto h-10" src={Logo} alt="Workflow" />
+          </div>
+          <div className='h-[85vh] flex items-center'>
+            <div className="my-10 w-full h-1/2">
+              <form onSubmit={handleSubmit} method="post">
+                <>
+                  <div className='border-b'>
+                    <h1 className="text-5xl abel-font">Sign up</h1>
+                    <p className="imprima-font text-[#808080] py-1">
+                      Create an account to explore more features
+                    </p>
+                  </div>
+
+                  <div className="py-4 md:py-12 lg:py-12">
+                    <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-5">
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="firstName"
+                          className="imprima-font text-[#808080]"
+                        >
+                          First name
+                        </label>
+                        <input
+                          type="text"
+                          name=""
+                          className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="Kenneth"
+                          onChange={(e) => {
+                            setRegistrationData({
+                              ...registrationData,
+                              firstname: e.target.value,
+                            });
+                          }}
+                        />
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.firstname}
+                        </p>
+                      </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="firstName"
+                          className="imprima-font text-[#808080]"
+                        >
+                          Other names
+                        </label>
+                        <input
+                          type="text"
+                          name=""
+                          className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="Abrahams Lartey"
+                          onChange={(e) => {
+                            setRegistrationData({
+                              ...registrationData,
+                              othernames: e.target.value,
+                            });
+                          }}
+                        />
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.othernames}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex flex-col">
-                      <label
-                        htmlFor="firstName"
-                        className="imprima-font text-[#808080]"
-                      >
-                        Other names
-                      </label>
-                      <input
-                        type="text"
-                        name=""
-                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                        placeholder="Abrahams Lartey"
-                        onChange={(e) => {
-                          setRegistrationData({
-                            ...registrationData,
-                            othernames: e.target.value,
-                          });
-                        }}
-                      />
-                      <p className="text-xs text-red-600 kreon-font">
-                        {formErrors.othernames}
-                      </p>
+                    <div className='w-full md:w-3/4 lg:w-3/4 my-3'>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="msisdn"
+                          className="imprima-font text-[#808080]"
+                        >
+                          Phone number
+                        </label>
+                        <input
+                          type="number"
+                          name=""
+                          className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="+233 26 821 334"
+                          onChange={(e) => {
+                            setRegistrationData({
+                              ...registrationData,
+                              msisdn: e.target.value,
+                            });
+                          }}
+                        />
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.msisdn}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="password"
+                          className="imprima-font text-[#808080]"
+                        >
+                          Password
+                        </label>
+                        <input
+                          type="password"
+                          name=""
+                          className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="xxxxxxxx"
+                          onChange={(e) => {
+                            setRegistrationData({
+                              ...registrationData,
+                              password: e.target.value,
+                            });
+                          }}
+                        />
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.password}
+                        </p>
+                      </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="confirm-password"
+                          className="imprima-font text-[#808080]"
+                        >
+                          Confirm Password
+                        </label>
+                        <input
+                          type="password"
+                          name=""
+                          className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
+                          placeholder="xxxxxxxx"
+                          onChange={(e) => {
+                            setPasswordConfirmation(e.target.value);
+                          }}
+                        />
+                        <p className="text-xs text-red-600 kreon-font">
+                          {formErrors.passwordMatch}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-sm imprima-font text-gray-400 flex justify-start mt-3">
+                      Already having an account?
+                      <div className="text-red-600 pl-2">
+                        Sign in 
+                      </div>
                     </div>
                   </div>
-                  <div className='w-full md:w-3/4 lg:w-3/4'>
-                    <div className="flex flex-col">
-                      <label
-                        htmlFor="msisdn"
-                        className="imprima-font text-[#808080]"
-                      >
-                        Phone number
-                      </label>
-                      <input
-                        type="number"
-                        name=""
-                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                        placeholder="+233 26 821 334"
-                        onChange={(e) => {
-                          setRegistrationData({
-                            ...registrationData,
-                            msisdn: e.target.value,
-                          });
-                        }}
-                      />
-                      <p className="text-xs text-red-600 kreon-font">
-                        {formErrors.msisdn}
-                      </p>
-                    </div>
+                  <div className=" border-t">
+                    <motion.button
+                      disabled={isLoading ? true : false}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{
+                        scale: 0.9,
+                        borderRadius: "2%",
+                      }}
+                      type="submit"
+                      className="h-10 w-full md:w-1/3 lg:w-1/3 mt-3 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                    >
+                      {isLoading ? "Loading..." : "Create Account"}
+                    </motion.button>
                   </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5">
-                    <div className="flex flex-col">
-                      <label
-                        htmlFor="password"
-                        className="imprima-font text-[#808080]"
-                      >
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        name=""
-                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                        placeholder="xxxxxxxx"
-                        onChange={(e) => {
-                          setRegistrationData({
-                            ...registrationData,
-                            password: e.target.value,
-                          });
-                        }}
-                      />
-                      <p className="text-xs text-red-600 kreon-font">
-                        {formErrors.password}
-                      </p>
-                    </div>
-                    <div className="flex flex-col">
-                      <label
-                        htmlFor="confirm-password"
-                        className="imprima-font text-[#808080]"
-                      >
-                        Confirm Password
-                      </label>
-                      <input
-                        type="password"
-                        name=""
-                        className="outline-0 text-[#808080] bg-gray-200 h-8 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                        placeholder="xxxxxxxx"
-                        onChange={(e) => {
-                          setPasswordConfirmation(e.target.value);
-                        }}
-                      />
-                      <p className="text-xs text-red-600 kreon-font">
-                        {formErrors.passwordMatch}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="">
-                  <motion.button
-                    disabled={isLoading ? true : false}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{
-                      scale: 0.9,
-                      borderRadius: "2%",
-                    }}
-                    type="submit"
-                    className="h-10 w-full md:w-1/3 lg:w-1/3 mt-3 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
-                  >
-                    {isLoading ? "Loading..." : "Create Account"}
-                  </motion.button>
-                </div>
-              </>
-            </form>
+                </>
+              </form>
+            </div>
           </div>
         </div>
       </div>
