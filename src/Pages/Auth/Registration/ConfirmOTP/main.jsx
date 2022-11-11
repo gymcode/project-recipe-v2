@@ -27,7 +27,7 @@ const ResetComponent = () => {
     <div className="h-full bg-gray-50 rounded flex flex-col justify-center items-center">
       <div className="">
         <div className="flex flex-col items-center">
-          <h2 className="abel-font text-3xl">Let's Verify your phone number</h2>
+          <h2 className="main-font text-3xl">Let's Verify your phone number</h2>
           <div>
             <p className="py-5 imprima-font text-gray-600">A verification code has been sent to.</p>
             <div className='rounded bg-gray-200 text-red-600 kreon-font flex justify-center items-center h-10'>+233 26 821 1334</div>

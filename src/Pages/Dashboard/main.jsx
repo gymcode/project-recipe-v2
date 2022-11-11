@@ -105,7 +105,7 @@ const Dashboard = () => {
                     <p className="imprima-font text-gray-500">
                       Hello {name == "" ? "there," : name}
                     </p>
-                    <div className="abel-font text-4xl xl:text-5xl lg:text-5xl mt-4">
+                    <div className="main-font text-4xl xl:text-5xl lg:text-5xl mt-4">
                       {title}
                     </div>
                   </div>

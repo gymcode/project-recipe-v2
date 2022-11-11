@@ -52,7 +52,7 @@ const FavoriteComponent = () => {
         <h2 className="kreon-font text-2xl lg:text-3xl xl:text-3xl text-white">
           Favorite Meals
         </h2>
-        <h3 className="abel-font text-4xl lg:text-6xl xl:text-6xl mt-6 text-white">
+        <h3 className="main-font text-4xl lg:text-6xl xl:text-6xl mt-6 text-white">
           Enjoy <span className="text-[#F84605]"> preparing</span> the best
           recipes
         </h3>
@@ -109,7 +109,7 @@ const FavoriteComponent = () => {
           }}
           className="w-full mt-10 lg:mt-20 md:mt-20 xl:mt-20 flex justify-center items-center"
         >
-          <div className="abel-font h-16 w-52 bg-[#F84605] text-white text-lg flex justify-center items-center">
+          <div className="kreon-font h-16 w-52 font-semibold bg-[#F84605] text-white text-lg flex justify-center items-center">
             Explore more...
           </div>
         </motion.div>

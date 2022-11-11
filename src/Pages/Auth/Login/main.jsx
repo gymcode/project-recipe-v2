@@ -56,7 +56,7 @@ const LoginComponent = () => {
               }
             </div>
             <div className="w-3/4 md:w-2/3 lg:w-2/3 xl:w-1/2">
-              <h1 className="text-5xl abel-font">Hi, Welcome Back!</h1>
+              <h1 className="text-5xl main-font">Hi, Welcome Back!</h1>
               <p className="imprima-font text-[#808080] py-1">
                 Create an account to explore more features
               </p>
@@ -113,7 +113,7 @@ const LoginComponent = () => {
                     borderRadius: "2%",
                   }}
                   onClick={handleLogin}
-                  className="h-10 w-full mt-3 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                  className="h-10 w-full mt-3 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                 >
                   Log in
                 </motion.button>

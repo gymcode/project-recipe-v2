@@ -50,7 +50,7 @@ const RecipeInformationComponent = ({
         <div className="grid xl:grid-cols-7 lg:grid-cols-7 md:grid-cols-7 grid-row-2 lg:h-[28vh] xl:h-[28vh] md:h-[28vh] h-[50vh] gap-6">
           <div className="col-span-4 md:col-span-3 lg:col-span-3 xl:col-span-3 flex flex-col justify-between">
             <div>
-              <h2 className="abel-font text-5xl font-medium">{recipe_title}</h2>
+              <h2 className="main-font text-5xl font-medium">{recipe_title}</h2>
               <div>
                 <ReactStars count={5} size={25} activeColor="#F83F05" />
               </div>

@@ -33,7 +33,7 @@ const NotFoundPage = () => {
                   scale: 0.9,
                   borderRadius: "2%",
                 }}
-                className="h-[3vw] w-44 col-span-3 bg-[#F84605] text-white flex justify-center items-center abel-font font-bold rounded cursor-pointer"
+                className="h-[3vw] w-44 col-span-3 bg-[#F84605] text-white flex justify-center items-center main-font font-bold rounded cursor-pointer"
               >
                 Let's go back home
               </motion.div>

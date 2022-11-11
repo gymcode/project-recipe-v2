@@ -7,7 +7,7 @@ const ResetComponent = () => {
     <div className="h-full bg-gray-50 rounded shadow-md login-bg flex flex-col justify-center items-center">
       <div className="">
         <div className="flex flex-col">
-          <h2 className="abel-font text-4xl">Forgot Password?</h2>
+          <h2 className="main-font text-4xl">Forgot Password?</h2>
           <p className="pt-5 imprima-font text-gray-600">Enter the mobile number you used when you joined and we’ll send <br /> you an OTP to reset your password</p>
           <p className="py-5 imprima-font text-gray-600">For security reasons, we do NOT store your password. So rest <br /> assured that we will never send your password via email/SMS.</p>
         </div>

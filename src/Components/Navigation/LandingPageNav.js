@@ -66,8 +66,8 @@ const Navbar = () => {
                             className={classNames(
                               item.current
                                 ? "border-b text-black"
-                                : "text-black hover:bg-gray-700 hover:text-white",
-                              "px-5 py-2 rounded-md text-md font-medium imprima-font cursor-pointer"
+                                : "text-black hover:bg-gray-700 hover:text-white rounded-md",
+                              "px-5 py-2 text-md font-medium imprima-font cursor-pointer"
                             )}
                             aria-current={item.current ? "page" : undefined}
                           >
@@ -143,8 +143,8 @@ const Navbar = () => {
                     className={classNames(
                       item.current
                         ? "border-b text-black"
-                        : "text-black hover:bg-gray-700 hover:text-white",
-                      "block px-3 py-2 rounded-md text-base font-medium imprima-font"
+                        : "text-black hover:bg-gray-700 hover:text-white rounded-md",
+                      "block px-3 py-2 text-base font-medium imprima-font"
                     )}
                     aria-current={item.current ? "page" : undefined}
                   >

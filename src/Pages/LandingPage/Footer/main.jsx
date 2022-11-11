@@ -34,7 +34,7 @@ const FooterComponent = () => {
             <div className="text-white kreon-font text-2xl">
               Help discover a new level
             </div>
-            <div className="text-black abel-font text-4xl lg:text-6xl xl:text-6xl">
+            <div className="text-black main-font text-4xl lg:text-6xl xl:text-6xl">
               Send me feed back
             </div>
           </div>

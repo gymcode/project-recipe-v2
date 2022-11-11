@@ -43,12 +43,12 @@ const LandingPageComponent = () => {
             <NAVIGATION_BAR />
           </header>
           <main className="px-2 sm:px-6 lg:px-20 xl:px-32">
-            <div className="mt-10 lg:mt-16 xl:mt-20">
+            <div className="mt-10 lg:mt-16 xl:mt-24">
               <motion.h1
                 initial={{ x: -80, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ type: "spring", stiffness: 50, duration: 100 }}
-                className="md:text-[4rem] lg:text-[5vw] text-[3rem] abel-font capitalize text-center md:text-left md:leading-[6rem] lg:text-left lg:leading-[7vw] leading"
+                className="md:text-[4rem] lg:text-[4vw] text-[3rem] main-font capitalize text-center md:text-left md:leading-[6rem] lg:text-left lg:leading-[6vw] leading"
               >
                 Simple and <span className="text-[#F84605]">tasty</span>
                 <br /> recipe
@@ -83,7 +83,7 @@ const LandingPageComponent = () => {
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1, transition: { type: "spring", duration: 1.5, delay: 0.4 } }}
                   transition={{ type: "spring", duration: 1, }}
-                  className="h-16 w-52 bg-[#F84605] abel-font text-white text-lg flex justify-center items-center cursor-pointer"
+                  className="h-16 w-52 bg-[#F84605] kreon-font font-semibold text-white text-lg flex justify-center items-center cursor-pointer"
                 >
                   <p>Try Random Recipe</p>
                 </motion.div>

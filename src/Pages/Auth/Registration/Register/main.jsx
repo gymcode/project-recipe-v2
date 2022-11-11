@@ -107,7 +107,7 @@ const RegisterComponent = () => {
           <form onSubmit={handleSubmit} method="post">
             <>
               <div className='border-b'>
-                <h1 className="text-5xl abel-font">Sign up</h1>
+                <h1 className="text-5xl main-font">Sign up</h1>
                 <p className="imprima-font text-[#808080] py-1">
                   Create an account to explore more features
                 </p>
@@ -250,7 +250,7 @@ const RegisterComponent = () => {
                     borderRadius: "2%",
                   }}
                   type="submit"
-                  className="h-10 w-full md:w-1/3 lg:w-1/3 mt-3 bg-[#F84605] text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                  className="h-10 w-full md:w-1/3 lg:w-1/3 mt-3 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                 >
                   {isLoading ? "Loading..." : "Create Account"}
                 </motion.button>

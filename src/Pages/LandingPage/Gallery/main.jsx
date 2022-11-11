@@ -12,7 +12,7 @@ const GalleryComponent = () => {
         <h2 className="kreon-font text-2xl lg:text-3xl xl:text-3xl">
           Cuisine Gallery
         </h2>
-        <h3 className="abel-font text-4xl lg:text-6xl xl:text-6xl mt-6">
+        <h3 className="main-font text-4xl lg:text-6xl xl:text-6xl mt-6">
           Appreciate some <span className="text-[#F84605]"> amazing</span>{" "}
           photos
         </h3>
