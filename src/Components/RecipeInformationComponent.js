@@ -40,7 +40,7 @@ const RecipeInformationComponent = ({
             />
           </svg>
         </motion.div>
-        <div className="kreon-font text-lg xl:text-xl">
+        <div className="kreon-font text-lg xl:text-xl font-bold">
           <span className="text-[#F84605]">Recipe</span> Information
         </div>
         <div></div>
@@ -166,14 +166,14 @@ const RecipeInformationComponent = ({
           {/* ingredient, instructions and caloric breakdown section */}
           <div className="col-span-4 lg:col-span-3 xl:col-span-3 flex flex-col ">
             <div className="grid xl:grid-cols-6 grid-row-2 pb-8">
-              <div className="kreon-font text-lg mb-4">Ingredients: </div>
+              <div className="kreon-font text-lg mb-4 font-bold">Ingredients: </div>
               <div className="col-span-5">
                 {/* // listing component */}
                 <INGREDIENT_LISTING itemArr={ingredients} />
               </div>
             </div>
             <div className="pb-8">
-              <div className="kreon-font text-lg">Caloric Breakdown: </div>
+              <div className="kreon-font text-lg font-bold">Caloric Breakdown: </div>
               <CALORIC_BREAKDOWN
                 proteinPercentage={"14.63"}
                 fatPercentage={"28.47"}
@@ -181,7 +181,7 @@ const RecipeInformationComponent = ({
               />
             </div>
             <div className="grid xl:grid-cols-6 grid-row-2">
-              <div className="kreon-font text-lg mb-4">Instructions: </div>
+              <div className="kreon-font text-lg mb-4 font-bold">Instructions: </div>
               <div className="col-span-5 flex flex-col space-y-10">
                 {/* // listing component */}
                 <INSTRUCTION_LISTING itemArr={instructions} />
@@ -205,7 +205,7 @@ const RecipeInformationComponent = ({
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <p className="kreon-font px-2 text-xl">Recipe Summary</p>
+              <p className="kreon-font px-2 text-xl font-bold">Recipe Summary</p>
             </div>
             <i className="imprima-font text-[#818181] text-justify">
               <div dangerouslySetInnerHTML={recipe_summary} />

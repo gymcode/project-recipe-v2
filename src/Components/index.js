@@ -6,6 +6,7 @@ export {default as INGREDIENT_LISTING} from "./IngredientListing"
 export {default as INSTRUCTION_LISTING}  from "./InstructionListing"
 export {default as CALORIC_BREAKDOWN} from "./CaloricBreakdown"
 export {default as RECIPE_INFO_COMPONENT} from "./RecipeInformationComponent"
+export {default as OTP_INPUT} from "./OtpInputComponent"
 
 export {default as LOADER} from "./LoadingComponent"
 
