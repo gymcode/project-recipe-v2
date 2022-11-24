@@ -11,3 +11,5 @@ export {
 export {
   TrimString
 } from "./trimString"
+
+export { FormValidation } from "./formValidation"

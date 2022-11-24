@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { FormValidation } from 'Helpers'; 
 
 const RegisterComponent = () => {
   const [registrationData, setRegistrationData] = useState({
@@ -15,13 +15,15 @@ const RegisterComponent = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [confirmPassword, setPasswordConfirmation] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isControl, setIsControl] = useState(false)
   const navigation = useNavigate()
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setFormErrors(formValidation(registrationData, confirmPassword));
-    setIsSubmitted(true)
-
+    setFormErrors(FormValidation(registrationData, confirmPassword));
+    // Object.keys(formErrors).length != 0 ? setIsSubmitted(false) : setIsSubmitted(true)
+    // console.log(formErrors)
+    setIsControl(true)
     if (isSubmitted) {
       setIsLoading(true);
 
@@ -54,37 +56,24 @@ const RegisterComponent = () => {
 
       // // success 
       // let history = useNavigate()
-      navigation("/auth/otp-confirm")
+      navigation("/auth/register/otp-confirm")
 
       setIsLoading(false);
     }
   }
 
-  function formValidation(values, confirm_password) {
-    const errors = {};
-    if (!values.firstname) {
-      errors.firstname = "First name is required.";
-    }
-    if (!values.othernames) {
-      errors.othernames = "Other names are required.";
-    }
-    if (!values.msisdn) {
-      errors.msisdn = "Phone number is required.";
-    }
-    if (!values.password) {
-      errors.password = "Password is required.";
-    }
-    if (values.password != confirm_password) {
-      errors.passwordMatch = "Passwords must match.";
-    }
-    return errors;
-  }
-
-
   useEffect(() => {
-    if (Object.keys(formErrors).length === 0 && isSubmitted) {
-      console.log("working")
+    console.log(formErrors)
+    setIsSubmitted(false)
+
+    if (Object.keys(formErrors).length === 0 && isControl) {
+      setIsSubmitted(true)
+      setIsSubmitted((state)=>{
+        console.log(state)
+        return state
+      })
     }
+    
   }, [formErrors])
 
   return (
@@ -139,7 +128,7 @@ const RegisterComponent = () => {
                         });
                       }}
                     />
-                    <p className="text-xs text-red-600 kreon-font">
+                    <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
                       {formErrors.firstname}
                     </p>
                   </div>
@@ -162,7 +151,7 @@ const RegisterComponent = () => {
                         });
                       }}
                     />
-                    <p className="text-xs text-red-600 kreon-font">
+                    <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
                       {formErrors.othernames}
                     </p>
                   </div>
@@ -187,7 +176,7 @@ const RegisterComponent = () => {
                         });
                       }}
                     />
-                    <p className="text-xs text-red-600 kreon-font">
+                    <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
                       {formErrors.msisdn}
                     </p>
                   </div>
@@ -212,7 +201,7 @@ const RegisterComponent = () => {
                         });
                       }}
                     />
-                    <p className="text-xs text-red-600 kreon-font">
+                    <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
                       {formErrors.password}
                     </p>
                   </div>
@@ -232,7 +221,7 @@ const RegisterComponent = () => {
                         setPasswordConfirmation(e.target.value);
                       }}
                     />
-                    <p className="text-xs text-red-600 kreon-font">
+                    <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
                       {formErrors.passwordMatch}
                     </p>
                   </div>
