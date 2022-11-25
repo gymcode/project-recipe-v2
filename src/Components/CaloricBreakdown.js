@@ -1,3 +1,5 @@
+import CountUp from "react-countup"
+
 const CaloricBreakdownComponent = ({proteinPercentage, fatPercentage, carbPercentage}) => {
   return (
     <div className="grid grid-cols-3 gap-4 h-20 mb-5 mt-2">

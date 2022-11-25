@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { FormValidation } from 'Helpers'; 
+import { FormValidation } from 'Helpers';
+import { ERROR_TOAST, SUCCESS_TOAST, WARNING_TOAST } from 'Components';
+import { ToastContainer } from 'react-toastify';
 
 const RegisterComponent = () => {
   const [registrationData, setRegistrationData] = useState({
@@ -21,44 +23,48 @@ const RegisterComponent = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     setFormErrors(FormValidation(registrationData, confirmPassword));
-    // Object.keys(formErrors).length != 0 ? setIsSubmitted(false) : setIsSubmitted(true)
-    // console.log(formErrors)
     setIsControl(true)
+
     if (isSubmitted) {
       setIsLoading(true);
 
       // form submission
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credential: "include",
-        body: JSON.stringify({
-          ...registrationData,
-          country: "Ghana",
-          isoCode: "GH",
-        }),
-      };
+      try {
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credential: "include",
+          body: JSON.stringify({
+            ...registrationData,
+            country: "Ghana",
+            isoCode: "GH",
+          }),
+        };
+        // been waiting for a while 
+        // register to unlock some special features
+        const apiResponse = await fetch(
+          "http://127.0.0.1:8000/api/v1/register",
+          requestOptions
+        );
 
-      // been waiting for a while 
-      // register to unlock some special features
-      // const apiResponse = await fetch(
-      //   "http://127.0.0.1:8000/api/v1/register",
-      //   requestOptions
-      // );
-      // const data = await apiResponse.json();
-      // console.log({
-      //   message: "making a call to the go backend..",
-      //   body: {
-      //     response: data,
-      //     registrationData: registrationData,
-      //   },
-      // });
+        const data = await apiResponse.json();
+        console.log({
+          message: "making a call to the go backend..",
+          body: {
+            response: data,
+            registrationData: registrationData,
+          },
+        });
+        // // success 
+        // let history = useNavigate()
+        navigation("/auth/register/otp-confirm")
 
-      // // success 
-      // let history = useNavigate()
-      navigation("/auth/register/otp-confirm")
-
-      setIsLoading(false);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message)
+        setIsLoading(false)
+        ERROR_TOAST(error.message)
+      }
     }
   }
 
@@ -67,13 +73,10 @@ const RegisterComponent = () => {
     setIsSubmitted(false)
 
     if (Object.keys(formErrors).length === 0 && isControl) {
+      console.log("this is me")
       setIsSubmitted(true)
-      setIsSubmitted((state)=>{
-        console.log(state)
-        return state
-      })
     }
-    
+
   }, [formErrors])
 
   return (
@@ -98,7 +101,7 @@ const RegisterComponent = () => {
       </div>
       <div className='h-[75vh] flex items-center'>
         <div className="my-10 w-full h-1/2">
-          <form onSubmit={(e)=>handleSubmit(e)} method="post">
+          <form onSubmit={(e) => handleSubmit(e)} method="post">
             <>
               <div className='border-b'>
                 <h1 className="text-5xl main-font">Sign up</h1>
@@ -253,6 +256,7 @@ const RegisterComponent = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

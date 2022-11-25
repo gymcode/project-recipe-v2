@@ -177,7 +177,7 @@ const RecipeInformationComponent = ({
               <CALORIC_BREAKDOWN
                 proteinPercentage={"14.63"}
                 fatPercentage={"28.47"}
-                carbPercentage={"56.44"}
+                carbPercentage={"56.64"}
               />
             </div>
             <div className="grid xl:grid-cols-6 grid-row-2">
