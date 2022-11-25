@@ -34,7 +34,6 @@ function useFetch(
     }
 
     return () => {
-      console.log("memory leak removal");
       controller.abort();
     };
   }, []);

@@ -5,7 +5,7 @@ import {
   CALORIC_BREAKDOWN,
 } from "Components";
 import "./main.css";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion";
 
 const RecipeInformationComponent = ({
@@ -18,13 +18,14 @@ const RecipeInformationComponent = ({
   ingredients,
   instructions,
   recipe_summary,
+  nutrition = null
 }) => {
   const navigation = useNavigate()
   return (
     <main className="recipe-info-body py-10 xl:py-16 px-6 lg:px-10 xl:px-32">
       {/* navigation   */}
       <div className="flex justify-between items-center cursor-pointer">
-        <motion.div whileHover={{ scale: 1.25 }} whileTap={{scale: 0.9}} onClick={()=>navigation(-1)} >
+        <motion.div whileHover={{ scale: 1.25 }} whileTap={{ scale: 0.9 }} onClick={() => navigation(-1)} >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -172,14 +173,18 @@ const RecipeInformationComponent = ({
                 <INGREDIENT_LISTING itemArr={ingredients} />
               </div>
             </div>
-            <div className="pb-8">
-              <div className="kreon-font text-lg font-bold">Caloric Breakdown: </div>
-              <CALORIC_BREAKDOWN
-                proteinPercentage={"14.63"}
-                fatPercentage={"28.47"}
-                carbPercentage={"56.64"}
-              />
-            </div>
+            {
+              nutrition != null && (
+                <div className="pb-8">
+                  <div className="kreon-font text-lg font-bold">Caloric Breakdown: </div>
+                  <CALORIC_BREAKDOWN
+                    proteinPercentage={nutrition.caloricBreakdown.percentProtein}
+                    fatPercentage={nutrition.caloricBreakdown.percentFat}
+                    carbPercentage={nutrition.caloricBreakdown.percentCarbs}
+                  />
+                </div>
+              )
+            }
             <div className="grid xl:grid-cols-6 grid-row-2">
               <div className="kreon-font text-lg mb-4 font-bold">Instructions: </div>
               <div className="col-span-5 flex flex-col space-y-10">
