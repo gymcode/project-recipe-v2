@@ -8,6 +8,25 @@ import "./main.css";
 import { useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion";
 
+const statuses = (status) => {
+  return (
+    <>
+      {status ? (
+        <svg xmlns="http://www.w3.org/2000/svg" className="text-green-600 icon icon-tabler icon-tabler-checks" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M7 12l5 5l10 -10"></path>
+          <path d="M2 12l5 5m5 -5l5 -5"></path>
+        </svg>
+      ) : (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-red-600 w-6 h-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+
+      )}
+    </>
+  )
+}
+
 const RecipeInformationComponent = ({
   recipe_title,
   recipe_duration,
@@ -18,7 +37,10 @@ const RecipeInformationComponent = ({
   ingredients,
   instructions,
   recipe_summary,
-  nutrition = null
+  nutrition = null,
+  recipe_cheap_status,
+  recipe_vegan_status,
+  recipe_vegetarian_status
 }) => {
   const navigation = useNavigate()
   return (
@@ -56,7 +78,32 @@ const RecipeInformationComponent = ({
                 <ReactStars count={5} size={25} activeColor="#F83F05" />
               </div>
             </div>
-            <div className="hidden xl:block">dsad</div>
+            <div className="hidden xl:flex imprima-font">
+              <div className="h-9 w-32 rounded-lg border border-gray-300 text-sm mr-3 items-center grid grid-cols-3">
+                <div className="flex justify-center border-r ">
+                  {statuses(recipe_cheap_status)}
+                </div>
+                <div className=" ml-2 col-span-2">
+                  Cheap
+                </div>
+              </div>
+              <div className="h-9 w-32 rounded-lg border border-gray-300 text-sm mr-3 items-center grid grid-cols-3">
+                <div className="flex justify-center border-r ">
+                  {statuses(recipe_vegan_status)}
+                </div>
+                <div className=" ml-2">
+                  Vegan
+                </div>
+              </div>
+              <div className="h-9 w-32 rounded-lg border border-gray-300 text-sm mr-3 items-center grid grid-cols-3">
+                <div className="flex justify-center border-r ">
+                  {statuses(recipe_vegetarian_status)}
+                </div>
+                <div className=" ml-2">
+                  Vegetarian
+                </div>
+              </div>
+            </div>
             <div className="w-[70vw] md:max-w-[35vw] lg:max-w-[25vw] xl:max-w-[18vw] flex justify-between">
               <div className="flex flex-col justify-between">
                 <div className="flex items-center imprima-font">
@@ -150,17 +197,6 @@ const RecipeInformationComponent = ({
               backgroundImage: `url(${recipe_image})`,
             }}
           >
-            <div className="h-full w-full flex flex-row justify-around items-center img_text">
-              <div className="h-12 w-20 rounded-xl border text-white border-white flex items-center justify-center">
-                Cheap
-              </div>
-              <div className="h-12 w-20 rounded-xl border text-white border-white flex items-center justify-center">
-                Vegan
-              </div>
-              <div className="h-12 w-32 rounded-xl border text-white border-white flex items-center justify-center">
-                Vegetarian
-              </div>
-            </div>
           </motion.div>
         </div>
         <div className="grid xl:grid-cols-7 lg:grid-cols-7 grid-row-2 gap-4 mt-12">

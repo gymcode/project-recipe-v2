@@ -9,8 +9,8 @@ const RecipeInformationPage = () => {
   const data = useFetch(
     recipe_info,
     { loading: true, data: null },
-    "HELLO",
-    true
+    "",
+    false
   );
 
   return (
@@ -32,6 +32,9 @@ const RecipeInformationPage = () => {
             ingredients={data.data.extendedIngredients}
             instructions={data.data.analyzedInstructions[0].steps}
             nutrition={data.data.nutrition}
+            recipe_cheap_status={data.data.cheap}
+            recipe_vegan_status={data.data.vegan}
+            recipe_vegetarian_status={data.data.vegetarian}
           />
         </>
       )}
