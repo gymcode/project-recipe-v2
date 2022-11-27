@@ -1,19 +1,13 @@
-import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import {
   INGREDIENT_LISTING,
   INSTRUCTION_LISTING,
   CALORIC_BREAKDOWN,
+  NUTRI_INFO
 } from "Components";
 import "./main.css";
 import { useNavigate } from 'react-router-dom'
-import { motion, AnimatePresence } from "framer-motion";
-
-const colors = ['#D3E0FF', '#FFD3D3', "#DCFFD3"]
-
-Array.prototype.random = function () {
-  return this[Math.floor((Math.random() * this.length))];
-}
+import { motion } from "framer-motion";
 
 const statuses = (status) => {
   return (
@@ -49,9 +43,7 @@ const RecipeInformationComponent = ({
   recipe_vegan_status,
   recipe_vegetarian_status
 }) => {
-  const [selectedName, setSelectedName] = useState(null)
   const navigation = useNavigate()
-  console.log(selectedName)
   return (
     <main className="recipe-info-body py-10 xl:py-16 px-6 lg:px-10 xl:px-32">
       {/* navigation   */}
@@ -267,21 +259,7 @@ const RecipeInformationComponent = ({
                 <div className="mt-10 kreon-font font-bold text-lg">
                   <h2>Nutritional Information:</h2>
                   <div className="flex flex-wrap">
-                    {
-                      nutrition.nutrients.map((item, index) => (
-                        <div
-                          style={{ backgroundColor: colors.random() }}
-                          className="px-4 mx-3 my-2 bg-red-600 rounded-full cursor-pointer flex">
-                          <div className="border-r-2 border-white px-2">
-                            {item.name}
-                          </div>
-                          <div className="px-2">
-                            {item.amount}{item.unit}
-                          </div>
-                        </div>
-                      )
-                      )
-                    }
+                    <NUTRI_INFO itemArr={nutrition.nutrients}/>
                   </div>
                 </div>
               )

@@ -10,6 +10,6 @@ export {
 
 export {
   TrimString
-} from "./trimString"
+} from "./TrimString"
 
-export { FormValidation } from "./formValidation"
+export { FormValidation } from "./FormValidation"
