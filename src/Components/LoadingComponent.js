@@ -1,5 +1,6 @@
 import Lottie from "react-lottie";
 import * as SplashAnimation from "Assets/LottieFiles/lf30_editor_ln7jeiru.json";
+import "./main.css"
 
 const defaultSplashAnimation = {
   loop: true,
@@ -9,7 +10,7 @@ const defaultSplashAnimation = {
 
 const Loader = () => {
   return (
-    <main className="min-h-[100vh] w-full flex flex-col justify-center items-center">
+    <main className="min-h-[100vh] w-full flex flex-col justify-center items-center loader">
       <Lottie options={defaultSplashAnimation} height={200} width={200} />
       <p className="imprima-font">We getting there....</p>
     </main>

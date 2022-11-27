@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import {
   INGREDIENT_LISTING,
@@ -6,7 +7,13 @@ import {
 } from "Components";
 import "./main.css";
 import { useNavigate } from 'react-router-dom'
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const colors = ['#D3E0FF', '#FFD3D3', "#DCFFD3"]
+
+Array.prototype.random = function () {
+  return this[Math.floor((Math.random() * this.length))];
+}
 
 const statuses = (status) => {
   return (
@@ -42,7 +49,9 @@ const RecipeInformationComponent = ({
   recipe_vegan_status,
   recipe_vegetarian_status
 }) => {
+  const [selectedName, setSelectedName] = useState(null)
   const navigation = useNavigate()
+  console.log(selectedName)
   return (
     <main className="recipe-info-body py-10 xl:py-16 px-6 lg:px-10 xl:px-32">
       {/* navigation   */}
@@ -199,7 +208,7 @@ const RecipeInformationComponent = ({
           >
           </motion.div>
         </div>
-        <div className="grid xl:grid-cols-7 lg:grid-cols-7 grid-row-2 gap-4 mt-12">
+        <div className="grid xl:grid-cols-7 lg:grid-cols-7 grid-row-2 gap-6 mt-12">
           {/* ingredient, instructions and caloric breakdown section */}
           <div className="col-span-4 lg:col-span-3 xl:col-span-3 flex flex-col ">
             <div className="grid xl:grid-cols-6 grid-row-2 pb-8">
@@ -230,27 +239,53 @@ const RecipeInformationComponent = ({
             </div>
           </div>
           {/* summary section  */}
-          <div className="col-span-4 bg-center bg-cover rounded-lg min-h-[25vh] xl:max-h-[30vh] lg:max-h-[30vh] p-8 w-full bg-[#FEF3F3]">
-            <div className="flex items-center pb-5">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="#F84605"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <p className="kreon-font px-2 text-xl font-bold">Recipe Summary</p>
+          <div className="col-span-4">
+            <div className="bg-center bg-cover rounded-lg min-h-[25vh] xl:max-h-[30vh] lg:max-h-[30vh] p-8 w-full bg-[#FEF3F3]">
+              <div className="flex items-center pb-5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#F84605"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <p className="kreon-font px-2 text-xl font-bold">Recipe Summary</p>
+              </div>
+              <i className="imprima-font text-[#818181] text-justify">
+                <div dangerouslySetInnerHTML={recipe_summary} />
+              </i>
             </div>
-            <i className="imprima-font text-[#818181] text-justify">
-              <div dangerouslySetInnerHTML={recipe_summary} />
-            </i>
+            {
+              nutrition != null && (
+                <div className="mt-10 kreon-font font-bold text-lg">
+                  <h2>Nutritional Information:</h2>
+                  <div className="flex flex-wrap">
+                    {
+                      nutrition.nutrients.map((item, index) => (
+                        <div
+                          style={{ backgroundColor: colors.random() }}
+                          className="px-4 mx-3 my-2 bg-red-600 rounded-full cursor-pointer flex">
+                          <div className="border-r-2 border-white px-2">
+                            {item.name}
+                          </div>
+                          <div className="px-2">
+                            {item.amount}{item.unit}
+                          </div>
+                        </div>
+                      )
+                      )
+                    }
+                  </div>
+                </div>
+              )
+            }
           </div>
         </div>
       </body>

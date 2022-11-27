@@ -22,6 +22,10 @@
     padding-top: 90px; /* Location of the content container */
 }
 
+.loader {
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
 th, td{
     padding-left: 4rem;
 }
