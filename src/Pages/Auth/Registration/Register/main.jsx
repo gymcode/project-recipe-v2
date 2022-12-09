@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 
 const RegisterComponent = () => {
   const [registrationData, setRegistrationData] = useState({
-    firstname: "",
+    firstname: "Kenneath",
     othernames: "",
     msisdn: "",
     password: "",
