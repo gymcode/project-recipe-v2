@@ -1,3 +1,4 @@
+import React from 'react'
 const colors = ['#D3E0FF', '#FFD3D3', "#DCFFD3"]
 
 Array.prototype.random = function () {
@@ -26,4 +27,4 @@ const NutritionalInformation = ({ itemArr }) => {
     );
 };
 
-export default NutritionalInformation;
+export default React.memo(NutritionalInformation);

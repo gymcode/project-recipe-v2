@@ -1,3 +1,4 @@
+import React from 'react'
 
 const IngregientListing = ({itemArr}) => {
   return (
@@ -19,4 +20,4 @@ const IngregientListing = ({itemArr}) => {
   );
 };
 
-export default IngregientListing;
+export default React.memo(IngregientListing);

@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactStars from "react-rating-stars-component";
 import {
   INGREDIENT_LISTING,
@@ -271,4 +272,4 @@ const RecipeInformationComponent = ({
   );
 };
 
-export default RecipeInformationComponent;
+export default React.memo(RecipeInformationComponent);

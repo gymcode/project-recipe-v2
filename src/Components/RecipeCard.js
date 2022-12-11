@@ -1,3 +1,4 @@
+import React from 'react'
 import { TrimString } from "Helpers";
 import { Link } from "react-router-dom";
 
@@ -74,4 +75,4 @@ const RecipeCard = ({ data }) => {
   );
 };
 
-export default RecipeCard;
+export default React.memo(RecipeCard);

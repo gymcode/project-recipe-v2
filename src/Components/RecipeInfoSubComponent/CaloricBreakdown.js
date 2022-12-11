@@ -1,4 +1,4 @@
-import CountUp from "react-countup"
+import React from 'react'
 
 const CaloricBreakdownComponent = ({proteinPercentage, fatPercentage, carbPercentage}) => {
   return (
@@ -19,4 +19,4 @@ const CaloricBreakdownComponent = ({proteinPercentage, fatPercentage, carbPercen
   );
 };
 
-export default CaloricBreakdownComponent;
+export default React.memo(CaloricBreakdownComponent);

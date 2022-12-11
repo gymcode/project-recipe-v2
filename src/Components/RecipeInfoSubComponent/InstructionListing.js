@@ -29,4 +29,4 @@ const InstructionListing = ({ itemArr }) => {
   );
 };
 
-export default InstructionListing;
+export default React.memo(InstructionListing);
