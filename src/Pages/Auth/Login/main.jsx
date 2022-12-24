@@ -29,7 +29,12 @@ const LoginComponent = () => {
   }
 
   return (
-    <>
+    <motion.div 
+      animate={{ x: 0, opacity: 1 }} 
+      initial={{ opacity: 0 , x: 400}} 
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0}} 
+      >
       <div className="grid lg:grid-cols-2 h-[100vh] bg-gray-50 rounded login-bg">
         <div className="max-h-[100vh]">
           <Link to={"/"}>
@@ -143,7 +148,7 @@ const LoginComponent = () => {
         </div>
       </div>
       <ToastContainer />
-    </>
+    </motion.div>
   );
 };
 

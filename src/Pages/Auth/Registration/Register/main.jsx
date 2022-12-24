@@ -80,7 +80,11 @@ const RegisterComponent = () => {
   }, [formErrors])
 
   return (
-    <>
+    <motion.div 
+      animate={{ y: 0, opacity: 1 }} 
+      initial={{ opacity: 0 , y: 400}} 
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0}} >
       <div className="flex justify-between items-center cursor-pointer pt-8">
         <motion.div whileHover={{ scale: 1.25 }} whileTap={{ scale: 0.9 }} onClick={() => navigation(-1)} >
           <svg
@@ -257,7 +261,7 @@ const RegisterComponent = () => {
         </div>
       </div>
       <ToastContainer />
-    </>
+    </motion.div>
   );
 };
 

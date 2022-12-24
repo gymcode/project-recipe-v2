@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 import {LOADER } from "Components";
+import { motion } from "framer-motion";
 
 const LoginComponent = React.lazy(() => import("./Login"));
 const RegisterComponent = React.lazy(() => import("./Registration/Register"));
@@ -11,7 +12,7 @@ const ConfirmOtp = React.lazy(()=> import("./Registration/ConfirmOTP"))
 const AuthenticationComponent = () => {
 
   return (
-    <>
+    <motion.div>
       {/* header  */}
       <div className="flex pt-5 border-b items-center ">
         <NavLink
@@ -50,7 +51,7 @@ const AuthenticationComponent = () => {
           </Routes>
         </Suspense>
       </body>
-    </>
+    </motion.div>
   );
 };
 
