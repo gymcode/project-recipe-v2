@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from 'react'
+// standard react packages 
+import React from 'react'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { FormValidation, RegistrationSchema } from 'Helpers';
-import { ERROR_TOAST, SUCCESS_TOAST, WARNING_TOAST } from 'Components';
 import { ToastContainer } from 'react-toastify';
 import { useFormik } from 'formik';
 
+//  in house packages 
+import { RegistrationSchema } from 'Helpers';
+import { ERROR_TOAST, SUCCESS_TOAST, WARNING_TOAST } from 'Components';
+import Endpoints from 'Services/endpoints';
+
+
 const RegisterComponent = () => {
-  const [registrationData, setRegistrationData] = useState({
-    firstname: "",
-    othernames: "",
-    msisdn: "",
-    password: "",
-  });
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [confirmPassword, setPasswordConfirmation] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isControl, setIsControl] = useState(false)
   const navigation = useNavigate()
 
   const formik = useFormik({
@@ -29,62 +23,52 @@ const RegisterComponent = () => {
       password: "",
       confirmPassword: ""
     },
-    validationSchema: RegistrationSchema
-    // onSubmit: handleSubmit()
+    validationSchema: RegistrationSchema,
+    onSubmit: values => handleSubmit(values)
   })
 
-  console.log(formik.errors)
 
-  async function handleSubmit() {
+  async function handleSubmit(values) {
       // form submission
+      console.log(values)
       try {
         const requestOptions = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          credential: "include",
           body: JSON.stringify({
-            ...registrationData,
-            country: "Ghana",
-            isoCode: "GH",
+            ...values,
+            countryCode: "GH",
+            isoCode: "233",
           }),
         };
         // been waiting for a while 
         // register to unlock some special features
         const apiResponse = await fetch(
-          "http://127.0.0.1:8000/api/v1/register",
+          Endpoints.CREATE_ACCOUNT,
           requestOptions
         );
+
+        console.log(apiResponse)
 
         const data = await apiResponse.json();
         console.log({
           message: "making a call to the go backend..",
           body: {
             response: data,
-            registrationData: registrationData,
+            registrationData: values,
           },
         });
-        // // success 
+
+        if (data.code != "00") throw new Error(data.error.errMsg)
+
         // let history = useNavigate()
         navigation("/auth/register/otp-confirm")
 
-        setIsLoading(false);
-      } catch (error) {
+``      } catch (error) {
         console.log(error.message)
-        setIsLoading(false)
         ERROR_TOAST(error.message)
       }
   }
-
-  useEffect(() => {
-    console.log(formErrors)
-    setIsSubmitted(false)
-
-    if (Object.keys(formErrors).length === 0 && isControl) {
-      console.log("this is me")
-      setIsSubmitted(true)
-    }
-
-  }, [formErrors])
 
   return (
     <motion.div 
@@ -171,7 +155,7 @@ const RegisterComponent = () => {
                       Phone number
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       name="msisdn"
                       className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                       placeholder="+233 26 821 334"
@@ -234,7 +218,6 @@ const RegisterComponent = () => {
               </div>
               <div className=" border-t">
                 <motion.button
-                  disabled={isLoading ? true : false}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{
                     scale: 0.9,
@@ -243,7 +226,7 @@ const RegisterComponent = () => {
                   type="submit"
                   className="h-10 w-full md:w-1/3 lg:w-1/3 mt-3 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                 >
-                  {isLoading ? "Loading..." : "Create Account"}
+                  {"Create Account"}
                 </motion.button>
               </div>
             </>
