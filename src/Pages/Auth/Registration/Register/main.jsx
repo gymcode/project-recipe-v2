@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { FormValidation } from 'Helpers';
+import { FormValidation, RegistrationSchema } from 'Helpers';
 import { ERROR_TOAST, SUCCESS_TOAST, WARNING_TOAST } from 'Components';
 import { ToastContainer } from 'react-toastify';
+import { useFormik } from 'formik';
 
 const RegisterComponent = () => {
   const [registrationData, setRegistrationData] = useState({
@@ -20,14 +21,21 @@ const RegisterComponent = () => {
   const [isControl, setIsControl] = useState(false)
   const navigation = useNavigate()
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setFormErrors(FormValidation(registrationData, confirmPassword));
-    setIsControl(true)
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      otherNames: "",
+      msisdn: "",
+      password: "",
+      confirmPassword: ""
+    },
+    validationSchema: RegistrationSchema
+    // onSubmit: handleSubmit()
+  })
 
-    if (isSubmitted) {
-      setIsLoading(true);
+  console.log(formik.errors)
 
+  async function handleSubmit() {
       // form submission
       try {
         const requestOptions = {
@@ -65,7 +73,6 @@ const RegisterComponent = () => {
         setIsLoading(false)
         ERROR_TOAST(error.message)
       }
-    }
   }
 
   useEffect(() => {
@@ -105,7 +112,7 @@ const RegisterComponent = () => {
       </div>
       <div className='h-[75vh] flex items-center'>
         <div className="my-10 w-full h-1/2">
-          <form onSubmit={(e) => handleSubmit(e)} method="post">
+          <form onSubmit={formik.handleSubmit} method="post">
             <>
               <div className='border-b'>
                 <h1 className="text-5xl main-font">Sign up</h1>
@@ -125,18 +132,14 @@ const RegisterComponent = () => {
                     </label>
                     <input
                       type="text"
-                      name=""
+                      name="firstName"
                       className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                       placeholder="Kenneth"
-                      onChange={(e) => {
-                        setRegistrationData({
-                          ...registrationData,
-                          firstname: e.target.value,
-                        });
-                      }}
+                      onChange={formik.handleChange}
+                      value={formik.values.firstName}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formErrors.firstname}
+                      {formik.errors.firstName}
                     </p>
                   </div>
                   <div className="flex flex-col">
@@ -148,18 +151,14 @@ const RegisterComponent = () => {
                     </label>
                     <input
                       type="text"
-                      name=""
+                      name="otherNames"
                       className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                       placeholder="Abrahams Lartey"
-                      onChange={(e) => {
-                        setRegistrationData({
-                          ...registrationData,
-                          othernames: e.target.value,
-                        });
-                      }}
+                      value={formik.values.otherNames}
+                      onChange={formik.handleChange}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formErrors.othernames}
+                      {formik.errors.otherNames}
                     </p>
                   </div>
                 </div>
@@ -173,18 +172,14 @@ const RegisterComponent = () => {
                     </label>
                     <input
                       type="number"
-                      name=""
+                      name="msisdn"
                       className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                       placeholder="+233 26 821 334"
-                      onChange={(e) => {
-                        setRegistrationData({
-                          ...registrationData,
-                          msisdn: e.target.value,
-                        });
-                      }}
+                      value={formik.values.msisdn}
+                      onChange={formik.handleChange}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formErrors.msisdn}
+                      {formik.errors.msisdn}
                     </p>
                   </div>
                 </div>
@@ -198,18 +193,14 @@ const RegisterComponent = () => {
                     </label>
                     <input
                       type="password"
-                      name=""
+                      name="password"
                       className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                       placeholder="xxxxxxxx"
-                      onChange={(e) => {
-                        setRegistrationData({
-                          ...registrationData,
-                          password: e.target.value,
-                        });
-                      }}
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formErrors.password}
+                      {formik.errors.password}
                     </p>
                   </div>
                   <div className="flex flex-col">
@@ -221,15 +212,14 @@ const RegisterComponent = () => {
                     </label>
                     <input
                       type="password"
-                      name=""
+                      name="confirmPassword"
                       className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                       placeholder="xxxxxxxx"
-                      onChange={(e) => {
-                        setPasswordConfirmation(e.target.value);
-                      }}
+                      value={formik.values.confirmPassword}
+                      onChange={formik.handleChange}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formErrors.passwordMatch}
+                      {formik.errors.confirmPassword}
                     </p>
                   </div>
                 </div>

@@ -12,4 +12,4 @@ export {
   TrimString
 } from "./TrimString"
 
-export { FormValidation } from "./FormValidation"
+export { FormValidation, RegistrationSchema } from "./FormValidation"
