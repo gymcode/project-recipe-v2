@@ -1,19 +1,18 @@
-// standard react packages 
-import React from 'react'
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import { useFormik } from 'formik';
+// standard react packages
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { useFormik } from "formik";
 
-//  in house packages 
-import { RegistrationSchema } from 'Helpers';
-import { ERROR_TOAST, SUCCESS_TOAST, WARNING_TOAST } from 'Components';
-import Endpoints from 'Services/endpoints';
-
+//  in house packages
+import { RegistrationSchema } from "Helpers";
+import { ERROR_TOAST, WARNING_TOAST } from "Components";
+import Endpoints from "Services/endpoints";
 
 const RegisterComponent = () => {
-  const navigation = useNavigate()
+  const navigation = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -21,63 +20,76 @@ const RegisterComponent = () => {
       otherNames: "",
       msisdn: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
     },
     validationSchema: RegistrationSchema,
-    onSubmit: values => handleSubmit(values)
-  })
-
+    onSubmit: (values) => handleSubmit(values),
+  });
 
   async function handleSubmit(values) {
-      // form submission
-      console.log(values)
-      try {
-        const requestOptions = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...values,
-            countryCode: "GH",
-            isoCode: "233",
-          }),
-        };
-        // been waiting for a while 
-        // register to unlock some special features
-        const apiResponse = await fetch(
-          Endpoints.CREATE_ACCOUNT,
-          requestOptions
+    // form submission
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          countryCode: "GH",
+          isoCode: "233",
+        }),
+      };
+      // been waiting for a while
+      // register to unlock some special features
+      const apiResponse = await fetch(Endpoints.CREATE_ACCOUNT, requestOptions);
+
+      console.log(apiResponse);
+
+      const data = await apiResponse.json();
+      console.log({
+        message: "making a call to the go backend..",
+        body: {
+          response: data,
+          registrationData: values,
+        },
+      });
+
+      if (data.systemCode === "U01") throw new Error(data.error.errMsg);
+
+      if (data.systemCode === "U02") {
+        WARNING_TOAST(
+          "You have not complete your registration!! Redirecting to OTP confirmation screen"
         );
-
-        console.log(apiResponse)
-
-        const data = await apiResponse.json();
-        console.log({
-          message: "making a call to the go backend..",
-          body: {
-            response: data,
-            registrationData: values,
-          },
-        });
-
-        if (data.code != "00") throw new Error(data.error.errMsg)
-
-        // let history = useNavigate()
-        navigation("/auth/register/otp-confirm")
-
-``      } catch (error) {
-        console.log(error.message)
-        ERROR_TOAST(error.message)
+        setTimeout(() => {
+          navigation("/auth/register/otp-confirm", {
+            state: values,
+          });
+        }, 5000);
       }
+
+      if (data.code === "00") {
+        navigation("/auth/register/otp-confirm", {
+          state: values,
+        });
+      }
+    } catch (error) {
+      console.log(error.message);
+      ERROR_TOAST(error.message);
+    }
   }
 
   return (
-    <motion.div 
-      animate={{ y: 0, opacity: 1 }} 
-      initial={{ opacity: 0 , y: 400}} 
+    <motion.div
+      animate={{ y: 0, opacity: 1 }}
+      initial={{ opacity: 0, y: 400 }}
       transition={{ duration: 0.5 }}
-      exit={{ opacity: 0}} >
+      exit={{ opacity: 0 }}
+    >
       <div className="flex justify-between items-center cursor-pointer pt-8">
-        <motion.div whileHover={{ scale: 1.25 }} whileTap={{ scale: 0.9 }} onClick={() => navigation(-1)} >
+        <motion.div
+          whileHover={{ scale: 1.25 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => navigation(-1)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -94,11 +106,11 @@ const RegisterComponent = () => {
           </svg>
         </motion.div>
       </div>
-      <div className='h-[75vh] flex items-center'>
+      <div className="h-[75vh] flex items-center">
         <div className="my-10 w-full h-1/2">
           <form onSubmit={formik.handleSubmit} method="post">
             <>
-              <div className='border-b'>
+              <div className="border-b">
                 <h1 className="text-5xl main-font">Sign up</h1>
                 <p className="imprima-font text-[#808080] py-1">
                   Create an account to explore more features
@@ -146,7 +158,7 @@ const RegisterComponent = () => {
                     </p>
                   </div>
                 </div>
-                <div className='w-full md:w-3/4 lg:w-3/4 my-3'>
+                <div className="w-full md:w-3/4 lg:w-3/4 my-3">
                   <div className="flex flex-col">
                     <label
                       htmlFor="msisdn"
@@ -210,9 +222,7 @@ const RegisterComponent = () => {
                 <div className="text-sm imprima-font text-gray-400 flex justify-start mt-3">
                   Already having an account?
                   <Link to={"/auth/login"}>
-                    <div className="text-red-600 pl-2">
-                      Sign in
-                    </div>
+                    <div className="text-red-600 pl-2">Sign in</div>
                   </Link>
                 </div>
               </div>
@@ -239,6 +249,3 @@ const RegisterComponent = () => {
 };
 
 export default RegisterComponent;
-
-
-
