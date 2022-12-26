@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 import { ToastContainer } from "react-toastify";
 import Lottie from "react-lottie";
 import * as SplashAnimation from "Assets/LottieFiles/lf30_editor_khv0pbjz.json";
+import Swal from "sweetalert2";
 
 import { ERROR_TOAST, WARNING_TOAST, SUCCESS_TOAST } from "Components";
 import Endpoints from "Services/endpoints";
-
 
 const defaultSplashAnimation = {
   loop: true,
@@ -22,8 +22,8 @@ const ResetComponent = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  const handleSubmitOTP = async(e) => {
-    e.preventDefault()
+  const handleSubmitOTP = async (e) => {
+    e.preventDefault();
     try {
       const requestOptions = {
         method: "PUT",
@@ -46,17 +46,17 @@ const ResetComponent = () => {
         },
       });
 
-      if(data.code !== "00") throw new Error(data.error.errMsg)
+      if (data.code !== "00") throw new Error(data.error.errMsg);
 
-      navigate("/auth/login")
+      navigate("/auth/login");
     } catch (error) {
       console.log(error.message);
       ERROR_TOAST(error.message);
     }
   };
 
-  const handleResendOTP = async(e) => {
-    e.preventDefault()
+  const handleResendOTP = async (e) => {
+    e.preventDefault();
     try {
       const requestOptions = {
         method: "PUT",
@@ -78,14 +78,29 @@ const ResetComponent = () => {
         },
       });
 
-      if(data.code !== "00") throw new Error(data.error.errMsg)
+      if (data.code !== "00") throw new Error(data.error.errMsg);
 
-      SUCCESS_TOAST(`A new OTP has been generated and sent to ${state.msisdn}`)
-
+      SUCCESS_TOAST(`A new OTP has been generated and sent to ${state.msisdn}`);
     } catch (error) {
       console.log(error.message);
       ERROR_TOAST(error.message);
     }
+  };
+
+  const handleGoBack = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Your data will be totally erased if you return to the registration screen, so you will have to start afresh.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Go back!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate(-1);
+      }
+    });
   };
 
   const handleChangeOTP = (otpCode) => {
@@ -138,7 +153,10 @@ const ResetComponent = () => {
                 height: "3rem",
               }}
             />
-            <div className="pl-5 cursor-pointer" onClick={(e)=>handleSubmitOTP(e)}>
+            <div
+              className="pl-5 cursor-pointer"
+              onClick={(e) => handleSubmitOTP(e)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -156,8 +174,13 @@ const ResetComponent = () => {
             </div>
           </div>
           <div className="flex justify-center text-sm items-center imprima-font text-red-500">
-            <div className="border-r pr-2 cursor-pointer" onClick={(e)=>handleResendOTP(e)}>Send code again</div>
-            <div className="pl-2 cursor-pointer" onClick={() => navigate(-1)}>
+            <div
+              className="border-r pr-2 cursor-pointer"
+              onClick={(e) => handleResendOTP(e)}
+            >
+              Send code again
+            </div>
+            <div className="pl-2 cursor-pointer" onClick={() => handleGoBack()}>
               Change your number
             </div>
           </div>

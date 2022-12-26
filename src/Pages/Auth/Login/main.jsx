@@ -72,13 +72,13 @@ const LoginComponent = () => {
                       htmlFor="Email"
                       className="imprima-font text-[#808080]"
                     >
-                      Email
+                      Phone number
                     </label>
                     <input
                       type="text"
                       name=""
                       className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
-                      placeholder="Kenneth"
+                      placeholder="0268211334"
                     />
                     <p className="text-xs text-red-600 kreon-font">
                       {/* {formErrors.firstname} */}
