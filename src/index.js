@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import {
   BrowserRouter,
@@ -14,8 +12,13 @@ import {
 import * as Sentry from "@sentry/react";
 import { BrowserTracing } from "@sentry/tracing";
 
+// internal component import
+import "./index.css";
+import App from "./App";
+import { AuthProvider } from "./Context";
+
 // sentry configuration
-process.env.NODE_ENV === "production" &&  
+process.env.NODE_ENV === "production" &&
   process.env.REACT_APP_ENABLE_SENTRY === true &&
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_ROUTE,
@@ -41,7 +44,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -132,10 +132,11 @@ const RegisterComponent = () => {
                       className="outline-0 text-[#808080] bg-gray-200 h-10 pl-2 rounded my-2 placeholder:text-sm placeholder:text-[#c5c5c5]"
                       placeholder="Kenneth"
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                       value={formik.values.firstName}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formik.errors.firstName}
+                      {formik.touched.firstName && formik.errors.firstName}
                     </p>
                   </div>
                   <div className="flex flex-col">
@@ -152,9 +153,10 @@ const RegisterComponent = () => {
                       placeholder="Abrahams Lartey"
                       value={formik.values.otherNames}
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formik.errors.otherNames}
+                      {formik.touched.otherNames && formik.errors.otherNames}
                     </p>
                   </div>
                 </div>
@@ -173,9 +175,10 @@ const RegisterComponent = () => {
                       placeholder="+233 26 821 334"
                       value={formik.values.msisdn}
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formik.errors.msisdn}
+                      {formik.touched.msisdn && formik.errors.msisdn}
                     </p>
                   </div>
                 </div>
@@ -194,9 +197,10 @@ const RegisterComponent = () => {
                       placeholder="xxxxxxxx"
                       value={formik.values.password}
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formik.errors.password}
+                      {formik.touched.password && formik.errors.password}
                     </p>
                   </div>
                   <div className="flex flex-col">
@@ -213,9 +217,10 @@ const RegisterComponent = () => {
                       placeholder="xxxxxxxx"
                       value={formik.values.confirmPassword}
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                     <p className="text-xs text-red-600 font-bold tracking-wide kreon-font">
-                      {formik.errors.confirmPassword}
+                      {formik.touched.confirmPassword && formik.errors.confirmPassword}
                     </p>
                   </div>
                 </div>
