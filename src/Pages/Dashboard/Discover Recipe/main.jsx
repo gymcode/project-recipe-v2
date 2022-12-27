@@ -1,19 +1,20 @@
 import React, { Suspense, useState, useEffect } from "react";
 import "./main.css";
 import { Routes, Route, NavLink } from "react-router-dom";
+
 import { CategoryNavLinks } from "Helpers";
 import { LOADER } from "Components";
 
 const OmnivoreSection = React.lazy(() => import("./Omnivore"));
-const PaleoSection = React.lazy(()=> import("./Paleo"))
-const PescaterianSection = React.lazy(()=> import("./Pescaterian"))
-const VegetarianSection = React.lazy(()=>import("./Vegetarian"))
-const VeganSection = React.lazy(()=>import("./Vegetarian"))
-const FruitarianCategory = React.lazy(()=>import("./Fruitarian"))
+const PaleoSection = React.lazy(() => import("./Paleo"));
+const PescaterianSection = React.lazy(() => import("./Pescaterian"));
+const VegetarianSection = React.lazy(() => import("./Vegetarian"));
+const VeganSection = React.lazy(() => import("./Vegetarian"));
+const FruitarianCategory = React.lazy(() => import("./Fruitarian"));
 
 const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
   const [categoryName, setCategoryName] = useState("Omnivore Category");
-  // scrolling section 
+  // scrolling section
 
   return (
     <main className="">
@@ -91,9 +92,10 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
               You have <span className="text-[#F84605]">no</span> new recipes in
               your bookmark
             </div>
-            <NavLink 
+            <NavLink
               onClick={() => setTitle("Bookmarks")}
-              to={"/dashboard/bookmarks"}>
+              to={"/dashboard/bookmarks"}
+            >
               <div className="imprima-font text-sm underline text-[#F84605]">
                 See Bookmarks
               </div>
@@ -117,7 +119,9 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
                 >
                   <div className="">
                     {navItem.svg}
-                    <p className="imprima-font py-3 md:hidden lg:block">{navItem.name}</p>
+                    <p className="imprima-font py-3 md:hidden lg:block">
+                      {navItem.name}
+                    </p>
                   </div>
                 </NavLink>
               </>
@@ -135,9 +139,7 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
                       : "text-[#777777] hover:text-white rounded-lg h-14 mr-2 border border-gray-200 mt-2 p-3 hover:border-none hover:bg-[#F84605] cursor-pointer hover:text-white;"
                   }
                 >
-                  <div className="">
-                    {navItem.svg}
-                  </div>
+                  <div className="">{navItem.svg}</div>
                 </NavLink>
               </>
             ))}

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { MenuAlt2Icon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // internal imports
 import { DASHBOARD_SIDE_NAV, LOADER } from "Components";
@@ -24,9 +25,9 @@ const Dashboard = () => {
   const [name, _] = useState("");
   const { toggle, visible } = useModal();
   const [show, setShow] = useState(false);
-  const {auth} = useContext(AuthContext)
+  const { auth } = useContext(AuthContext);
 
-  console.log(`authen tica tion ${auth}`)
+  console.log(`authen tica tion ${auth}`);
   useEffect(() => {
     var bodyScroll = document.querySelector("#bodyScroll");
     bodyScroll.addEventListener("scroll", () => {
@@ -39,7 +40,12 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <>
+    <motion.div
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
+      exit={{ opacity: 0 }}
+    >
       <div className="h-screen flex overflow-hidden bg-gray-100 ">
         <DASHBOARD_SIDE_NAV
           sidebarOpen={sidebarOpen}
@@ -95,7 +101,7 @@ const Dashboard = () => {
                 <div className="w-[79vw] flex justify-between">
                   <div>
                     <p className="imprima-font text-gray-500">
-                      Hello { isEmpty(auth) ? "there": auth.data.otherNames},
+                      Hello {isEmpty(auth) ? "there" : auth.data.otherNames},
                     </p>
                     <div className="main-font text-4xl xl:text-5xl lg:text-5xl mt-4">
                       {title}
@@ -161,7 +167,7 @@ const Dashboard = () => {
           </main>
         </div>
       </div>
-    </>
+    </motion.div>
   );
 };
 
