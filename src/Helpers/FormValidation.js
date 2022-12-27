@@ -30,3 +30,8 @@ export function FormValidation(values) {
     password: Yup.string().required('Required'),
     confirmPassword: Yup.string().required('Required'),
   });
+
+  export const LoginSchema = Yup.object().shape({
+    msisdn: Yup.string().required('Required'),
+    password: Yup.string().required('Required'),
+  });
