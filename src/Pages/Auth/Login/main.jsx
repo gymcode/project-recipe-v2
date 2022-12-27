@@ -31,7 +31,7 @@ const LoginComponent = () => {
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => handleLogin(values),
-  });
+  })
 
   async function handleLogin(values) {
     // form submission
