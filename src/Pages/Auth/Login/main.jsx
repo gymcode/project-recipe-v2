@@ -16,6 +16,7 @@ const leftArrowSplashAnimation = {
   loop: true,
   autoplay: true,
   animationData: SplashAnimation,
+  
 };
 
 const LoginComponent = () => {
