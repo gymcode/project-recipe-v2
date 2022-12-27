@@ -3,7 +3,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { useFormik } from "formik";
 
 //  in house packages
@@ -248,7 +247,6 @@ const RegisterComponent = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
     </motion.div>
   );
 };

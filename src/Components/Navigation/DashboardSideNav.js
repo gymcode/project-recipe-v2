@@ -8,11 +8,59 @@ import { motion } from "framer-motion";
 
 // internal imports
 import { DashboardAccountNavLinks, DashboardSideNavLinks } from "Helpers";
+import Endpoints from "Services"
 import { AuthContext } from "Context";
 import { isEmpty } from "Helpers";
+import Swal from "sweetalert2";
+import { ERROR_TOAST } from "Components";
 
 const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
-  const { auth } = useContext(AuthContext);
+  const { auth, setAuth } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Awww, leaving soo soon?",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, unfortunately!",
+    }).then( async (result) => {
+      if (result.isConfirmed) {
+        console.log("run me ")
+        try {
+          const requestOptions = {
+            method: "DELETE",
+            headers: { 
+              "Content-Type": "application/json", 
+              "Authorization": `Bearer ${auth.token}`
+            },
+          };
+    
+          const apiResponse = await fetch(Endpoints.SIGN_OUT, requestOptions);
+    
+          const data = await apiResponse.json();
+          console.log({
+            message: "making a call to the go backend..",
+            body: {
+              response: data,
+            },
+          });
+    
+          if (data.code !== "00") throw new Error(data.error.errMsg);
+
+          if (data.code === "00") {
+            setAuth({})
+            window.location.reload(true)
+          }
+    
+        } catch (error) {
+          console.log(error.message);
+          ERROR_TOAST(error.message);
+        }
+      }
+    });
+  };
   return (
     <>
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -80,44 +128,47 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
                     Healthy meal, healthy life...
                   </p>
                 </div>
-                
-              {isEmpty(auth) ? (
-                <Link to={"/auth/login"}>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{
-                      scale: 0.9,
-                      borderRadius: "2%",
-                    }}
-                    onClick={() => {
-                      setSidebarOpen(false);
-                      setTitle("Authentication");
-                    }}
-                    className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
-                  >
-                    Let's set you up
-                  </motion.div>
-                </Link>
-              ) : (
-                <div className="mx-9 h-10 w-3/4 mt-6 font-semibold text-gray-600 flex border-l-2 border-[#F84605] justify-center items-center rounded shadow-md kreon-font cursor-pointer">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6 text-gray-600"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
-                    />
-                  </svg>
 
-                  <div className="ml-5">Logout</div>
-                </div>
-              )}
+                {isEmpty(auth) ? (
+                  <Link to={"/auth/login"}>
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{
+                        scale: 0.9,
+                        borderRadius: "2%",
+                      }}
+                      onClick={() => {
+                        setSidebarOpen(false);
+                        setTitle("Authentication");
+                      }}
+                      className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                    >
+                      Let's set you up
+                    </motion.div>
+                  </Link>
+                ) : (
+                  <div
+                    onClick={() => handleLogout()}
+                    className="mx-9 h-10 w-3/4 mt-6 font-semibold text-gray-600 flex border-l-2 border-[#F84605] justify-center items-center rounded shadow-md kreon-font cursor-pointer"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6 text-gray-600"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                      />
+                    </svg>
+
+                    <div className="ml-5">Logout</div>
+                  </div>
+                )}
               </div>
               <div className="mt-5 flex-1 flex flex-col">
                 <nav className="flex-1 px-7 space-y-1">
@@ -216,7 +267,10 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
                   </motion.div>
                 </Link>
               ) : (
-                <div className="mx-9 h-10 w-3/4 mt-6 font-semibold text-gray-600 flex border-l-2 border-[#F84605] justify-center items-center rounded shadow-md kreon-font cursor-pointer">
+                <div
+                  onClick={() => handleLogout()}
+                  className="mx-9 h-10 w-3/4 mt-6 font-semibold text-gray-600 flex border-l-2 border-[#F84605] justify-center items-center rounded hover:shadow-[#ffdfd3] shadow-md kreon-font cursor-pointer"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

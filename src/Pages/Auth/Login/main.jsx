@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import "./main.css";
 import Logo from "Assets/Icons/Logo.svg";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Lottie from "react-lottie";
 import { useFormik } from "formik";
@@ -213,7 +212,6 @@ const LoginComponent = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </motion.div>
   );
 };

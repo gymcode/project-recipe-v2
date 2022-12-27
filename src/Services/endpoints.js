@@ -8,6 +8,7 @@ const Endpoints = {
     RESEND_OTP: `https://project-recipe-backend-production.up.railway.app/api/v1/users/resend`,
     CONFIRM_OTP: `https://project-recipe-backend-production.up.railway.app/api/v1/users/confirm-otp`,
     SIGN_IN: `https://project-recipe-backend-production.up.railway.app/api/v1/users/login`,
+    SIGN_OUT: `https://project-recipe-backend-production.up.railway.app/api/v1/users/logout`,
 
 }
 

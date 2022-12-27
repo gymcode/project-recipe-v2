@@ -3,7 +3,6 @@ import "./main.css";
 import OtpInput from "react-otp-input";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ToastContainer } from "react-toastify";
 import Lottie from "react-lottie";
 import * as SplashAnimation from "Assets/LottieFiles/lf30_editor_khv0pbjz.json";
 import Swal from "sweetalert2";
@@ -186,7 +185,6 @@ const ResetComponent = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </motion.div>
   );
 };
