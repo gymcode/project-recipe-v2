@@ -16,13 +16,14 @@ const leftArrowSplashAnimation = {
   loop: true,
   autoplay: true,
   animationData: SplashAnimation,
-  
+
 };
 
 const LoginComponent = () => {
   const [showNavigation, setShowNavigation] = useState(false);
   const navigation = useNavigate();
 
+  
   const formik = useFormik({
     initialValues: {
       msisdn: "",
