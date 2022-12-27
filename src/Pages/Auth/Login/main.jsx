@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import "./main.css";
 import Logo from "Assets/Icons/Logo.svg";
 import { Link } from "react-router-dom";
-import { SUCCESS_TOAST, ERROR_TOAST } from "Components";
 import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Lottie from "react-lottie";
 import { useFormik } from "formik";
 import * as SplashAnimation from "Assets/LottieFiles/101421-icon-arrow-left.json";
+
+// internal imports 
 import { LoginSchema } from "Helpers";
 import Endpoints from "Services/endpoints";
+import { SUCCESS_TOAST, ERROR_TOAST } from "Components";
+import { AuthContext } from "Context";
 
 const leftArrowSplashAnimation = {
   loop: true,
@@ -22,6 +25,7 @@ const leftArrowSplashAnimation = {
 const LoginComponent = () => {
   const [showNavigation, setShowNavigation] = useState(false);
   const navigation = useNavigate();
+  const {setAuth} = useContext(AuthContext)
 
   
   const formik = useFormik({
@@ -61,6 +65,10 @@ const LoginComponent = () => {
 
       if (data.code === "00") {
         SUCCESS_TOAST("Logged in successfully");
+        setAuth({
+          token: data.token,
+          data: data.data
+        })
         setTimeout(() => {
           navigation("/dashboard");
         }, 2000);

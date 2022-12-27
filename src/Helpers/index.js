@@ -9,7 +9,7 @@ export {
 } from "./NavLinks";
 
 export {
-  TrimString
-} from "./TrimString"
+  TrimString, isEmpty
+} from "./SimpleHacks"
 
 export { FormValidation, RegistrationSchema, LoginSchema } from "./FormValidation"

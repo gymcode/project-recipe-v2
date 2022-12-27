@@ -1,17 +1,18 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Logo from "Assets/Icons/Logo.svg";
 import { XIcon } from "@heroicons/react/outline";
 import "../main.css";
 import { Link, NavLink } from "react-router-dom";
-import { DashboardAccountNavLinks, DashboardSideNavLinks } from "Helpers";
 import { motion } from "framer-motion";
 
-const DashboardSideNav = ({
-  setSidebarOpen,
-  sidebarOpen,
-  setTitle,
-}) => {
+// internal imports
+import { DashboardAccountNavLinks, DashboardSideNavLinks } from "Helpers";
+import { AuthContext } from "Context";
+import { isEmpty } from "Helpers";
+
+const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
+  const { auth } = useContext(AuthContext);
   return (
     <>
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -79,6 +80,8 @@ const DashboardSideNav = ({
                     Healthy meal, healthy life...
                   </p>
                 </div>
+                
+              {isEmpty(auth) ? (
                 <Link to={"/auth/login"}>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
@@ -88,13 +91,33 @@ const DashboardSideNav = ({
                     }}
                     onClick={() => {
                       setSidebarOpen(false);
-                      setTitle("Authentication")
+                      setTitle("Authentication");
                     }}
                     className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                   >
                     Let's set you up
                   </motion.div>
                 </Link>
+              ) : (
+                <div className="mx-9 h-10 w-3/4 mt-6 font-semibold text-gray-600 flex border-l-2 border-[#F84605] justify-center items-center rounded shadow-md kreon-font cursor-pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 text-gray-600"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                    />
+                  </svg>
+
+                  <div className="ml-5">Logout</div>
+                </div>
+              )}
               </div>
               <div className="mt-5 flex-1 flex flex-col">
                 <nav className="flex-1 px-7 space-y-1">
@@ -102,7 +125,7 @@ const DashboardSideNav = ({
                     <h2 className="imprima-font capitalize text-sm text-gray-500 pb-2 px-3 mt-4 font-sans font-extralight">
                       Menu
                     </h2>
-                    
+
                     {DashboardSideNavLinks.map((item) => {
                       return (
                         <NavLink
@@ -174,22 +197,44 @@ const DashboardSideNav = ({
                   Healthy meal, healthy life...
                 </p>
               </div>
-              <Link to={"/auth/login"}>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{
-                    scale: 1.0,
-                    borderRadius: "2%",
-                  }}
-                  onClick={() => {
-                    setSidebarOpen(false);
-                    setTitle("Authentication")
-                  }}
-                  className="mx-9 h-10 w-3/4 mt-6 font-semibold bg-[#F84605] text-white flex justify-center items-center rounded kreon-font cursor-pointer"
-                >
-                  Let's set you up
-                </motion.div>
-              </Link>
+
+              {isEmpty(auth) ? (
+                <Link to={"/auth/login"}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{
+                      scale: 1.0,
+                      borderRadius: "2%",
+                    }}
+                    onClick={() => {
+                      setSidebarOpen(false);
+                      setTitle("Authentication");
+                    }}
+                    className="mx-9 h-10 w-3/4 mt-6 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
+                  >
+                    Let's set you up
+                  </motion.div>
+                </Link>
+              ) : (
+                <div className="mx-9 h-10 w-3/4 mt-6 font-semibold text-gray-600 flex border-l-2 border-[#F84605] justify-center items-center rounded shadow-md kreon-font cursor-pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 text-gray-600"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                    />
+                  </svg>
+
+                  <div className="ml-5">Logout</div>
+                </div>
+              )}
             </div>
             <div className="mt-5 flex-1 flex flex-col">
               <nav className="flex-1 px-7 space-y-1">

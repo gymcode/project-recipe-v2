@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { MenuAlt2Icon } from "@heroicons/react/outline";
 import "./main.css";
 import { Routes, Route } from "react-router-dom";
+
+// internal imports
 import { DASHBOARD_SIDE_NAV, LOADER } from "Components";
 import { useModal } from "Hooks";
+import { AuthContext } from "Context";
+import { isEmpty } from "Helpers";
 
 //lazy components
 const MainDashboardComponent = React.lazy(() => import("./MainDashboard"));
@@ -13,7 +17,6 @@ const DiscoveryDashboardComponent = React.lazy(() =>
 const RandomRecipeComponent = React.lazy(() => import("./Random Recipe"));
 const MyRecipeComponent = React.lazy(() => import("./My Recipe"));
 const AccountComponent = React.lazy(() => import("./Account"));
-// const Auth = React.lazy(() => import("./Auth"));
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,14 +24,16 @@ const Dashboard = () => {
   const [name, _] = useState("");
   const { toggle, visible } = useModal();
   const [show, setShow] = useState(false);
+  const {auth} = useContext(AuthContext)
 
+  console.log(`authen tica tion ${auth}`)
   useEffect(() => {
     var bodyScroll = document.querySelector("#bodyScroll");
     bodyScroll.addEventListener("scroll", () => {
       if (bodyScroll.scrollTop > 420) {
-        setShow(true)
+        setShow(true);
       } else {
-        setShow(false)
+        setShow(false);
       }
     });
   }, []);
@@ -36,19 +41,6 @@ const Dashboard = () => {
   return (
     <>
       <div className="h-screen flex overflow-hidden bg-gray-100 ">
-        {/* {
-          title != "Authentication" ?
-            (
-              <>
-                <DASHBOARD_SIDE_NAV
-                  sidebarOpen={sidebarOpen}
-                  setSidebarOpen={setSidebarOpen}
-                  setTitle={setTitle}
-                  toggle={toggle}
-                />
-              </>
-              ) : null
-        } */}
         <DASHBOARD_SIDE_NAV
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
@@ -103,44 +95,39 @@ const Dashboard = () => {
                 <div className="w-[79vw] flex justify-between">
                   <div>
                     <p className="imprima-font text-gray-500">
-                      Hello {name == "" ? "there," : name}
+                      Hello { isEmpty(auth) ? "there": auth.data.otherNames},
                     </p>
                     <div className="main-font text-4xl xl:text-5xl lg:text-5xl mt-4">
                       {title}
                     </div>
                   </div>
-                  {
-                    title != "Authentication" ?
-                      (
-                        <div className="w-[25vw] h-[86%] items-end xl:flex lg:flex md:flex hidden">
-                          <div className="flex w-full border items-center px-3 rounded-md">
-                            <div className="px-2">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-4 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="#777777"
-                                strokeWidth={1.5}
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                />
-                              </svg>
-                            </div>
-                            <input
-                              type="text"
-                              className="w-full h-8 outline-0 text-gray-400 bg-transparent"
-                              placeholder="search for recipes..."
+                  {title != "Authentication" ? (
+                    <div className="w-[25vw] h-[86%] items-end xl:flex lg:flex md:flex hidden">
+                      <div className="flex w-full border items-center px-3 rounded-md">
+                        <div className="px-2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="#777777"
+                            strokeWidth={1.5}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                             />
-                          </div>
+                          </svg>
                         </div>
-                      )
-                      :
-                      null
-                  }
+                        <input
+                          type="text"
+                          className="w-full h-8 outline-0 text-gray-400 bg-transparent"
+                          placeholder="search for recipes..."
+                        />
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               </div>
               <div className="mx-auto px-5 md:px:12 lg:px-12 xl:px-12 relative">
@@ -151,7 +138,10 @@ const Dashboard = () => {
                       <Route
                         path="/discover/*"
                         element={
-                          <DiscoveryDashboardComponent setTitle={setTitle} showSideNav={show} />
+                          <DiscoveryDashboardComponent
+                            setTitle={setTitle}
+                            showSideNav={show}
+                          />
                         }
                       />
                       <Route
@@ -163,7 +153,6 @@ const Dashboard = () => {
                         path="/my-recipe"
                         element={<MyRecipeComponent />}
                       />
-                      {/* <Route path="/auth/*" element={<Auth />} /> */}
                     </Routes>
                   </React.Suspense>
                 </div>
