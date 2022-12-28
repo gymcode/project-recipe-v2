@@ -51,7 +51,7 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
 
           if (data.code === "00") {
             setAuth({})
-            window.location.reload(true)
+            // window.location.reload(true)
           }
     
         } catch (error) {
