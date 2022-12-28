@@ -8,25 +8,26 @@ import Lottie from "react-lottie";
 import { useFormik } from "formik";
 import * as SplashAnimation from "Assets/LottieFiles/101421-icon-arrow-left.json";
 
-// internal imports 
+// internal imports
 import { LoginSchema } from "Helpers";
 import Endpoints from "Services/endpoints";
 import { SUCCESS_TOAST, ERROR_TOAST } from "Components";
 import { AuthContext } from "Context";
+import { SPINER_LOADER } from "Components";
 
 const leftArrowSplashAnimation = {
   loop: true,
   autoplay: true,
   animationData: SplashAnimation,
-
 };
 
 const LoginComponent = () => {
   const [showNavigation, setShowNavigation] = useState(false);
-  const navigation = useNavigate();
-  const {setAuth} = useContext(AuthContext)
+  const [loading, setLoading] = useState(false);
 
-  
+  const navigation = useNavigate();
+  const { setAuth } = useContext(AuthContext);
+
   const formik = useFormik({
     initialValues: {
       msisdn: "",
@@ -34,10 +35,11 @@ const LoginComponent = () => {
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => handleLogin(values),
-  })
+  });
 
   async function handleLogin(values) {
     // form submission
+    setLoading(true);
     try {
       const requestOptions = {
         method: "POST",
@@ -59,21 +61,21 @@ const LoginComponent = () => {
           registrationData: values,
         },
       });
-
+      setLoading(false);
       if (data.code !== "00") throw new Error(data.error.errMsg);
 
       if (data.code === "00") {
         SUCCESS_TOAST("Logged in successfully");
         setAuth({
           token: data.token,
-          data: data.data
-        })
+          data: data.data,
+        });
         setTimeout(() => {
           navigation("/dashboard");
         }, 1000);
       }
     } catch (error) {
-      console.log("dadadasd",error.message);
+      console.log("dadadasd", error.message);
       ERROR_TOAST(error.message);
     }
   }
@@ -182,10 +184,11 @@ const LoginComponent = () => {
                       scale: 0.9,
                       borderRadius: "2%",
                     }}
+                    disabled={loading ? true : false}
                     type="submit"
                     className="h-10 w-full mt-3 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                   >
-                    Log in
+                    {loading ? <SPINER_LOADER /> : "Log in"}
                   </motion.button>
                 </div>
               </form>

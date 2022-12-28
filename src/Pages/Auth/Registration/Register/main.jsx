@@ -1,5 +1,5 @@
 // standard react packages
-import React from "react";
+import React, {useState} from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +9,10 @@ import { useFormik } from "formik";
 import { RegistrationSchema } from "Helpers";
 import { ERROR_TOAST, WARNING_TOAST } from "Components";
 import Endpoints from "Services/endpoints";
+import { SPINER_LOADER } from "Components";
 
 const RegisterComponent = () => {
+  const [loading, setLoading] = useState(false);
   const navigation = useNavigate();
 
   const formik = useFormik({
@@ -27,6 +29,7 @@ const RegisterComponent = () => {
 
   async function handleSubmit(values) {
     // form submission
+    setLoading(true);
     try {
       const requestOptions = {
         method: "POST",
@@ -51,7 +54,7 @@ const RegisterComponent = () => {
           registrationData: values,
         },
       });
-
+      setLoading(false);
       if (data.systemCode === "U01") throw new Error(data.error.errMsg);
 
       if (data.systemCode === "U02") {
@@ -237,10 +240,11 @@ const RegisterComponent = () => {
                     scale: 0.9,
                     borderRadius: "2%",
                   }}
+                  disabled={loading ? true : false}
                   type="submit"
                   className="h-10 w-full md:w-1/3 lg:w-1/3 mt-3 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                 >
-                  {"Create Account"}
+                  {loading ? <SPINER_LOADER /> : "Create Account"}
                 </motion.button>
               </div>
             </>

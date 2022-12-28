@@ -10,6 +10,7 @@ export {default as NUTRI_INFO} from "./RecipeInfoSubComponent/NutritionalInforma
 export {default as OTP_INPUT} from "./OtpInputComponent"
 
 export {default as LOADER} from "./LoadingComponent"
+export {default as SPINER_LOADER} from "./SpinerLoaderComponent"
 
 export {default as RECIPE_CARD} from "./RecipeCard"
 
