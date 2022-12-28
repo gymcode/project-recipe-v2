@@ -21,13 +21,11 @@ const AccountComponent = React.lazy(() => import("./Account"));
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [title, setTitle] = useState("Dashboard");
-  const [name, _] = useState("");
+  const [title, setTitle] = useState("");
   const { toggle, visible } = useModal();
   const [show, setShow] = useState(false);
   const { auth } = useContext(AuthContext);
 
-  console.log(`authen tica tion ${auth}`);
   useEffect(() => {
     var bodyScroll = document.querySelector("#bodyScroll");
     bodyScroll.addEventListener("scroll", () => {
@@ -37,6 +35,18 @@ const Dashboard = () => {
         setShow(false);
       }
     });
+
+    function titleStorage(){
+      const currentTitle = localStorage.getItem("dash_title")
+      if(currentTitle == null){
+        localStorage.setItem("dash_title", title)
+        setTitle("Dashboard")
+      }else{
+        setTitle(currentTitle)
+      }
+    }
+
+    titleStorage()
   }, []);
 
   return (
@@ -107,7 +117,7 @@ const Dashboard = () => {
                       {title}
                     </div>
                   </div>
-                  {title != "Authentication" ? (
+                  {["Random Recipes", "Discover Recipes"].includes(title) ? (
                     <div className="w-[25vw] h-[86%] items-end xl:flex lg:flex md:flex hidden">
                       <div className="flex w-full border items-center px-3 rounded-md">
                         <div className="px-2">

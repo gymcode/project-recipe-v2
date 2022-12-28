@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 // internal imports
 import { DashboardAccountNavLinks, DashboardSideNavLinks } from "Helpers";
-import Endpoints from "Services"
+import Endpoints from "Services";
 import { AuthContext } from "Context";
 import { isEmpty } from "Helpers";
 import Swal from "sweetalert2";
@@ -25,20 +25,20 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, unfortunately!",
-    }).then( async (result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        console.log("run me ")
+        console.log("run me ");
         try {
           const requestOptions = {
             method: "DELETE",
-            headers: { 
-              "Content-Type": "application/json", 
-              "Authorization": `Bearer ${auth.token}`
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${auth.token}`,
             },
           };
-    
+
           const apiResponse = await fetch(Endpoints.SIGN_OUT, requestOptions);
-    
+
           const data = await apiResponse.json();
           console.log({
             message: "making a call to the go backend..",
@@ -46,14 +46,13 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
               response: data,
             },
           });
-    
+
           if (data.code !== "00") throw new Error(data.error.errMsg);
 
           if (data.code === "00") {
-            setAuth({})
+            setAuth({});
             // window.location.reload(true)
           }
-    
         } catch (error) {
           console.log(error.message);
           ERROR_TOAST(error.message);
@@ -301,7 +300,10 @@ const DashboardSideNav = ({ setSidebarOpen, sidebarOpen, setTitle }) => {
                       <NavLink
                         to={item.href}
                         key={item.name}
-                        onClick={() => setTitle(item.name)}
+                        onClick={() => {
+                          localStorage.setItem("dash_title", item.name);
+                          setTitle(item.name);
+                        }}
                         className={({ isActive }) =>
                           isActive
                             ? "text-[#F84605] group flex items-center px-4 py-2 h-12 my-1 text-sm font-medium rounded-md"
