@@ -9,7 +9,7 @@ const Endpoints = {
     CONFIRM_OTP: `https://project-recipe-backend-production.up.railway.app/api/v1/users/confirm-otp`,
     SIGN_IN: `https://project-recipe-backend-production.up.railway.app/api/v1/users/login`,
     SIGN_OUT: `https://project-recipe-backend-production.up.railway.app/api/v1/users/logout`,
-    NUTRITION_ANALYSIS: ` https://api.edamam.com/api/nutrition-details?app_id=5699d90a&app_key=38291f3c74888725fde1bb034c0c8195"`
+    NUTRITION_ANALYSIS: `https://api.edamam.com/api/nutrition-details?app_id=5699d90a&app_key=38291f3c74888725fde1bb034c0c8195`
 
 }
 

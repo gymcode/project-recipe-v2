@@ -6,12 +6,12 @@ import Endpoints from "Services/endpoints";
 
 const NutrientCheckComponent = () => {
   const [showResults, setShowResults] = useState(false);
-  const [ingredientList, setIngredientList] = useState("")
+  const [ingredientList, setIngredientList] = useState("");
+  const [data, setData] = useState({});
 
+  const handleAnalyse = async () => {
+    const ingredientArr = ingredientList.split(",");
 
-  const handleAnalyse = async()=>{
-    const ingredientArr = ingredientList.split(",") 
-    
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -20,10 +20,13 @@ const NutrientCheckComponent = () => {
       }),
     };
 
-    const apiResponse = await fetch(Endpoints.NUTRITION_ANALYSIS, requestOptions);
+    const apiResponse = await fetch(
+      Endpoints.NUTRITION_ANALYSIS,
+      requestOptions
+    );
     console.log(apiResponse);
 
-    const data = await apiResponse.json();
+    const results = await apiResponse.json();
     console.log({
       message: "making a call to the go backend..",
       body: {
@@ -31,8 +34,11 @@ const NutrientCheckComponent = () => {
         registrationData: ingredientArr,
       },
     });
-    setShowResults(true)
-  }
+    setData(results);
+    setShowResults(true);
+  };
+
+  console.log(data);
   return (
     <main>
       <>
@@ -41,7 +47,10 @@ const NutrientCheckComponent = () => {
           <div className="text-sm text-gray-400">
             Nutrient Analysis <span className="text-[#F84605]">/</span>{" "}
           </div>
-          <div className="text-sm text-gray-400" onClick={()=>setShowResults(false)}>
+          <div
+            className="text-sm text-gray-400"
+            onClick={() => setShowResults(false)}
+          >
             Reset
           </div>
         </div>
@@ -63,25 +72,33 @@ const NutrientCheckComponent = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="h-20 border-b imprima-font hover:bg-[#ebedf0dc]">
-                        <td className="text-gray-800">1</td>
-                        <td className="text-gray-800">ounce</td>
-                        <td className="text-gray-800">Chickpeas</td>
-                        <td className="text-gray-800">
-                          <div className="bg-[#D1FED6] rounded-lg flex justify-center items-center h-9 w-28">
-                            <div className="text-sm text-[#00800E] font-bold">
-                              443 kcal
-                            </div>
-                          </div>
-                        </td>
-                        <td className="text-center text-gray-800 flex h-[8.3vh] justify-center items-center">
-                          <div className="bg-[#FFE7DE] rounded-lg flex justify-center items-center h-9 w-28">
-                            <div className="text-sm text-[#F84605] font-bold">
-                              200g
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                      {data.ingredients.map((item) => (
+                        <>
+                          {item.parsed.map((value) => (
+                            <>
+                              <tr className="h-20 border-b imprima-font hover:bg-[#ebedf0dc]">
+                                <td className="text-gray-800">{value.quantity}</td>
+                                <td className="text-gray-800">{value.measure}</td>
+                                <td className="text-gray-800">{value.food}</td>
+                                <td className="text-gray-800">
+                                  <div className="bg-[#D1FED6] rounded-lg flex justify-center items-center h-9 w-28">
+                                    <div className="text-sm text-[#00800E] font-bold">
+                                      443 kcal
+                                    </div>
+                                  </div>
+                                </td>
+                                <td className="text-center text-gray-800 flex h-[8.3vh] justify-center items-center">
+                                  <div className="bg-[#FFE7DE] rounded-lg flex justify-center items-center h-9 w-28">
+                                    <div className="text-sm text-[#F84605] font-bold">
+                                      {value.weight}g
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </>
+                          ))}
+                        </>
+                      ))}
                     </tbody>
                   </table>
                 </div>
@@ -116,7 +133,7 @@ const NutrientCheckComponent = () => {
                             Total Calories
                           </p>
                           <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                            1177 kcal
+                            {data.calories} kcal
                           </div>
                         </div>
                         <div className="flex pt-1 justify-between">
@@ -124,7 +141,7 @@ const NutrientCheckComponent = () => {
                             Total Weight
                           </p>
                           <div className="h-6 w-20 bg-[#FFE7DE] imprima-font text-[#F84605] font-bold flex justify-center items-center text-center text-sm rounded-md">
-                            200 g
+                            {Math.ceil(data.totalWeight)} g
                           </div>
                         </div>
                       </div>
@@ -136,11 +153,11 @@ const NutrientCheckComponent = () => {
                         <p className="imprima-font text-lg text-gray-600 font-bold">
                           Total Fat
                           <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                            32g
+                            {Math.ceil(data.totalDaily.FAT.quantity)}g
                           </sup>
                         </p>
                         <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                          43%
+                          {Math.ceil(data.totalNutrients.FAT.quantity)}%
                         </div>
                       </div>
                       <div className="">
@@ -149,11 +166,11 @@ const NutrientCheckComponent = () => {
                             <p className="imprima-font text-lg text-gray-600 ">
                               Saturated Fat
                               <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                                32g
+                                {Math.ceil(data.totalDaily.FASAT.quantity)}g
                               </sup>
                             </p>
                             <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                              43%
+                              {Math.ceil(data.totalNutrients.FASAT.quantity)}%
                             </div>
                           </div>
                         </div>
@@ -163,22 +180,22 @@ const NutrientCheckComponent = () => {
                       <p className="imprima-font text-lg text-gray-600 font-bold">
                         Cholestrol
                         <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                          32g
+                          {Math.ceil(data.totalDaily.CHOLE.quantity)}g
                         </sup>
                       </p>
                       <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                        43%
+                        {Math.ceil(data.totalNutrients.CHOLE.quantity)}%
                       </div>
                     </div>
                     <div className="flex justify-between border-b py-3">
                       <p className="imprima-font text-lg text-gray-600 font-bold">
                         Sodium
                         <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                          32g
+                          {Math.ceil(data.totalDaily.NA.quantity)}g
                         </sup>
                       </p>
                       <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                        43%
+                        {Math.ceil(data.totalNutrients.NA.quantity)}%
                       </div>
                     </div>
                     <div className="py-3">
@@ -186,11 +203,11 @@ const NutrientCheckComponent = () => {
                         <p className="imprima-font text-lg text-gray-600 font-bold">
                           Total Carbohydrate
                           <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                            32g
+                            {Math.ceil(data.totalDaily.CHOCDF.quantity)}g
                           </sup>
                         </p>
                         <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                          43%
+                          {Math.ceil(data.totalNutrients.CHOCDF.quantity)}%
                         </div>
                       </div>
                       <div className="">
@@ -199,11 +216,11 @@ const NutrientCheckComponent = () => {
                             <p className="imprima-font text-lg text-gray-600">
                               Dietary Fiber
                               <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                                32g
+                                {Math.ceil(data.totalDaily.FIBTG.quantity)}g
                               </sup>
                             </p>
                             <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                              43%
+                              {Math.ceil(data.totalNutrients.FIBTG.quantity)}%
                             </div>
                           </div>
                         </div>
@@ -223,44 +240,44 @@ const NutrientCheckComponent = () => {
                       <p className="imprima-font text-lg text-gray-600 font-bold">
                         Protein
                         <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                          32g
+                          {Math.ceil(data.totalDaily.PROCNT.quantity)}g
                         </sup>
                       </p>
                       <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                        43%
+                        {Math.ceil(data.totalNutrients.PROCNT.quantity)}%
                       </div>
                     </div>
                     <div className="flex justify-between border-b py-3">
                       <p className="imprima-font text-lg text-gray-600 font-bold">
                         Vitamin D
                         <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                          32g
+                          {Math.ceil(data.totalDaily.VITD.quantity)}g
                         </sup>
                       </p>
                       <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                        43%
+                        {Math.ceil(data.totalNutrients.VITD.quantity)}%
                       </div>
                     </div>
                     <div className="flex justify-between border-b py-3">
                       <p className="imprima-font text-lg text-gray-600 font-bold">
                         Calcium
                         <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                          32g
+                          {Math.ceil(data.totalDaily.CA.quantity)}g
                         </sup>
                       </p>
                       <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                        43%
+                        {Math.ceil(data.totalNutrients.CA.quantity)}%
                       </div>
                     </div>
                     <div className="flex justify-between border-b py-3">
                       <p className="imprima-font text-lg text-gray-600 font-bold">
                         Iron
                         <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                          32g
+                          {Math.ceil(data.totalDaily.FE.quantity)}g
                         </sup>
                       </p>
                       <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
-                        43%
+                        {Math.ceil(data.totalNutrients.FE.quantity)}%
                       </div>
                     </div>
                   </div>
@@ -285,17 +302,21 @@ const NutrientCheckComponent = () => {
                 cup rice, 10 oz chickpeas", etc. Enter each ingredient on a new
                 line.
               </p>
-              <textarea onChange={(e)=> setIngredientList(e.target.value)} cols="70" rows="10"></textarea>
+              <textarea
+                onChange={(e) => setIngredientList(e.target.value)}
+                cols="70"
+                rows="10"
+              ></textarea>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{
                   scale: 0.9,
                   borderRadius: "2%",
                 }}
-                onClick={()=>handleAnalyse()}
+                onClick={() => handleAnalyse()}
                 className="mx-9 h-10 w-1/4 mt-6 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
               >
-                Analyse 
+                Analyse
               </motion.div>
             </div>
           )}
