@@ -2,9 +2,37 @@ import { useState } from "react";
 import "./main.css";
 import { motion } from "framer-motion";
 import SVG from "Assets/Images/undraw_feeling_blue_-4-b7q.svg";
+import Endpoints from "Services/endpoints";
 
 const NutrientCheckComponent = () => {
   const [showResults, setShowResults] = useState(false);
+  const [ingredientList, setIngredientList] = useState("")
+
+
+  const handleAnalyse = async()=>{
+    const ingredientArr = ingredientList.split(",") 
+    
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ingr: ingredientArr,
+      }),
+    };
+
+    const apiResponse = await fetch(Endpoints.NUTRITION_ANALYSIS, requestOptions);
+    console.log(apiResponse);
+
+    const data = await apiResponse.json();
+    console.log({
+      message: "making a call to the go backend..",
+      body: {
+        response: data,
+        registrationData: ingredientArr,
+      },
+    });
+    setShowResults(true)
+  }
   return (
     <main>
       <>
@@ -12,6 +40,9 @@ const NutrientCheckComponent = () => {
         <div className="flex justify-between py-3 border-b items-center ">
           <div className="text-sm text-gray-400">
             Nutrient Analysis <span className="text-[#F84605]">/</span>{" "}
+          </div>
+          <div className="text-sm text-gray-400" onClick={()=>setShowResults(false)}>
+            Reset
           </div>
         </div>
         {/* body content */}
@@ -254,13 +285,14 @@ const NutrientCheckComponent = () => {
                 cup rice, 10 oz chickpeas", etc. Enter each ingredient on a new
                 line.
               </p>
-              <textarea name="" id="" cols="70" rows="10"></textarea>
+              <textarea onChange={(e)=> setIngredientList(e.target.value)} cols="70" rows="10"></textarea>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{
                   scale: 0.9,
                   borderRadius: "2%",
                 }}
+                onClick={()=>handleAnalyse()}
                 className="mx-9 h-10 w-1/4 mt-6 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
               >
                 Analyse 
