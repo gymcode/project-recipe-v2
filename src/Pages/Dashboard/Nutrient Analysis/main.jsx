@@ -24,7 +24,6 @@ const NutrientCheckComponent = () => {
       Endpoints.NUTRITION_ANALYSIS,
       requestOptions
     );
-    console.log(apiResponse);
 
     const results = await apiResponse.json();
     console.log({
@@ -38,7 +37,6 @@ const NutrientCheckComponent = () => {
     setShowResults(true);
   };
 
-  console.log(data);
   return (
     <main>
       <>
@@ -77,20 +75,27 @@ const NutrientCheckComponent = () => {
                           {item.parsed.map((value) => (
                             <>
                               <tr className="h-20 border-b imprima-font hover:bg-[#ebedf0dc]">
-                                <td className="text-gray-800">{value.quantity}</td>
-                                <td className="text-gray-800">{value.measure}</td>
+                                <td className="text-gray-800">
+                                  {value.quantity}
+                                </td>
+                                <td className="text-gray-800">
+                                  {value.measure}
+                                </td>
                                 <td className="text-gray-800">{value.food}</td>
                                 <td className="text-gray-800">
                                   <div className="bg-[#D1FED6] rounded-lg flex justify-center items-center h-9 w-28">
                                     <div className="text-sm text-[#00800E] font-bold">
-                                      443 kcal
+                                      {Math.floor(
+                                        value.nutrients.ENERC_KCAL.quantity
+                                      )}{" "}
+                                      kcal
                                     </div>
                                   </div>
                                 </td>
                                 <td className="text-center text-gray-800 flex h-[8.3vh] justify-center items-center">
                                   <div className="bg-[#FFE7DE] rounded-lg flex justify-center items-center h-9 w-28">
                                     <div className="text-sm text-[#F84605] font-bold">
-                                      {value.weight}g
+                                      {Math.floor(value.weight)}g
                                     </div>
                                   </div>
                                 </td>
@@ -224,19 +229,9 @@ const NutrientCheckComponent = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="flex justify-end py-2">
-                          <div className="flex justify-between border-b w-96">
-                            <p className="imprima-font text-lg text-gray-600">
-                              Total Sugars
-                              <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
-                                32g
-                              </sup>
-                            </p>
-                          </div>
-                        </div>
                       </div>
                     </div>
-                    <div className="flex justify-between border-b py-3">
+                    <div className="flex justify-between border-b py-2">
                       <p className="imprima-font text-lg text-gray-600 font-bold">
                         Protein
                         <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
@@ -278,6 +273,17 @@ const NutrientCheckComponent = () => {
                       </p>
                       <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
                         {Math.ceil(data.totalNutrients.FE.quantity)}%
+                      </div>
+                    </div>
+                    <div className="flex justify-between border-b py-3">
+                      <p className="imprima-font text-lg text-gray-600 font-bold">
+                        Potassium
+                        <sup className="px-3 bg-[#FFE7DE] font-bold rounded text-[#F84605]">
+                          {Math.ceil(data.totalDaily.K.quantity)}g
+                        </sup>
+                      </p>
+                      <div className="h-6 w-20 bg-[#D1FED6] imprima-font font-bold text-[#00800E] flex justify-center items-center text-sm rounded-md">
+                        {Math.ceil(data.totalNutrients.K.quantity)}%
                       </div>
                     </div>
                   </div>
