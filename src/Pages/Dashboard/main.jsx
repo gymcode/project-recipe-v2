@@ -17,6 +17,9 @@ const DiscoveryDashboardComponent = React.lazy(() =>
 );
 const RandomRecipeComponent = React.lazy(() => import("./Random Recipe"));
 const MyRecipeComponent = React.lazy(() => import("./My Recipe"));
+const NutrientAnalysisComponent = React.lazy(() =>
+  import("./Nutrient Analysis")
+);
 const AccountComponent = React.lazy(() => import("./Account"));
 
 const Dashboard = () => {
@@ -36,17 +39,17 @@ const Dashboard = () => {
       }
     });
 
-    function titleStorage(){
-      const currentTitle = localStorage.getItem("dash_title")
-      if(currentTitle == null){
-        localStorage.setItem("dash_title", title)
-        setTitle("Dashboard")
-      }else{
-        setTitle(currentTitle)
+    function titleStorage() {
+      const currentTitle = localStorage.getItem("dash_title");
+      if (currentTitle == null) {
+        localStorage.setItem("dash_title", title);
+        setTitle("Dashboard");
+      } else {
+        setTitle(currentTitle);
       }
     }
 
-    titleStorage()
+    titleStorage();
   }, []);
 
   return (
@@ -168,6 +171,10 @@ const Dashboard = () => {
                       <Route
                         path="/my-recipe"
                         element={<MyRecipeComponent />}
+                      />
+                      <Route
+                        path="/nutrient-analysis"
+                        element={<NutrientAnalysisComponent />}
                       />
                     </Routes>
                   </React.Suspense>

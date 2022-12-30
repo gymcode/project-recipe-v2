@@ -196,22 +196,25 @@ const DashboardSideNavLinks = [
   },
   {
     id: 4,
-    name: "My Recipes",
-    href: "/dashboard/my-recipe",
+    name: "Nutrient Analysis",
+    href: "/dashboard/nutrient-analysis",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5 "
-        fill="none"
+        class="icon icon-tabler icon-tabler-chart-arcs-3"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
+        stroke-width="1.5"
         stroke="currentColor"
-        strokeWidth={1.5}
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-        />
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <circle cx="12" cy="12" r="1"></circle>
+        <path d="M7 12a5 5 0 1 0 5 -5"></path>
+        <path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957"></path>
       </svg>
     ),
     current: false,
@@ -238,6 +241,27 @@ const DashboardAccountNavLinks = [
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <circle cx="12" cy="7" r="4"></circle>
         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+      </svg>
+    ),
+    current: false,
+  },
+  {
+    name: "My Recipes",
+    href: "/dashboard/my-recipe",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5 "
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={1.5}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+        />
       </svg>
     ),
     current: false,
@@ -391,7 +415,6 @@ const CategoryNavLinks = [
         <path d="M12.975 21.425c3.905 -3.906 4.855 -9.288 2.121 -12.021c-2.733 -2.734 -8.115 -1.784 -12.02 2.121"></path>
       </svg>
     ),
-
   },
   {
     id: 2,
@@ -417,7 +440,6 @@ const CategoryNavLinks = [
         <path d="M11.5 10.5c-.667 1 -.667 2 0 3"></path>
       </svg>
     ),
-
   },
   {
     id: 3,
@@ -442,7 +464,6 @@ const CategoryNavLinks = [
         <path d="M10 10.5c1.333 .667 2.667 .667 4 0"></path>
       </svg>
     ),
-
   },
   {
     id: 4,
@@ -474,7 +495,6 @@ const CategoryNavLinks = [
         <path d="M12.975 21.425c3.905 -3.906 4.855 -9.288 2.121 -12.021c-2.733 -2.734 -8.115 -1.784 -12.02 2.121"></path>
       </svg>
     ),
-
   },
   {
     id: 5,
@@ -501,7 +521,6 @@ const CategoryNavLinks = [
         <path d="M16 2s-2 1.14 -2 3s2 3 2 3s2 -1.577 2 -3c0 -1.86 -2 -3 -2 -3z"></path>
       </svg>
     ),
-
   },
   {
     id: 6,
@@ -525,9 +544,8 @@ const CategoryNavLinks = [
         <path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z"></path>
       </svg>
     ),
-
-  }
-]
+  },
+];
 
 export {
   LandingPageSideNavLinks,
@@ -536,5 +554,5 @@ export {
   DashboardSideNavLinks,
   FooterNavLinks,
   FooterSocialLinks,
-  CategoryNavLinks
+  CategoryNavLinks,
 };
