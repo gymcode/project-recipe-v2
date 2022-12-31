@@ -1,33 +1,54 @@
-import React from 'react'
+import React from "react";
 import ReactStars from "react-rating-stars-component";
 import {
   INGREDIENT_LISTING,
   INSTRUCTION_LISTING,
   CALORIC_BREAKDOWN,
-  NUTRI_INFO
+  NUTRI_INFO,
 } from "Components";
 import "./main.css";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const statuses = (status) => {
   return (
     <>
       {status ? (
-        <svg xmlns="http://www.w3.org/2000/svg" className="text-green-600 icon icon-tabler icon-tabler-checks" width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="text-green-600 icon icon-tabler icon-tabler-checks"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          stroke-width="1"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
           <path d="M7 12l5 5l10 -10"></path>
           <path d="M2 12l5 5m5 -5l5 -5"></path>
         </svg>
       ) : (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-red-600 w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="text-red-600 w-6 h-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
         </svg>
-
       )}
     </>
-  )
-}
+  );
+};
 
 const RecipeInformationComponent = ({
   recipe_title,
@@ -42,14 +63,19 @@ const RecipeInformationComponent = ({
   nutrition = null,
   recipe_cheap_status,
   recipe_vegan_status,
-  recipe_vegetarian_status
+  recipe_vegetarian_status,
 }) => {
-  const navigation = useNavigate()
+  const [ingredient, setIngredient] = React.useState([]);
+  const navigation = useNavigate();
   return (
     <main className="recipe-info-body py-10 xl:py-16 px-6 lg:px-10 xl:px-32">
       {/* navigation   */}
       <div className="flex justify-between items-center cursor-pointer">
-        <motion.div whileHover={{ scale: 1.25 }} whileTap={{ scale: 0.9 }} onClick={() => navigation(-1)} >
+        <motion.div
+          whileHover={{ scale: 1.25 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => navigation(-1)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
@@ -68,7 +94,32 @@ const RecipeInformationComponent = ({
         <div className="kreon-font text-lg xl:text-xl font-bold">
           <span className="text-[#F84605]">Recipe</span> Information
         </div>
-        <div></div>
+        <div className="flex">
+          {ingredient.length > 0 ? (
+            <div className="flex" onClick={()=> navigation("/dashboard/nutrient-analysis", {state: ingredient} )}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-chart-arcs-3"
+                width="25"
+                height="25"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <circle cx="12" cy="12" r="1"></circle>
+                <path d="M7 12a5 5 0 1 0 5 -5"></path>
+                <path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957"></path>
+              </svg>{" "}
+              <sup className="h-4 w-4 bg-red-500 justify-center items-center flex rounded text-xs font-bold text-[#Fff]">
+                {ingredient.length }
+              </sup>
+            </div>
+          ) : null}
+        </div>
       </div>
       {/* main body with content  */}
       <body className="mt-10 xl:mt-16">
@@ -85,25 +136,19 @@ const RecipeInformationComponent = ({
                 <div className="flex justify-center border-r ">
                   {statuses(recipe_cheap_status)}
                 </div>
-                <div className=" ml-2 col-span-2">
-                  Cheap
-                </div>
+                <div className=" ml-2 col-span-2">Cheap</div>
               </div>
               <div className="h-9 w-32 rounded-lg border border-gray-300 text-sm mr-3 items-center grid grid-cols-3">
                 <div className="flex justify-center border-r ">
                   {statuses(recipe_vegan_status)}
                 </div>
-                <div className=" ml-2">
-                  Vegan
-                </div>
+                <div className=" ml-2">Vegan</div>
               </div>
               <div className="h-9 w-32 rounded-lg border border-gray-300 text-sm mr-3 items-center grid grid-cols-3">
                 <div className="flex justify-center border-r ">
                   {statuses(recipe_vegetarian_status)}
                 </div>
-                <div className=" ml-2">
-                  Vegetarian
-                </div>
+                <div className=" ml-2">Vegetarian</div>
               </div>
             </div>
             <div className="w-[70vw] md:max-w-[35vw] lg:max-w-[25vw] xl:max-w-[18vw] flex justify-between">
@@ -185,7 +230,9 @@ const RecipeInformationComponent = ({
                     <path d="M3 12h4l3 8l4 -16l3 8h4"></path>
                   </svg>
                   <div className="px-3 text-[#818181]">
-                    <span className="text-[#F84605]">{recipe_healthscore}%</span>{" "}
+                    <span className="text-[#F84605]">
+                      {recipe_healthscore}%
+                    </span>{" "}
                     healthscore
                   </div>
                 </div>
@@ -198,33 +245,40 @@ const RecipeInformationComponent = ({
             style={{
               backgroundImage: `url(${recipe_image})`,
             }}
-          >
-          </motion.div>
+          ></motion.div>
         </div>
         <div className="grid xl:grid-cols-7 lg:grid-cols-7 grid-row-2 gap-6 mt-12">
           {/* ingredient, instructions and caloric breakdown section */}
           <div className="col-span-4 lg:col-span-3 xl:col-span-3 flex flex-col ">
             <div className="grid xl:grid-cols-6 grid-row-2 pb-8">
-              <div className="kreon-font text-lg mb-4 font-bold">Ingredients: </div>
+              <div className="kreon-font text-lg mb-4 font-bold">
+                Ingredients:{" "}
+              </div>
               <div className="col-span-5">
                 {/* // listing component */}
-                <INGREDIENT_LISTING itemArr={ingredients} />
+                <INGREDIENT_LISTING
+                  itemArr={ingredients}
+                  ingredient={ingredient}
+                  setIngredient={setIngredient}
+                />
               </div>
             </div>
-            {
-              nutrition != null && (
-                <div className="pb-8">
-                  <div className="kreon-font text-lg font-bold">Caloric Breakdown: </div>
-                  <CALORIC_BREAKDOWN
-                    proteinPercentage={nutrition.caloricBreakdown.percentProtein}
-                    fatPercentage={nutrition.caloricBreakdown.percentFat}
-                    carbPercentage={nutrition.caloricBreakdown.percentCarbs}
-                  />
+            {nutrition != null && (
+              <div className="pb-8">
+                <div className="kreon-font text-lg font-bold">
+                  Caloric Breakdown:{" "}
                 </div>
-              )
-            }
+                <CALORIC_BREAKDOWN
+                  proteinPercentage={nutrition.caloricBreakdown.percentProtein}
+                  fatPercentage={nutrition.caloricBreakdown.percentFat}
+                  carbPercentage={nutrition.caloricBreakdown.percentCarbs}
+                />
+              </div>
+            )}
             <div className="grid xl:grid-cols-6 grid-row-2">
-              <div className="kreon-font text-lg mb-4 font-bold">Instructions: </div>
+              <div className="kreon-font text-lg mb-4 font-bold">
+                Instructions:{" "}
+              </div>
               <div className="col-span-5 flex flex-col space-y-10">
                 {/* // listing component */}
                 <INSTRUCTION_LISTING itemArr={instructions} />
@@ -249,22 +303,22 @@ const RecipeInformationComponent = ({
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <p className="kreon-font px-2 text-xl font-bold">Recipe Summary</p>
+                <p className="kreon-font px-2 text-xl font-bold">
+                  Recipe Summary
+                </p>
               </div>
               <i className="imprima-font text-[#818181] text-justify">
                 <div dangerouslySetInnerHTML={recipe_summary} />
               </i>
             </div>
-            {
-              nutrition != null && (
-                <div className="mt-10 kreon-font font-bold text-lg">
-                  <h2>Nutritional Information:</h2>
-                  <div className="flex flex-wrap">
-                    <NUTRI_INFO itemArr={nutrition.nutrients}/>
-                  </div>
+            {nutrition != null && (
+              <div className="mt-10 kreon-font font-bold text-lg">
+                <h2>Nutritional Information:</h2>
+                <div className="flex flex-wrap">
+                  <NUTRI_INFO itemArr={nutrition.nutrients} />
                 </div>
-              )
-            }
+              </div>
+            )}
           </div>
         </div>
       </body>

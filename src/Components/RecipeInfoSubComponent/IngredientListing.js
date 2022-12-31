@@ -1,8 +1,8 @@
 import { ERROR_TOAST, SUCCESS_TOAST } from 'Components';
 import React from 'react'
 
-const IngregientListing = ({itemArr}) => {
-  const [ingredient, setIngredient] = React.useState([])
+const IngregientListing = ({itemArr, ingredient, setIngredient}) => {
+  
   console.log(ingredient)
   function isSelectedCount (item) {
     if (ingredient.includes(item)) {

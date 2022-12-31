@@ -7,16 +7,20 @@ import Endpoints from "Services/endpoints";
 import { NutrientFacts } from "Components";
 import { SPINER_LOADER } from "Components";
 import { ERROR_TOAST } from "Components";
+import { useLocation } from "react-router-dom";
 
 const NutrientCheckComponent = () => {
   const [showResults, setShowResults] = useState(false);
   const [ingredientList, setIngredientList] = useState("");
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
+  const { state } = useLocation()
+  const ingredient = state == undefined ? "" : state.toString()
 
   const handleAnalyse = async () => {
     setLoading(true);
     try {
+      setIngredientList(ingredient)
       const ingredientArr = ingredientList.split(",");
 
       const requestOptions = {
@@ -44,6 +48,7 @@ const NutrientCheckComponent = () => {
       setData(results);
       setShowResults(true);
     } catch (error) {
+      setShowResults((false))
       ERROR_TOAST(error.message);
     }
   };
@@ -57,8 +62,8 @@ const NutrientCheckComponent = () => {
             Nutrient Analysis <span className="text-[#F84605]">/</span>{" "}
           </div>
           <div
-            className="h-8 w-44 bg-[#F84605] kreon-font text-white text-base flex justify-center items-center cursor-pointer rounded"
-            onClick={() => setShowResults(false)}
+            className="h-8 w-44 bg-[#F84605] kreon-font text-white font-bold text-base flex justify-center items-center cursor-pointer rounded"
+            onClick={() => setShowResults(false) }
           >
             Reset
           </div>
