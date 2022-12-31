@@ -5,41 +5,47 @@ import SVG from "Assets/Images/undraw_feeling_blue_-4-b7q.svg";
 import ANIME_SVG from "Assets/Images/undraw_enter_uhqk.svg";
 import Endpoints from "Services/endpoints";
 import { NutrientFacts } from "Components";
+import { SPINER_LOADER } from "Components";
+import { ERROR_TOAST } from "Components";
 
 const NutrientCheckComponent = () => {
   const [showResults, setShowResults] = useState(false);
   const [ingredientList, setIngredientList] = useState("");
   const [data, setData] = useState({});
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleAnalyse = async () => {
-    setLoading(true)
-    const ingredientArr = ingredientList.split(",");
+    setLoading(true);
+    try {
+      const ingredientArr = ingredientList.split(",");
 
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ingr: ingredientArr,
-      }),
-    };
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ingr: ingredientArr,
+        }),
+      };
 
-    const apiResponse = await fetch(
-      Endpoints.NUTRITION_ANALYSIS,
-      requestOptions
-    );
+      const apiResponse = await fetch(
+        Endpoints.NUTRITION_ANALYSIS,
+        requestOptions
+      );
 
-    const results = await apiResponse.json();
-    setLoading(false)
-    console.log({
-      message: "making a call to the go backend..",
-      body: {
-        response: data,
-        registrationData: ingredientArr,
-      },
-    });
-    setData(results);
-    setShowResults(true);
+      const results = await apiResponse.json();
+      setLoading(false);
+      console.log({
+        message: "making a call to the go backend..",
+        body: {
+          response: data,
+          registrationData: ingredientArr,
+        },
+      });
+      setData(results);
+      setShowResults(true);
+    } catch (error) {
+      ERROR_TOAST(error.message);
+    }
   };
 
   return (
@@ -165,20 +171,22 @@ const NutrientCheckComponent = () => {
                   cols="85"
                   rows="6"
                   className="p-3 outline-none imprima-font"
+                  placeholder="text here ..."
+                  required
                 >
-                  Text here ....
                 </textarea>
-                <motion.div
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{
                     scale: 0.9,
                     borderRadius: "2%",
                   }}
+                  disabled={loading ? true : false}
                   onClick={() => handleAnalyse()}
                   className="h-10 w-1/2 mt-6 bg-[#F84605] font-semibold text-white flex justify-center items-center rounded shadow-lg kreon-font cursor-pointer"
                 >
-                  Analyse
-                </motion.div>
+                  {loading ? <SPINER_LOADER /> : "Analyse..."}
+                </motion.button>
               </div>
             </div>
           )}
