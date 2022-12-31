@@ -13,6 +13,7 @@ export {default as LOADER} from "./LoadingComponent"
 export {default as SPINER_LOADER} from "./SpinerLoaderComponent"
 
 export {default as RECIPE_CARD} from "./RecipeCard"
+export {default as NutrientFacts} from "./NutrientFacts"
 
 export {default as MODAL} from "./modal"
 
