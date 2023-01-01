@@ -67,6 +67,8 @@ const RecipeInformationComponent = ({
 }) => {
   const [ingredient, setIngredient] = React.useState([]);
   const navigation = useNavigate();
+
+  console.log(`dasda ${instructions}`);
   return (
     <main className="recipe-info-body py-10 xl:py-16 px-6 lg:px-10 xl:px-32">
       {/* navigation   */}
@@ -96,7 +98,14 @@ const RecipeInformationComponent = ({
         </div>
         <div className="flex">
           {ingredient.length > 0 ? (
-            <div className="flex" onClick={()=> navigation("/dashboard/nutrient-analysis", {state: ingredient} )}>
+            <div
+              className="flex"
+              onClick={() =>
+                navigation("/dashboard/nutrient-analysis", {
+                  state: ingredient,
+                })
+              }
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-chart-arcs-3"
@@ -115,7 +124,7 @@ const RecipeInformationComponent = ({
                 <path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957"></path>
               </svg>{" "}
               <sup className="h-4 w-4 bg-red-500 justify-center items-center flex rounded text-xs font-bold text-[#Fff]">
-                {ingredient.length }
+                {ingredient.length}
               </sup>
             </div>
           ) : null}
@@ -281,7 +290,13 @@ const RecipeInformationComponent = ({
               </div>
               <div className="col-span-5 flex flex-col space-y-10">
                 {/* // listing component */}
-                <INSTRUCTION_LISTING itemArr={instructions} />
+                {instructions.length == 0 ? (
+                  <div className="imprima-font font-medium">
+                    Oops!!! There are not instrctions for this recipe
+                  </div>
+                ) : (
+                  <INSTRUCTION_LISTING itemArr={instructions[0].steps} />
+                )}
               </div>
             </div>
           </div>

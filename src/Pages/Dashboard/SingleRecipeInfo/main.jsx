@@ -30,7 +30,7 @@ const RecipeInformationPage = () => {
             recipe_summary={{ __html: data.data.summary }}
             recipe_servings={data.data.servings}
             ingredients={data.data.extendedIngredients}
-            instructions={data.data.analyzedInstructions[0].steps}
+            instructions={data.data.analyzedInstructions}
             nutrition={data.data.nutrition}
             recipe_cheap_status={data.data.cheap}
             recipe_vegan_status={data.data.vegan}
