@@ -14,14 +14,14 @@ const NutrientCheckComponent = () => {
   const [ingredientList, setIngredientList] = useState("");
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
-  const { state } = useLocation()
-  const ingredient = state == undefined ? "" : state.toString()
+  const { state } = useLocation();
+  var ingredient = state == undefined ? "" : state.toString();
 
   const handleAnalyse = async () => {
     setLoading(true);
     try {
-      setIngredientList(ingredient)
-      const ingredientArr = ingredientList.split(",");
+      const ingredientArr =
+        state == undefined ? ingredientList.split(",") : ingredient.split(",");
 
       const requestOptions = {
         method: "POST",
@@ -48,7 +48,7 @@ const NutrientCheckComponent = () => {
       setData(results);
       setShowResults(true);
     } catch (error) {
-      setShowResults((false))
+      setLoading(false);
       ERROR_TOAST(error.message);
     }
   };
@@ -63,7 +63,10 @@ const NutrientCheckComponent = () => {
           </div>
           <div
             className="h-8 w-44 bg-[#F84605] kreon-font text-white font-bold text-base flex justify-center items-center cursor-pointer rounded"
-            onClick={() => setShowResults(false) }
+            onClick={() => {
+              ingredient = "";
+              setShowResults(false);
+            }}
           >
             Reset
           </div>
@@ -179,6 +182,7 @@ const NutrientCheckComponent = () => {
                   placeholder="text here ..."
                   required
                 >
+                  {ingredient}
                 </textarea>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
