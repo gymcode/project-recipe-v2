@@ -30,6 +30,7 @@ const Dashboard = () => {
   const { auth } = useContext(AuthContext);
 
   useEffect(() => {
+    localStorage.setItem("dash_title", "Welcome Home")
     var bodyScroll = document.querySelector("#bodyScroll");
     bodyScroll.addEventListener("scroll", () => {
       if (bodyScroll.scrollTop > 420) {
