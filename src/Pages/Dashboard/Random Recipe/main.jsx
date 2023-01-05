@@ -62,8 +62,19 @@ const RandomRecipeComponent = () => {
       ) : (
         <>
           <div className="grid grid-cols-1 px-5 xl:px-0 lg:px-0 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 lg:grid-cols-2 gap-12 mt-10">
-            {data.data.recipes.map((data) => (
-              <RECIPE_CARD data={data} />
+            {data.data.recipes.map((data, index) => (
+              <motion.div
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  duration: 150,
+                  stiffness: index + 1 * 40,
+                  delay: index * 0.2,
+                }}
+              >
+                <RECIPE_CARD data={data} />
+              </motion.div>
             ))}
           </div>
         </>
