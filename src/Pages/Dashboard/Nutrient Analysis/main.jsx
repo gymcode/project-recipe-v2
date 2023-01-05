@@ -45,6 +45,9 @@ const NutrientCheckComponent = () => {
           registrationData: ingredientArr,
         },
       });
+
+      if (Object.keys(data).length == 0 ) throw new Error(`Sorry ${ingredientArr} cannot be proccessed`)
+
       setData(results);
       setShowResults(true);
     } catch (error) {
