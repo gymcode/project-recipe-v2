@@ -387,7 +387,7 @@ const FooterSocialLinks = [
 const CategoryNavLinks = [
   {
     id: 1,
-    name: "Omnimore Category",
+    name: "Omnivore Category",
     href: "/dashboard/discover/omnivore",
     svg: (
       <svg
