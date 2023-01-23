@@ -164,7 +164,6 @@ const DiscoveryDashboardComponent = ({ showSideNav, setTitle }) => {
                 <Route path="/pescaterian" element={<PescaterianSection />} />
                 <Route path="/vegan" element={<VeganSection />} />
                 <Route path="/vegetarian" element={<VegetarianSection />} />
-                
               </Routes>
             </Suspense>
           </div>
